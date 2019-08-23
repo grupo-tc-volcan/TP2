@@ -22,7 +22,7 @@ r3 = Symbol('R3',real = True, positive = True)
 r4 = Symbol('R4',real = True, positive = True)
 a = Symbol('A',real = True, positive = True)
 w = Symbol('w',real = True, positive = True)
-wp = Symbol ('Wp',real = True, positive = True)
+wp = Symbol ('Wpppp',real = True, positive = True)
 f = Symbol('f',real = True, positive = True)
 vcc = Symbol('Vcc',real = True, positive = True)
 sr = Symbol('SR',real = True, positive = True)
@@ -30,9 +30,9 @@ vp = Symbol('Vp',real = True, positive = True)
 vin = Symbol('Vin',real = True, positive = True)
 
 def replaceValues (equation, case, a_):
+    equation = equation.subs(a, a_)
     equation = equation.subs(wp, WP/(2*np.pi))
     equation = equation.subs(vcc, VCC)
-    equation = equation.subs(a, a_)
     if case == 1:
         equation = equation.subs(r1, 2500)
         equation = equation.subs(r2, 25000)
@@ -54,7 +54,7 @@ def replaceValues (equation, case, a_):
 s = Symbol('s')
 aw = A0 / (1 + s/wp) #W or wp?
 
-h = - ((r2/r1) / (1 + (r2/r1)/a + 1/a + (r2/r3)/a))
+h = - ((r2/r1) / (1 + ((r2/r1)/a) + (1/a) + ((r2/r3)/a)))
 h = simplify(h)
 hMod = sqrt(re(h)**2 + im(h)**2)
 hMod = simplify(hMod)
