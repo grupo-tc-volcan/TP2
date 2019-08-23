@@ -1,2 +1,165 @@
+%TODO Eliminar al juntar documentos!
+\input{./EJ4_preamble.tex}
+\begin{document}
+
 
 \section*{Ejercicio 4}
+En la presente secci\'on se estudiar\'an los circuitos derivador e integrador implementados con amplificador operacionales, analizando su comportamiento, rango de funcionamiento y cualidades o defectos. Adem\'as se presentar\'a un circuito para cada uno de ellos con modificaciones con el fin de mejorar su funcionamiento y se comparar\'an los resultados entre ellos.
+
+Para cada uno de los circuitos, se realiza un an\'alisis te\'orico del mismo y luego se presentan las mediciones y los resultados de las mismas, contrastando o comparando lo observado en la pr\'actica, la simulaci\'on y la teor\'ia.
+
+Adem\'as, todo an\'alisis te\'orico se realiza teniendo en cuenta que los circuitos son armados empleando una resistencia $R = 5k \Omega$, un capacitor $C = 20nF$ y un amplificador operacional LM833 cuyos par\'ametros son:
+\begin{itemize}
+	\item $A_{vol} = 100000$
+	\item $f_p = 150Hz$
+	\item $GBP = 15MHz$
+	\item $SR = 7 \frac{V}{\mu s}$
+	\item $r_{id} = 175k \Omega$
+	\item $Z_o = 37 \Omega$
+\end{itemize}
+
+
+	\subsection*{Circuito derivador}
+ 
+\subsubsection*{An\'alisis Te\'orico}
+	
+%TODO Agregar el circuito del derivador!
+
+\paragraph*{Funci\'on transferencia en condiciones ideales}se busca la funci\'on de transferencia del circuito bajo condiciones ideales, esto es, asumiendo que el amplificador operacional no tiene variaci\'on en su ganancia de lazo abierto con la frecuencia y que la misma tiende a infinito, $A_{vol} \to \infty$. En este marco de idealidad, las impedancias de entrada y salida del amplificador operacional $Z_{in} \to \infty$ y $r_o = 0$. Para este c\'alculo se conoce la ganancia ideal de un amplificador inversor y se asume al mismo un sistema LTI, causal y bibo-estable.
+
+\begin{equation}
+	H(s) = \frac{V_o}{V_i} = \frac{R}{ \frac{1}{s \cdot C}} = -s \cdot R  \cdot C
+	= -\frac{s}{10000}
+\end{equation}
+
+Se puede observar que por la propiedad de la derivada para transformada de Laplace, multiplicar por la variable $s$ en tal dominio, implica derivar la señal en el dominio temporal, de forma tal que se puede llegar:
+
+\begin{equation}
+	V_o(s) = V_i(s) \cdot H(s) = V_i(s) \cdot -sRC \Rightarrow
+	Vo(t) = -RC \cdot \frac{\delta V_i(t)}{\delta t}
+\end{equation}
+
+%TODO Agregar diagrama de polos y ceros aca!
+
+\paragraph*{Funci\'on transferencia con $A_{vol}$ finito}se considera que $A_{vol}$ es finito con lo cual se lo debe tener en cuenta, y para llegar a la funci\'on transferencia se plantea por un lado la superposici\'on de las tensiones sobre las entradas del amplificador operacional y luego la expresi\'on de salida del mismo para obtener:
+
+\begin{equation}
+	v^{-} = \frac{V_i \cdot R}{\frac{1}{sC} + R} + \frac{V_o \cdot \frac{1}{sC}}{\frac{1}{sC} + R}
+	= \frac{V_i \cdot s \cdot R \cdot C + V_o}{1 + s \cdot R \cdot C}
+\end{equation}
+
+\begin{align}
+	V_o = (v^{+} - v^{-}) \cdot A_{vol}
+	= - \frac{V_i \cdot s \cdot R \cdot C + V_o}{1 + s \cdot R \cdot C} \cdot A_{vol} \\
+	V_o \cdot \left[ 1 + \frac{A_{vol}}{1 + s \cdot R \cdot C} \right]
+	= - \frac{V_i \cdot s \cdot R \cdot C \cdot A_{vol}}{1 + s \cdot R \cdot C}
+\end{align}
+
+%TODO Se puede dejar mas grande el cociente, porque asi no se ve nada!!
+\begin{equation}
+	H(s) = \frac{V_o(s)}{V_i(s)} = \frac{\frac{s \cdot A_{vol} \cdot RC}{A_{vol} + 1}}{1 + \frac{s}{\frac{A_{vol} + 1}{R \cdot C}}}
+	= - \frac{\frac{s}{10000,1}}{1 + \frac{s}{10^{9}}}
+	\label{eq:derivador_sin_finito}
+\end{equation}
+
+De esto \'ultimo se puede observar que aparece, a diferencia de antes, un polo adicional que podr\'ia ser despreciado o incluso anulado bajo las condiciones de idealidad previamente analizadas. Es importante destacar de esta nueva funci\'on de transferencia que si se obtiene la frecuencia de corte donde se ubica este polo y limitamos el rango de funcionamiento una decada antes del mismo, podemos considerar condiciones de idealidad tal que el derivador podr\'ia seguir funcionando como tal. Esto tambi\'en se puede ver considerando que, si se llama $\omega_o = \frac{(A_{vol} + 1)}{R \cdot C}$ a la frecuencia angular de corte:
+\begin{equation}
+	Si, s << \frac{\omega_o}{10} \Rightarrow 1 >> \frac{s}{\omega_o} \Rightarrow 
+	H(s) \approx - \frac{s \cdot A_{vol} \cdot RC}{A_{vol} + 1} \approx
+	- s \cdot R \cdot C
+\end{equation}
+
+%TODO Agregar diagrama de polos y ceros aca!
+
+\paragraph*{Funci\'on transferencia con polo dominante}tomando en cuenta que el fabricante del amplificador operacional coloca un polo a una baja frecuencia para que el ruido se vea atenuado en las altas frecuencias en donde sale en contrafase y as\'i evitar que se produzca una realimentaci\'on positiva que har\'ia inestable el circuito, se reemplaza tal expresi\'on en la ecuaci\'on \ref{eq:derivador_sin_finito} y operando:
+
+\begin{equation}
+	A_{vol}(\omega) = \frac{A_o}{1 + \frac{s}{\omega_p}}
+	\label{eq:polo_dominante}
+\end{equation}
+
+\begin{equation}
+	H(s) = - \frac{s \cdot A_{o} \cdot R \cdot C}{(1 + s \cdot C \cdot R) \cdot (1 + \frac{s}{\omega_p}) + A_{o}} = - \frac{R \cdot C \cdot A_{o}}{A_{o} + 1} \cdot \frac{s}{1 + s \cdot \frac{1 + \omega_p \cdot RC}{\omega_p \cdot(A_o + 1)} + s^{2} \cdot \frac{RC}{\omega_p \cdot (A_o + 1)}}
+\end{equation}
+
+En esta \'ultima condici\'on se puede observar que el circuito se comporta como un segundo orden por ser de segundo grado en el denominador, para lo cual es necesario determinar algunos par\'ametros que permitan determinar cu\'al es el comportamiento de tal sistema y para ello se despejan de las siguientes expresiones los valores de $\xi$ y $\omega_o$.
+
+\begin{equation}
+	\omega_o^{2} = \frac{W_p \cdot (A_o + 1)}{RC} \Rightarrow \omega_o = \sqrt{\frac{W_p \cdot (A_o + 1)}{RC}}	
+\end{equation}
+
+\begin{equation}
+	\frac{2 \cdot \xi}{\omega_o} = \frac{(1 + \omega_p \cdot R \cdot C)}{\omega_p \cdot(A_o + 1)}
+	\Rightarrow \xi = \frac{1}{2} \cdot \frac{1 + \omega_p \cdot R \cdot C}{\sqrt{\omega_p \cdot R \cdot C \cdot (A_o + 1)}}
+\end{equation}
+
+Finalmente, se obtiene que $\omega_o = 970817,8 \frac{1}{s}$ y $\xi = 0,0056$. Esto \'ultimo indica que la respuesta natural del sistema durante una transici\'on entre estados estables contiene un subamortiguamiento, pero m\'as importante, que los polos son complejos y conjugados donde la frecuencia de corte est\'a en $f_o = 154,51kHz$ y presenta un sobrepico.
+
+%TODO Agregar diagrama de polos y ceros aca!
+
+\paragraph*{Impedancia de entrada con $A_{vol}$ finito} en este escenario se analiza la impedancia de entrada del amplificador operacional, considerando las caracter\'isticas reales del modelo equivalente del mismo.
+
+%TODO Modelo equivalente del amplificador operacional!
+
+%TODO Simplificacion del circuito original para el calculo de la impedancia de entrada
+% son tres circuitos diferentes que necesito para poder dejar en claro el metodo empleado!
+
+Aplicando una transformaci\'on de fuentes se simplifica el circuito y se deja en evidencia que la fuente de corriente correspondiente a la salida equivale a una impedancia equivalente como se muestra en los circuitos de la figura. %TODO Agregar referencia a los circuitos previos
+De esta forma se agrupan las impedancias y se encuentra la $Z_{in}$, para ello se llama $Y_r$ y luego $Z_r$ al agrupamiento paralelo de impedancias.
+
+\begin{equation}
+	Y_r = \frac{1}{r_{id}} + \frac{1 + A_{vol}}{R + Z_o} \Rightarrow
+	Z_r = \frac{r_{id} \cdot(R + Z_o)}{R + Z_o + r_{id} \cdot(1 + A_{vol})}
+\end{equation}
+
+\begin{equation}
+	Z_{in} = \frac{1}{sC} + Z_r
+	= \frac{1 + s \cdot \frac{C \cdot r_{id} \cdot (R + Z_o)}{R + Z_o + r_{id} \cdot (1 + A_{vol})}}{s \cdot C}
+	\Rightarrow
+	Z_{in} = \frac{1 + \frac{s}{992,66 \cdot 10^{6}}}{\frac{s}{50 \cdot 10^{6}}}
+\end{equation}
+
+Resulta interesante observar que para frecuencias donde $f < 15,79 MHz$, la impedancia de entrada se puede aproximar al valor de la impedancia del capacitor, lo cual contrasta con la consideraci\'on de que con un $A_{vol}$ muy grande se produce una masa virtual en el terminal inversor. Esto impone como l\'imite de funcionamiento que para frecuencias demasiado altas dentro de ese rango, la impedancia del capacitor se ver\'a reducida a un orden en el cual la ganancia a lazo cerrado del circuito provoque una saturaci\'on que impida el correcto funcionamiento.
+
+\paragraph*{Impedancia de entrada con polo dominante} ahora se adaptan los c\'alculos previos para incluir la apreciaci\'on del polo dominante dentro del an\'alisis de la impedancia de entrada. Operando con la expresi\'on del polo dominante \ref{eq:polo_dominante} se llega a que:
+
+\begin{equation}
+	Z_{in} = \frac{R + Z_o + r_{id} \cdot (A_o + 1 + \frac{s}{\omega_p}) + s \cdot C \cdot r_{id} \cdot (R + Z_o) \cdot (1 + \frac{s}{\omega_p})}{s \cdot C \cdot \left[ (R + Z_o) \cdot (1 + \frac{s}{\omega_p}) + r_{id} \cdot (1 + A_o + \frac{s}{\omega_p}) \right]}
+\end{equation}
+
+\begin{equation}
+	Z_{in} = \frac{1}{s \cdot C} \cdot \frac{1 + s \cdot \frac{R + Z_o + r_{id} + r_{id} \cdot C \cdot \omega_p \cdot(R + Z_o)}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (A_o + 1) \right]} + s^{2} \cdot \frac{1}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (A_o + 1) \right]}}{1 + s \cdot \frac{R + Z_o + r_{id}}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (1 + A_o)\right]}}
+\end{equation}
+
+\begin{equation}
+	Z_{in} = \frac{1}{\frac{s}{50 \cdot 10^{6}}} \cdot
+	\frac{1 + s \cdot 1,192 \cdot 10^{-8} + \left(\frac{s}{4,06 \cdot 10^{6}}\right)^{2}}{1 + \frac{s}{91,61 \cdot 10^{6}}}
+\end{equation}
+
+A diferencia del c\'alculo sin el polo dominante, este nuevo an\'alisis provee otro resultado interesante que es la presencia de un par de ceros complejos y conjugados pues se puede apreciar en el numerador un polinomio de segundo orden cuyos par\'ametros caracter\'isticos con $\xi = 0,0242$ y $\omega_o = 4,06 \cdot 10^{6}$. Luego se observar\'a de forma m\'as clara en los gr\'aficos pertinentes, pero si se limita el funcionamiento a frecuencias que cumplan $f < 1,458MHz$ para despreciar el efecto del polo se ve que la impedancia de entrada la rige el capacitor hasta que en la frecuencia de corte de los ceros se produce un pico muy grande que disminuye tal impedancia de entrada. Esta observaci\'on ser\'a tenida en cuenta cuando se haga un an\'alisis m\'as profundo sobre los rangos de funcionamiento del circuito.
+
+\subsubsection*{Resultados}
+
+
+	\subsection*{Circuito derivador compensado}
+
+\subsubsection*{An\'alisis Te\'orico}
+
+\subsubsection*{Resultados}
+
+
+	\subsection*{Circuito integrador}
+
+\subsubsection*{An\'alisis Te\'orico}
+
+\subsubsection*{Resultados}
+
+
+	\subsection*{Circuito integrador compensado}
+
+\subsubsection*{An\'alisis Te\'orico}
+
+\subsubsection*{Resultados}
+
+%TODO Eliminar al juntar documentos!
+\end{document}
