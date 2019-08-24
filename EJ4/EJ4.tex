@@ -2,7 +2,6 @@
 \input{./EJ4_preamble.tex}
 \begin{document}
 
-
 \section*{Ejercicio 4}
 En la presente secci\'on se estudiar\'an los circuitos derivador e integrador implementados con amplificador operacionales, analizando su comportamiento, rango de funcionamiento y cualidades o defectos. Adem\'as se presentar\'a un circuito para cada uno de ellos con modificaciones con el fin de mejorar su funcionamiento y se comparar\'an los resultados entre ellos.
 
@@ -34,40 +33,44 @@ Adem\'as, todo an\'alisis te\'orico se realiza teniendo en cuenta que los circui
 
 Se puede observar que por la propiedad de la derivada para transformada de Laplace, multiplicar por la variable $s$ en tal dominio, implica derivar la señal en el dominio temporal, de forma tal que se puede llegar:
 
-\begin{equation}
+\begin{equation*}
 	V_o(s) = V_i(s) \cdot H(s) = V_i(s) \cdot -sRC \Rightarrow
 	Vo(t) = -RC \cdot \frac{\delta V_i(t)}{\delta t}
-\end{equation}
+\end{equation*}
+
+Otra observaci\'on sobre la funci\'on de transferencia ideal, es que para frecuencias altas, seg\'un la magnitud de la se\~nal de entrada, se puede producir la saturaci\'on del amplificador operacional cuando la ganancia es muy elevada y la salida supera el valor de la fuente de alimentaci\'on del circuito.
 
 %TODO Agregar diagrama de polos y ceros aca!
 
+%TODO Agregar comentario sobre la inestabilidad de este sistema a este punto para frecuencias altas
+
 \paragraph*{Funci\'on transferencia con $A_{vol}$ finito}se considera que $A_{vol}$ es finito con lo cual se lo debe tener en cuenta, y para llegar a la funci\'on transferencia se plantea por un lado la superposici\'on de las tensiones sobre las entradas del amplificador operacional y luego la expresi\'on de salida del mismo para obtener:
 
-\begin{equation}
+\begin{equation*}
 	v^{-} = \frac{V_i \cdot R}{\frac{1}{sC} + R} + \frac{V_o \cdot \frac{1}{sC}}{\frac{1}{sC} + R}
 	= \frac{V_i \cdot s \cdot R \cdot C + V_o}{1 + s \cdot R \cdot C}
-\end{equation}
+\end{equation*}
 
-\begin{align}
+\begin{align*}
 	V_o = (v^{+} - v^{-}) \cdot A_{vol}
 	= - \frac{V_i \cdot s \cdot R \cdot C + V_o}{1 + s \cdot R \cdot C} \cdot A_{vol} \\
 	V_o \cdot \left[ 1 + \frac{A_{vol}}{1 + s \cdot R \cdot C} \right]
 	= - \frac{V_i \cdot s \cdot R \cdot C \cdot A_{vol}}{1 + s \cdot R \cdot C}
-\end{align}
+\end{align*}
 
 %TODO Se puede dejar mas grande el cociente, porque asi no se ve nada!!
 \begin{equation}
 	H(s) = \frac{V_o(s)}{V_i(s)} = \frac{\frac{s \cdot A_{vol} \cdot RC}{A_{vol} + 1}}{1 + \frac{s}{\frac{A_{vol} + 1}{R \cdot C}}}
-	= - \frac{\frac{s}{10000,1}}{1 + \frac{s}{10^{9}}}
+	= - \frac{\frac{s}{2 \pi \cdot 1591,56}}{1 + \frac{s}{2 \pi \cdot 159,15 \cdot 10^{6}}}
 	\label{eq:derivador_sin_finito}
 \end{equation}
 
 De esto \'ultimo se puede observar que aparece, a diferencia de antes, un polo adicional que podr\'ia ser despreciado o incluso anulado bajo las condiciones de idealidad previamente analizadas. Es importante destacar de esta nueva funci\'on de transferencia que si se obtiene la frecuencia de corte donde se ubica este polo y limitamos el rango de funcionamiento una decada antes del mismo, podemos considerar condiciones de idealidad tal que el derivador podr\'ia seguir funcionando como tal. Esto tambi\'en se puede ver considerando que, si se llama $\omega_o = \frac{(A_{vol} + 1)}{R \cdot C}$ a la frecuencia angular de corte:
-\begin{equation}
+\begin{equation*}
 	Si, s << \frac{\omega_o}{10} \Rightarrow 1 >> \frac{s}{\omega_o} \Rightarrow 
 	H(s) \approx - \frac{s \cdot A_{vol} \cdot RC}{A_{vol} + 1} \approx
 	- s \cdot R \cdot C
-\end{equation}
+\end{equation*}
 
 %TODO Agregar diagrama de polos y ceros aca!
 
@@ -84,16 +87,44 @@ De esto \'ultimo se puede observar que aparece, a diferencia de antes, un polo a
 
 En esta \'ultima condici\'on se puede observar que el circuito se comporta como un segundo orden por ser de segundo grado en el denominador, para lo cual es necesario determinar algunos par\'ametros que permitan determinar cu\'al es el comportamiento de tal sistema y para ello se despejan de las siguientes expresiones los valores de $\xi$ y $\omega_o$.
 
-\begin{equation}
-	\omega_o^{2} = \frac{W_p \cdot (A_o + 1)}{RC} \Rightarrow \omega_o = \sqrt{\frac{W_p \cdot (A_o + 1)}{RC}}	
-\end{equation}
+\begin{equation*}
+	\omega_o^{2} = \frac{\omega_p \cdot (A_o + 1)}{RC} \Rightarrow \omega_o = \sqrt{\frac{\omega_p \cdot (A_o + 1)}{RC}}	
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 	\frac{2 \cdot \xi}{\omega_o} = \frac{(1 + \omega_p \cdot R \cdot C)}{\omega_p \cdot(A_o + 1)}
 	\Rightarrow \xi = \frac{1}{2} \cdot \frac{1 + \omega_p \cdot R \cdot C}{\sqrt{\omega_p \cdot R \cdot C \cdot (A_o + 1)}}
+\end{equation*}
+
+\begin{equation}
+	H(s) = - \frac{\frac{s}{2 \pi 1591,56}}
+	{1 + s \cdot 11,53 \cdot 10^{-9} + \left( \frac{s}{2 \pi \cdot 154510,45} \right)^{2}}
 \end{equation}
 
-Finalmente, se obtiene que $\omega_o = 970817,8 \frac{1}{s}$ y $\xi = 0,0056$. Esto \'ultimo indica que la respuesta natural del sistema durante una transici\'on entre estados estables contiene un subamortiguamiento, pero m\'as importante, que los polos son complejos y conjugados donde la frecuencia de corte est\'a en $f_o = 154,51kHz$ y presenta un sobrepico.
+Finalmente, se obtiene que $\omega_o = 970817,81 \frac{1}{s}$ y $\xi = 0,0056357$. Esto \'ultimo indica que la respuesta natural del sistema durante una transici\'on entre estados estables contiene un subamortiguamiento, pero m\'as importante, que los polos son complejos y conjugados donde la frecuencia de corte est\'a en $f_o = 154,51kHz$ y presenta un sobrepico.
+
+Para ubicar a qu\'e frecuencia y con qu\'e magnitud ocurre este pico en la respuesta en frecuencia, se busca el m\'inimo de la funci\'on del denominador de la respuesta en frecuencia en m\'odulo. Vale mencionar que al igual que para los futuros an\'alisis que se hagan, se asume el sistema LTI, causal y bibo-estable con lo que luego se puede evaluar $s = j \omega$ para encontrar la respuesta en frecuencia a partir de la funci\'on transferencia.
+
+\begin{equation*}
+	D(s) = \left( \frac{s}{\omega_o} \right)^{2} + \frac{2 \cdot \xi}{\omega_o} \cdot s + 1
+	\Rightarrow
+	D(w) = \frac{j \cdot 2 \cdot \xi \cdot \omega}{\omega_o} + \left( \frac{\omega_o^{2} - \omega^{2}}{\omega_o^{2}} \right)
+\end{equation*}
+
+\begin{equation*}
+	|D(w)| = \sqrt{\left( \frac{2 \xi \omega}{\omega_o} \right)^{2} + \left( \frac{\omega_o^{2} - \omega^{2}}{\omega_o^{2}} \right)^{2}}
+\end{equation*}
+
+\begin{equation}
+	\frac{\delta |D(w)|}{\delta w}
+	= 0 \Leftrightarrow 2 \cdot \xi^{2} \cdot \omega - \frac{\omega \cdot (\omega_o^{2} - \omega^{2})}{\omega_o^{2}} = 0
+	\Leftrightarrow
+	\omega = \omega_o \cdot \sqrt{1 - 2 \cdot \xi^{2}}
+\end{equation}
+
+Entonces, el pico dentro de la respuesta en frecuencia caracter\'istico de este sistema se puede encontrar, te\'oricamente, en la frecuencia $\omega_{pico} = 970817,8 \cdot \sqrt{1- 2 \cdot (0,0056)^{2}} = 970786,97 \frac{1}{s} \Rightarrow f_{pico} = 154505,54Hz$. Y tendr\'a una magnitud de $|H(f_{pico})| = 8613,05 \Rightarrow |H(f_{pico})|dB = 78,70dB$.
+
+Este nuevo comportamiento al incluir la consideraci\'on del polo dominante establece un primer l\'imite de funcionamiento en t\'ermino de frecuencias para el derivador, pues al alcanzar la frecuencia de los $f = 154kHz$ aproximadamente, deja de funcionar como tal.
 
 %TODO Agregar diagrama de polos y ceros aca!
 
@@ -104,39 +135,51 @@ Finalmente, se obtiene que $\omega_o = 970817,8 \frac{1}{s}$ y $\xi = 0,0056$. E
 %TODO Simplificacion del circuito original para el calculo de la impedancia de entrada
 % son tres circuitos diferentes que necesito para poder dejar en claro el metodo empleado!
 
-Aplicando una transformaci\'on de fuentes se simplifica el circuito y se deja en evidencia que la fuente de corriente correspondiente a la salida equivale a una impedancia equivalente como se muestra en los circuitos de la figura. %TODO Agregar referencia a los circuitos previos
+Aplicando una transformaci\'on de fuentes se simplifica el circuito y se deja en evidencia que la fuente de corriente correspondiente a la salida equivale a una impedancia como se muestra en los circuitos de la figura. %TODO Agregar referencia a los circuitos previos
 De esta forma se agrupan las impedancias y se encuentra la $Z_{in}$, para ello se llama $Y_r$ y luego $Z_r$ al agrupamiento paralelo de impedancias.
 
-\begin{equation}
-	Y_r = \frac{1}{r_{id}} + \frac{1 + A_{vol}}{R + Z_o} \Rightarrow
-	Z_r = \frac{r_{id} \cdot(R + Z_o)}{R + Z_o + r_{id} \cdot(1 + A_{vol})}
-\end{equation}
+\begin{equation*}
+	Y_r = \frac{1}{r_{id}} + \frac{1 - A_{vol}}{R + Z_o} \Rightarrow
+	Z_r = \frac{r_{id} \cdot(R + Z_o)}{R + Z_o + r_{id} \cdot(1 - A_{vol})}
+\end{equation*}
 
 \begin{equation}
 	Z_{in} = \frac{1}{sC} + Z_r
-	= \frac{1 + s \cdot \frac{C \cdot r_{id} \cdot (R + Z_o)}{R + Z_o + r_{id} \cdot (1 + A_{vol})}}{s \cdot C}
+	= \frac{1 + s \cdot \frac{C \cdot r_{id} \cdot (R + Z_o)}{R + Z_o + r_{id} \cdot (1 - A_{vol})}}{s \cdot C}
 	\Rightarrow
-	Z_{in} = \frac{1 + \frac{s}{992,66 \cdot 10^{6}}}{\frac{s}{50 \cdot 10^{6}}}
+	Z_{in} = \frac{1 - \frac{s}{2 \pi \cdot 157,98 \cdot 10^{6}}}{\frac{s}{2 \pi \cdot 7,957 \cdot 10^{6}}}
 \end{equation}
 
-Resulta interesante observar que para frecuencias donde $f < 15,79 MHz$, la impedancia de entrada se puede aproximar al valor de la impedancia del capacitor, lo cual contrasta con la consideraci\'on de que con un $A_{vol}$ muy grande se produce una masa virtual en el terminal inversor. Esto impone como l\'imite de funcionamiento que para frecuencias demasiado altas dentro de ese rango, la impedancia del capacitor se ver\'a reducida a un orden en el cual la ganancia a lazo cerrado del circuito provoque una saturaci\'on que impida el correcto funcionamiento.
+Resulta interesante observar que para frecuencias donde $f < 157,98 MHz$, la impedancia de entrada se puede aproximar al valor de la impedancia del capacitor, lo cual contrasta con la consideraci\'on de que con un $A_{vol}$ muy grande se produce una masa virtual en el terminal inversor. Esta impedancia posee un cero ubicado en el semiplano positivo, lo cual implica que en t\'erminos de la magnitud del mismo produce el mismo efecto, pero en cuanto a fase se comporta como un polo.
 
 \paragraph*{Impedancia de entrada con polo dominante} ahora se adaptan los c\'alculos previos para incluir la apreciaci\'on del polo dominante dentro del an\'alisis de la impedancia de entrada. Operando con la expresi\'on del polo dominante \ref{eq:polo_dominante} se llega a que:
 
-\begin{equation}
-	Z_{in} = \frac{R + Z_o + r_{id} \cdot (A_o + 1 + \frac{s}{\omega_p}) + s \cdot C \cdot r_{id} \cdot (R + Z_o) \cdot (1 + \frac{s}{\omega_p})}{s \cdot C \cdot \left[ (R + Z_o) \cdot (1 + \frac{s}{\omega_p}) + r_{id} \cdot (1 + A_o + \frac{s}{\omega_p}) \right]}
-\end{equation}
+\begin{equation*}
+	Z_{in} = \frac{R + Z_o + r_{id} \cdot (-A_o + 1 + \frac{s}{\omega_p}) + s \cdot C \cdot r_{id} \cdot (R + Z_o) \cdot (1 + \frac{s}{\omega_p})}{s \cdot C \cdot \left[ (R + Z_o) \cdot (1 + \frac{s}{\omega_p}) + r_{id} \cdot (1 - A_o + \frac{s}{\omega_p}) \right]}
+\end{equation*}
+
+\begin{equation*}
+	Z_{in} = \frac{1}{s \cdot C} \cdot 
+	\frac{1 + s \cdot \frac{R + Z_o + r_{id} + r_{id} \cdot C \cdot \omega_p \cdot(R + Z_o)}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (-A_o + 1) \right]} + s^{2} \cdot \frac{r_{id} \cdot C \cdot (R + Z_o)}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (-A_o + 1) \right]}}{1 + s \cdot \frac{R + Z_o + r_{id}}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (1 - A_o)\right]}}
+\end{equation*}
+
+\begin{align*}
+	Z_{in} & = \frac{1}{\frac{s}{2 \pi \cdot 7,957 \cdot 10^{6}}} \cdot
+	\frac{1 - s \cdot 11,923 \cdot 10^{-9} - \left(\frac{s}{2 \pi \cdot 153,94 \cdot 10^{3}}\right)^{2}}{1 - \frac{s}{2 \pi \cdot 14,5801 \cdot 10^{6}}} \\
+	\\
+	& = \frac{1}{\frac{s}{2 \pi \cdot 7,957 \cdot 10^{6}}} \cdot
+	\frac{(1 + \frac{s}{972826}) \cdot (1 - \frac{s}{961677})}{1 - \frac{s}{2 \pi \cdot 14,5801 \cdot 10^{6}}}
+\end{align*}
+
+Como se puede observar en el resultado, la impedancia de entrada posee, entre otros, un polo y un cero en el semiplano positivo, con lo cual si expresamos la admitancia de entrada y despejamos la corriente de entrada, se obtiene:
 
 \begin{equation}
-	Z_{in} = \frac{1}{s \cdot C} \cdot \frac{1 + s \cdot \frac{R + Z_o + r_{id} + r_{id} \cdot C \cdot \omega_p \cdot(R + Z_o)}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (A_o + 1) \right]} + s^{2} \cdot \frac{1}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (A_o + 1) \right]}}{1 + s \cdot \frac{R + Z_o + r_{id}}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (1 + A_o)\right]}}
+	I_i(s) = \frac{V_i(s)}{Z_i(s)}
 \end{equation}
 
-\begin{equation}
-	Z_{in} = \frac{1}{\frac{s}{50 \cdot 10^{6}}} \cdot
-	\frac{1 + s \cdot 1,192 \cdot 10^{-8} + \left(\frac{s}{4,06 \cdot 10^{6}}\right)^{2}}{1 + \frac{s}{91,61 \cdot 10^{6}}}
-\end{equation}
+Esto establece que la corriente de entrada es la respuesta del sistema caracterizado por la funci\'on transferencia $Y_i(s) = \frac{1}{Z_i(s)}$ a la excitaci\'on impuesta por la entrada $V_i(s)$. Sin necesidad de realizar las sustituciones se puede ver claramente que en la transferencia mencionada hay un polo en el semiplano positivo, lo cual convierte al sistema descripto por tal funci\'on en inestable, esto quiere decir que para cualquier excitaci\'on en la entrada la corriente no se lograr\'a establecer o estabilizar. De esta \'ultima conclusi\'on se infiere que el circuito no funcionar\'a como fue analizado desde un marco ideal, y que lo m\'as probable al momento, es que no se pueda estabilizar la salida en un valor coherente con dicho marco.
 
-A diferencia del c\'alculo sin el polo dominante, este nuevo an\'alisis provee otro resultado interesante que es la presencia de un par de ceros complejos y conjugados pues se puede apreciar en el numerador un polinomio de segundo orden cuyos par\'ametros caracter\'isticos con $\xi = 0,0242$ y $\omega_o = 4,06 \cdot 10^{6}$. Luego se observar\'a de forma m\'as clara en los gr\'aficos pertinentes, pero si se limita el funcionamiento a frecuencias que cumplan $f < 1,458MHz$ para despreciar el efecto del polo se ve que la impedancia de entrada la rige el capacitor hasta que en la frecuencia de corte de los ceros se produce un pico muy grande que disminuye tal impedancia de entrada. Esta observaci\'on ser\'a tenida en cuenta cuando se haga un an\'alisis m\'as profundo sobre los rangos de funcionamiento del circuito.
+%TODO Es necesario mostrar el crecimiento exponencial?
 
 \subsubsection*{Resultados}
 
