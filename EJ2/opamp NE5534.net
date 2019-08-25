@@ -1,0 +1,12 @@
+* C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP2\TP2\EJ2\opamp NE5534.asc
+R1 N003 0 1k
+R2 Vout N003 80k
+R3 N002 N001 220k
+Vin N001 0 AC 1
+V2 +Vcc 0 15
+V3 -Vcc 0 -15
+XU2 N002 N003 +Vcc -Vcc Vout NC_01 NC_02 NE5534
+.ac dec 100 100 10000G
+.lib C:\Users\facun\OneDrive\Desktop\ITBA\5C TC\TP2\TP2\EJ2\Modelos de SPICE de opamps\NE5534 TI\NE5534.301
+.backanno
+.end
