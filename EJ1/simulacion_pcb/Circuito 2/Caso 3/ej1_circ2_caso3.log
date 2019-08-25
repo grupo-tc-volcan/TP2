@@ -1,0 +1,61 @@
+Circuit: * G:\Mi unidad\2019Q2_Grado_5C\Teoria de Circuitos\TP2\Ejercicio 1\Circuito 2\Caso 3\ej1_circ2_caso3.asc
+
+V3: Missing value, assumed 0V @ DC
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.15077
+vernier = 0.166667
+vernier = 0.0833333
+vernier = 0.0416667
+vernier = 0.0208333
+Gmin = 1.00764
+vernier = 0.0104167
+vernier = 0.00520833
+vernier = 0.00260417
+Gmin = 0.999808
+vernier = 0.00130208
+vernier = 0.000651042
+vernier = 0.000488281
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 88.6364%
+vernier = 0.0625
+Source Step = 87.8995%
+Starting source stepping with srcstepmethod=1
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 88.6364%
+vernier = 0.0625
+Source stepping failed
+
+Pseudo Transient succeeded in finding the operating point at 298.996 ms.
+
+Date: Sat Aug 24 18:01:52 2019
+Total elapsed time: 0.897 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 8029
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 11
+matrix size = 142
+fillins = 341
+solver = Normal
+Thread vector: 7.8/4.8[3] 0.0/0.0[3] 4.2/2.7[3] 0.6/1.4[1]  2592/500
+Matrix Compiler1:    1253 opcodes  6.0/2.6/[0.6]
+Matrix Compiler2: 17.64 KB object code size  1.8/2.0/[0.6]
+

@@ -1,0 +1,149 @@
+Circuit: * G:\Mi unidad\2019Q2_Grado_5C\Teoria de Circuitos\TP2\Ejercicio 1\Circuito 2\Caso 2\ej1_circ2_caso2.asc
+
+V3: Missing value, assumed 0V @ DC
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+vernier = 0.5
+vernier = 0.25
+vernier = 0.125
+Gmin = 1.15077
+vernier = 0.166667
+vernier = 0.0833333
+vernier = 0.0416667
+vernier = 0.0208333
+Gmin = 1.00764
+vernier = 0.0104167
+vernier = 0.00520833
+vernier = 0.00260417
+Gmin = 0.999808
+vernier = 0.00130208
+vernier = 0.000651042
+vernier = 0.000488281
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 88.6364%
+vernier = 0.0625
+Source Step = 87.8995%
+Starting source stepping with srcstepmethod=1
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 88.6364%
+vernier = 0.0625
+Source stepping failed
+
+Pseudo Transient succeeded in finding the operating point at 588.666 ms.
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 2.3014
+vernier = 0.666667
+vernier = 0.333333
+vernier = 0.166667
+vernier = 0.0833333
+Gmin = 1.33596
+vernier = 0.111111
+Gmin = 1.05081
+vernier = 0.148148
+vernier = 0.074074
+vernier = 0.037037
+vernier = 0.0185185
+vernier = 0.00925925
+Gmin = 1.00382
+vernier = 0.00462963
+vernier = 0.00231481
+vernier = 0.00115741
+Gmin = 0.999764
+vernier = 0.000578703
+vernier = 0.000434027
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 88.6364%
+vernier = 0.0625
+Source Step = 87.8995%
+Starting source stepping with srcstepmethod=1
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 88.6364%
+vernier = 0.0625
+Source stepping failed
+
+Pseudo Transient succeeded in finding the operating point at 299.076 ms.
+Early termination of direct N-R iteration.
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+vernier = 0.5
+Gmin = 2.3014
+vernier = 0.666667
+vernier = 0.333333
+vernier = 0.166667
+vernier = 0.0833333
+Gmin = 1.33596
+vernier = 0.111111
+Gmin = 1.05081
+vernier = 0.148148
+vernier = 0.074074
+vernier = 0.037037
+vernier = 0.0185185
+vernier = 0.00925925
+Gmin = 1.00382
+vernier = 0.00462963
+vernier = 0.00231481
+vernier = 0.00115741
+Gmin = 0.999764
+vernier = 0.000578703
+vernier = 0.000434027
+Gmin = 0
+Gmin stepping failed
+
+Starting source stepping with srcstepmethod=0
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 88.6364%
+vernier = 0.0625
+Source Step = 87.8995%
+Starting source stepping with srcstepmethod=1
+Source Step = 3.0303%
+Source Step = 33.3333%
+Source Step = 63.6364%
+Source Step = 88.6364%
+vernier = 0.0625
+Source stepping failed
+
+Pseudo Transient succeeded in finding the operating point at 299.111 ms.
+
+Date: Sat Aug 24 18:01:06 2019
+Total elapsed time: 3.643 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 27581
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 145
+matrix size = 143
+fillins = 285
+solver = Normal
+Thread vector: 8.4/5.1[3] 0.0/0.0[3] 4.6/3.7[3] 0.5/1.5[1]  2592/500
+Matrix Compiler1: 21.14 KB object code size  4.3/2.1/[0.8]
+Matrix Compiler2: 16.71 KB object code size  1.7/1.9/[0.6]
+
