@@ -11,16 +11,16 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 
-WP = 10
-F = 10000
+WP = 10 #o 12Hz
+F = 10000 #!!!!!!!!!
 VCC = 15
 A0 = 100000
-VD = 1
-RD = 90000000000
-R0 = 0.01
+VD = 1 #!!!!!!!!!!!
+RD = 90000000000#SIMULAR Y VER!!!!!!!!!!!
+R0 = 0.01#SIMULAR Y VER!!!!!!!!!!
 
 
-w = 2*np.pi*F
+#w = 2*np.pi*F
 
 r1 = Symbol('R1',real = True, positive = True)
 r2 = Symbol('R2',real = True, positive = True)
@@ -29,7 +29,7 @@ r4 = Symbol('R4',real = True, positive = True)
 a = Symbol('A',real = True, positive = True)
 #w = Symbol('w',real = True, positive = True)
 #wp = Symbol ('Wpppp',real = True, positive = True)
-#f = Symbol('f',real = True, positive = True)
+f = Symbol('f',real = True, positive = True)
 #vcc = Symbol('Vcc',real = True, positive = True)
 #sr = Symbol('SR',real = True, positive = True)
 #vp = Symbol('Vp',real = True, positive = True)
@@ -70,7 +70,7 @@ h = simplify(h)
 hMod = sqrt(re(h)**2 + im(h)**2)
 hMod = simplify(hMod)
 
-result = replaceValues(h, 2, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+result = replaceValues(h, 1, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("inverter: Vo/Vi=")
 print(latex(result.evalf()))
 
