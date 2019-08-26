@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d7e5765e-a6f5-4dbd-b48c-c3d040334c29" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CalculosTeoricos/inverter.py" beforeDir="false" afterPath="$PROJECT_DIR$/CalculosTeoricos/inverter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.asc" beforeDir="false" afterPath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.asc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.log" beforeDir="false" afterPath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.net" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.op.raw" beforeDir="false" afterPath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.op.raw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.raw" beforeDir="false" afterPath="$PROJECT_DIR$/simulacion_pcb/Circuito 1/Caso 1/ej1_circ1_caso1.raw" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CalculosTeoricos/inverter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+            <state relative-caret-position="198">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -63,10 +65,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="200" />
     <option name="width" value="1510" />
-    <option name="height" value="1025" />
+    <option name="height" value="984" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -217,14 +219,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="160" y="0" width="1208" height="820" extended-state="1" />
+    <frame x="160" y="0" width="1208" height="787" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17747441" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33236575" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41310975" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -246,8 +249,8 @@
     <entry file="file://$PROJECT_DIR$/CalculosTeoricos/Ninv_VoVi.py" />
     <entry file="file://$PROJECT_DIR$/CalculosTeoricos/inverter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+        <state relative-caret-position="198">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
