@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=+Vcc Pin=J-1
+Removed Pin From Net: NetName=-Vcc Pin=J-3
+Added Pin To Net: NetName=-Vcc Pin=J-1
+Added Pin To Net: NetName=+Vcc Pin=J-3
+Added Room: Name=TP2_EJ1_CIRCUIT1_PCB

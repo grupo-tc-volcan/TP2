@@ -69,7 +69,7 @@ h = simplify(h)
 hMod = sqrt(re(h)**2 + im(h)**2)
 hMod = simplify(hMod)
 
-result = replaceValues(h, 2, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+result = replaceValues(h, 1, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("non inverter Vo/Vi=")
 print(latex(result.evalf()))
 
