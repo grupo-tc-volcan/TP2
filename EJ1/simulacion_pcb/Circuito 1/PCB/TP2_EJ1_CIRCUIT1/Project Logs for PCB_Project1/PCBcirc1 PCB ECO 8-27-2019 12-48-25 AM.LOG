@@ -1,0 +1,6 @@
+Added Component: Designator=Jgnd(JUMPER2)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=Jgnd-1
+Added Pin To Net: NetName=NetJ1_2 Pin=Jgnd-2
+Added Member To Class: ClassName=TP2_EJ1_CIRCUIT1_PCB Member=Component Jgnd JUMPER
+Added Room: Name=TP2_EJ1_CIRCUIT1_PCB
