@@ -1,0 +1,39 @@
+2,5k.
+2 4,7 paralelo
+en serie con 150
+
+25k.
+47 paralelo
+1.5k
+
+osciloscopio:
+scope1: png dc sweep circ 1 caso 1
+scope2 csv
+
+scope4> png circ1 caso1
+scope 5 idem csv
+
+scope6 csv caso1 rampa f 1khz BORRAR, NO SIRVE
+scope7 csv caso1 rampa f 1khz 27.8vpp
+scope8 midem png
+
+la linita recta es donde se rompe el lazo
+
+scope9 idem caso2
+scope10 idem caso 2
+scope11
+
+scope14
+scope15 circuito 2 caso 1 1khz
+
+scope16 circ 2 caso2
+scope17
+
+
+CIRC2 CASO 2
+scope0 png ruido a 2mvpp mas de eso no bajamos la V por el ruido
+vcope1 png 500khz 200mvpp ruido y slew rate
+
+CIRC2 CASO 3
+vcope3 700khz 250MVPP ruido y sr
+
