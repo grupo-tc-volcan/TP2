@@ -2,7 +2,7 @@
 \input{./EJ4_preamble.tex}
 \begin{document}
 
-\section*{Ejercicio 4}
+\section{Ejercicio 4: Derivador e Integrador}
 En la presente secci\'on se estudiar\'an los circuitos derivador e integrador implementados con amplificador operacionales, analizando su comportamiento, rango de funcionamiento y cualidades o defectos. Adem\'as se presentar\'a un circuito para cada uno de ellos con modificaciones con el fin de mejorar su funcionamiento y se comparar\'an los resultados entre ellos.
 
 Para cada uno de los circuitos, se realiza un an\'alisis te\'orico del mismo y luego se presentan las mediciones y los resultados de las mismas, contrastando o comparando lo observado en la pr\'actica, la simulaci\'on y la teor\'ia.
@@ -18,9 +18,9 @@ Adem\'as, todo an\'alisis te\'orico se realiza teniendo en cuenta que los circui
 \end{itemize}
 
 
-	\subsection*{Circuito derivador}
+	\subsection{Circuito derivador}
  
-\subsubsection*{An\'alisis Te\'orico}
+\subsubsection{An\'alisis Te\'orico}
 	
 %TODO Agregar el circuito del derivador!
 
@@ -29,6 +29,7 @@ Adem\'as, todo an\'alisis te\'orico se realiza teniendo en cuenta que los circui
 \begin{equation}
 	H(s) = \frac{V_o}{V_i} = \frac{R}{ \frac{1}{s \cdot C}} = -s \cdot R  \cdot C
 	= -\frac{s}{10000}
+	\label{eq:derivador_transfer_ideal}
 \end{equation}
 
 Se puede observar que por la propiedad de la derivada para transformada de Laplace, multiplicar por la variable $s$ en tal dominio, implica derivar la señal en el dominio temporal, de forma tal que se puede llegar:
@@ -38,11 +39,9 @@ Se puede observar que por la propiedad de la derivada para transformada de Lapla
 	Vo(t) = -RC \cdot \frac{\delta V_i(t)}{\delta t}
 \end{equation*}
 
-Otra observaci\'on sobre la funci\'on de transferencia ideal, es que para frecuencias altas, seg\'un la magnitud de la se\~nal de entrada, se puede producir la saturaci\'on del amplificador operacional cuando la ganancia es muy elevada y la salida supera el valor de la fuente de alimentaci\'on del circuito.
+Otra observaci\'on sobre la funci\'on de transferencia ideal, es que para frecuencias altas, seg\'un la magnitud de la se\~nal de entrada, se puede producir la saturaci\'on del amplificador operacional cuando la ganancia es muy elevada y la salida supera el valor de la fuente de alimentaci\'on del circuito. Por otro lado, el sistema descripto por dicha funci\'on de transferencia ideal, no es bibo-estable como se asumi\'o desde el principio. Esto se debe al hecho la antitransformada es la derivada del delta de dirac, o como bien se dijo antes, la operaci\'on de derivar a una se\~nal, lo cual no siempre garantiza que de como resultado una respuesta acotada, como se ver\'a en el caso del escal\'on m\'as adelante.
 
 %TODO Agregar diagrama de polos y ceros aca!
-
-%TODO Agregar comentario sobre la inestabilidad de este sistema a este punto para frecuencias altas
 
 \paragraph*{Funci\'on transferencia con $A_{vol}$ finito}se considera que $A_{vol}$ es finito con lo cual se lo debe tener en cuenta, y para llegar a la funci\'on transferencia se plantea por un lado la superposici\'on de las tensiones sobre las entradas del amplificador operacional y luego la expresi\'on de salida del mismo para obtener:
 
@@ -61,8 +60,8 @@ Otra observaci\'on sobre la funci\'on de transferencia ideal, es que para frecue
 %TODO Se puede dejar mas grande el cociente, porque asi no se ve nada!!
 \begin{equation}
 	H(s) = \frac{V_o(s)}{V_i(s)} = \frac{\frac{s \cdot A_{vol} \cdot RC}{A_{vol} + 1}}{1 + \frac{s}{\frac{A_{vol} + 1}{R \cdot C}}}
-	= - \frac{\frac{s}{2 \pi \cdot 1591,56}}{1 + \frac{s}{2 \pi \cdot 159,15 \cdot 10^{6}}}
-	\label{eq:derivador_sin_finito}
+	= - \frac{\frac{s}{2 \pi \cdot 1,591kHz}}{1 + \frac{s}{2 \pi \cdot 159,15Hz \cdot 10^{6}}}
+	\label{eq:derivador_transfer_avol_finito}
 \end{equation}
 
 De esto \'ultimo se puede observar que aparece, a diferencia de antes, un polo adicional que podr\'ia ser despreciado o incluso anulado bajo las condiciones de idealidad previamente analizadas. Es importante destacar de esta nueva funci\'on de transferencia que si se obtiene la frecuencia de corte donde se ubica este polo y limitamos el rango de funcionamiento una decada antes del mismo, podemos considerar condiciones de idealidad tal que el derivador podr\'ia seguir funcionando como tal. Esto tambi\'en se puede ver considerando que, si se llama $\omega_o = \frac{(A_{vol} + 1)}{R \cdot C}$ a la frecuencia angular de corte:
@@ -74,7 +73,7 @@ De esto \'ultimo se puede observar que aparece, a diferencia de antes, un polo a
 
 %TODO Agregar diagrama de polos y ceros aca!
 
-\paragraph*{Funci\'on transferencia con polo dominante}tomando en cuenta que el fabricante del amplificador operacional coloca un polo a una baja frecuencia para que el ruido se vea atenuado en las altas frecuencias en donde sale en contrafase y as\'i evitar que se produzca una realimentaci\'on positiva que har\'ia inestable el circuito, se reemplaza tal expresi\'on en la ecuaci\'on \ref{eq:derivador_sin_finito} y operando:
+\paragraph*{Funci\'on transferencia con polo dominante}tomando en cuenta que el fabricante del amplificador operacional coloca un polo a una baja frecuencia para que el ruido se vea atenuado en las altas frecuencias en donde sale en contrafase y as\'i evitar que se produzca una realimentaci\'on positiva que har\'ia inestable el circuito, se reemplaza tal expresi\'on en la ecuaci\'on \ref{eq:derivador_transfer_avol_finito} y operando:
 
 \begin{equation}
 	A_{vol}(\omega) = \frac{A_o}{1 + \frac{s}{\omega_p}}
@@ -97,8 +96,9 @@ En esta \'ultima condici\'on se puede observar que el circuito se comporta como 
 \end{equation*}
 
 \begin{equation}
-	H(s) = - \frac{\frac{s}{2 \pi 1591,56}}
-	{1 + s \cdot 11,53 \cdot 10^{-9} + \left( \frac{s}{2 \pi \cdot 154510,45} \right)^{2}}
+	H(s) = - \frac{\frac{s}{2 \pi \cdot 1591,56Hz}}
+	{1 + s \cdot 11,53 \cdot 10^{-9} + \left( \frac{s}{2 \pi \cdot 154,51kHz} \right)^{2}}
+	\label{eq:derivador_transfer_polo_dominante}
 \end{equation}
 
 Finalmente, se obtiene que $\omega_o = 970817,81 \frac{1}{s}$ y $\xi = 0,0056357$. Esto \'ultimo indica que la respuesta natural del sistema durante una transici\'on entre estados estables contiene un subamortiguamiento, pero m\'as importante, que los polos son complejos y conjugados donde la frecuencia de corte est\'a en $f_o = 154,51kHz$ y presenta un sobrepico.
@@ -124,7 +124,7 @@ Para ubicar a qu\'e frecuencia y con qu\'e magnitud ocurre este pico en la respu
 
 Entonces, el pico dentro de la respuesta en frecuencia caracter\'istico de este sistema se puede encontrar, te\'oricamente, en la frecuencia $\omega_{pico} = 970817,8 \cdot \sqrt{1- 2 \cdot (0,0056)^{2}} = 970786,97 \frac{1}{s} \Rightarrow f_{pico} = 154505,54Hz$. Y tendr\'a una magnitud de $|H(f_{pico})| = 8613,05 \Rightarrow |H(f_{pico})|dB = 78,70dB$.
 
-Este nuevo comportamiento al incluir la consideraci\'on del polo dominante establece un primer l\'imite de funcionamiento en t\'ermino de frecuencias para el derivador, pues al alcanzar la frecuencia de los $f = 154kHz$ aproximadamente, deja de funcionar como tal.
+Este nuevo comportamiento al incluir la consideraci\'on del polo dominante establece un primer l\'imite de funcionamiento en t\'ermino de frecuencias para el derivador. Esto ser\'a tenido en cuenta en la conclusi\'on final del an\'alisis te\'orico.
 
 %TODO Agregar diagrama de polos y ceros aca!
 
@@ -139,70 +139,314 @@ Aplicando una transformaci\'on de fuentes se simplifica el circuito y se deja en
 De esta forma se agrupan las impedancias y se encuentra la $Z_{in}$, para ello se llama $Y_r$ y luego $Z_r$ al agrupamiento paralelo de impedancias.
 
 \begin{equation*}
-	Y_r = \frac{1}{r_{id}} + \frac{1 - A_{vol}}{R + Z_o} \Rightarrow
-	Z_r = \frac{r_{id} \cdot(R + Z_o)}{R + Z_o + r_{id} \cdot(1 - A_{vol})}
+	Y_r = \frac{1}{r_{id}} + \frac{1 + A_{vol}}{R + Z_o} \Rightarrow
+	Z_r = \frac{r_{id} \cdot(R + Z_o)}{R + Z_o + r_{id} \cdot(1 + A_{vol})}
 \end{equation*}
 
 \begin{equation}
 	Z_{in} = \frac{1}{sC} + Z_r
-	= \frac{1 + s \cdot \frac{C \cdot r_{id} \cdot (R + Z_o)}{R + Z_o + r_{id} \cdot (1 - A_{vol})}}{s \cdot C}
+	= \frac{1 + s \cdot \frac{C \cdot r_{id} \cdot (R + Z_o)}{R + Z_o + r_{id} \cdot (1 + A_{vol})}}{s \cdot C}
 	\Rightarrow
-	Z_{in} = \frac{1 - \frac{s}{2 \pi \cdot 157,98 \cdot 10^{6}}}{\frac{s}{2 \pi \cdot 7,957 \cdot 10^{6}}}
+	Z_{in} = \frac{1 + \frac{s}{2 \pi \cdot 157,98MHz}}{\frac{s}{2 \pi \cdot 7,957MHz}}
+	\label{eq:derivador_impedancia_avol_finito}
 \end{equation}
 
-Resulta interesante observar que para frecuencias donde $f < 157,98 MHz$, la impedancia de entrada se puede aproximar al valor de la impedancia del capacitor, lo cual contrasta con la consideraci\'on de que con un $A_{vol}$ muy grande se produce una masa virtual en el terminal inversor. Esta impedancia posee un cero ubicado en el semiplano positivo, lo cual implica que en t\'erminos de la magnitud del mismo produce el mismo efecto, pero en cuanto a fase se comporta como un polo.
+Resulta interesante observar que para frecuencias donde $f < 157,98 MHz$, la impedancia de entrada se puede aproximar al valor de la impedancia del capacitor, lo cual contrasta con la consideraci\'on de que con un $A_{vol}$ muy grande se produce una masa virtual en el terminal inversor. 
 
 \paragraph*{Impedancia de entrada con polo dominante} ahora se adaptan los c\'alculos previos para incluir la apreciaci\'on del polo dominante dentro del an\'alisis de la impedancia de entrada. Operando con la expresi\'on del polo dominante \ref{eq:polo_dominante} se llega a que:
 
 \begin{equation*}
-	Z_{in} = \frac{R + Z_o + r_{id} \cdot (-A_o + 1 + \frac{s}{\omega_p}) + s \cdot C \cdot r_{id} \cdot (R + Z_o) \cdot (1 + \frac{s}{\omega_p})}{s \cdot C \cdot \left[ (R + Z_o) \cdot (1 + \frac{s}{\omega_p}) + r_{id} \cdot (1 - A_o + \frac{s}{\omega_p}) \right]}
+	Z_{in} = \frac{R + Z_o + r_{id} \cdot (A_o + 1 + \frac{s}{\omega_p}) + s \cdot C \cdot r_{id} \cdot (R + Z_o) \cdot (1 + \frac{s}{\omega_p})}{s \cdot C \cdot \left[ (R + Z_o) \cdot (1 + \frac{s}{\omega_p}) + r_{id} \cdot (1 + A_o + \frac{s}{\omega_p}) \right]}
 \end{equation*}
 
 \begin{equation*}
 	Z_{in} = \frac{1}{s \cdot C} \cdot 
-	\frac{1 + s \cdot \frac{R + Z_o + r_{id} + r_{id} \cdot C \cdot \omega_p \cdot(R + Z_o)}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (-A_o + 1) \right]} + s^{2} \cdot \frac{r_{id} \cdot C \cdot (R + Z_o)}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (-A_o + 1) \right]}}{1 + s \cdot \frac{R + Z_o + r_{id}}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (1 - A_o)\right]}}
+	\frac{1 + s \cdot \frac{R + Z_o + r_{id} + r_{id} \cdot C \cdot \omega_p \cdot(R + Z_o)}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (A_o + 1) \right]} + s^{2} \cdot \frac{r_{id} \cdot C \cdot (R + Z_o)}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (A_o + 1) \right]}}{1 + s \cdot \frac{R + Z_o + r_{id}}{\omega_p \cdot \left[ R + Z_o + r_{id} \cdot (1 + A_o)\right]}}
+\end{equation*}
+
+\begin{align}
+	Z_{in} & = \frac{1}{\frac{s}{2 \pi \cdot 7,957MHz}} \cdot
+	\frac{1 + s \cdot 11,923 \cdot 10^{-9} + \left(\frac{s}{2 \pi \cdot 153,94kHz}\right)^{2}}{1 + \frac{s}{2 \pi \cdot 14,58MHz}}
+	\label{eq:derivador_impedancia_polo_dominante}
+\end{align}
+
+Como se puede observar, la impedancia de entrada posee dos ceros complejos y conjugados, ubicados en la frecuencia de corte con $f_o = 153,94kHz$, lo cual establece otra consideración a tener en cuenta con respecto a las limitaciones del circuito, puesto que para esta frecuencia la impedancia de entrada se hace muy chica, produciendose un incremento en el consumo de corriente. Por otro lado, al bajar tanto la impedancia se produce una desadaptaci\'on, es decir, al ser la impedancia de entrada tan peque\~na para esta frecuencia, hay una gran p\'erdida de tensi\'on sobre la resistencia propia de la fuente de la se\~nal.
+
+\paragraph*{Conclusi\'on del an\'alisis} teniendo en cuenta las expresiones finales para caracterizar al circuito derivador con la menor idealidad posible, es decir, las ecuaciones \ref{eq:derivador_transfer_polo_dominante} y \ref{eq:derivador_impedancia_polo_dominante} se ve como resultado de este an\'alisis que por la forma de la funci\'on transferencia el comportamiento derivador se sostiene hasta una frecuencia de $f = 15,4kHz$, pues hasta esa frecuencia se mantiene aproximadamente en $-90^{\circ}$ la fase de la respuesta, que se puede aproximar al comportamiento ideal (siendo un amplificador inversor) en el cual el sistema deriva la entrada. Por otro lado, durante este rango de frecuencia la impedancia de entrada est\'a dominada por la del capacitor, con lo cual disminuye hasta que se produce una ca\'ida en el valor de la impedancia y se producen p\'erdidas en la se\~nal que ve el amplificador.
+
+\subsubsection{Simulaci\'on}
+\subsubsection{Resultados}
+
+	\subsection{Circuito derivador compensado}
+
+\subsubsection{An\'alisis Te\'orico}
+
+En el circuito derivador que se analizar\'a a continuaci\'on se coloca una compensaci\'on que consiste en una resistencia en serie en la entrada con el capacitor, esto se debe a que se busca compensar los efectos del mismo para altas frecuencias. En altas frecuencias, el capacitor tiene una impedancia muy peque\~na con lo cual la ganancia del amplificador inversor aumentar\'a y la salida superar\'a la tensi\'on de alimentaci\'on del amplificador operacion, produci\'endose as\'i la saturaci\'on del circuito. Por otro lado, en cierta parte como la impedancia de entrada depende del capacitor, al reducirse tanto a medida que aumenta la frecuencia, disminuye la impedancia de entrada y se producen mayores p\'erdidas en la tensi\'on del generador que recibe el circuito.
+
+%TODO Tengo que encontrar la justificaci\'on de porque carajo oscila el circuito. Entiendo que satura a altas frecuencias
+% por culpa del capacitor pero no estoy entendiendo porque oscila.
+
+%TODO Agregar el circuito compensado
+
+\paragraph*{Funci\'on transferencia en condiciones ideales} haciendo uso de las condiciones de idealidad que ya se mencionaron para el circuito derivador, a partir de la expresi\'on de la ganancia o transferencia de un amplificador inversor ideal, se llega a que:
+
+\begin{align*}
+		H(s) & = \frac{V_o(s)}{V_i(s)} = \frac{-R_2}{R_1 + \frac{1}{s \cdot C}} \\
+		& = - \frac{s \cdot C \cdot R_2}{1 + s \cdot C \cdot R_1} \\
+\end{align*}
+
+\paragraph*{Funci\'on transferencia con $A_{vol}$ finito} asumiendo que la corriente de entrada del amplificador operacional no es apreciable con respecto a las corrientes de la red L de realimentaci\'on, se plantean las tensiones en las entradas y utilizando la expresi\'on de tensi\'on de salida, se obtiene que:
+
+\begin{equation*}
+	v^{-} = V_o \cdot \frac{R_1 + \frac{1}{s \cdot C}}{R_1 + R_2 + \frac{1}{s \cdot C}} + V_i \cdot \frac{R_2}{R_1+ R_2 + \frac{1}{s \cdot C}}
+\end{equation*}
+
+\begin{equation*}
+	V_o = (v^{+} - v^{-}) \cdot A_{vol} \Rightarrow
+	V_o \cdot \left[ 1 + \frac{A_{vol} \cdot (1 + s \cdot C \cdot R_1)}{1 + s \cdot C \cdot (R_1 + R_2)} \right] =
+	- V_i \cdot \frac{A_{vol} \cdot (s \cdot C \cdot R_2)}{1 + s \cdot C \cdot (R_1 + R_2)}
+\end{equation*}
+
+\begin{equation}
+	H(s) = \frac{V_o(s)}{V_i(s)} = - \frac{\frac{s \cdot A_{vol} \cdot C \cdot R_2}{1 + A_{vol}}}{1 + s \cdot \frac{C \cdot (R_2 + R_1 \cdot(1 + A_{vol}))}{1 + A_{vol}}}
+	\label{eq:derivador_compensado_finito}
+\end{equation}
+
+\paragraph*{Funci\'on transferencia con polo dominante} finalmente si se considera la ecuaci\'on anterior obtenida en \ref{eq:derivador_compensado_finito} y se reemplaza el $A_{vol}$ por la funci\'on que contiene el polo dominante, entonces se llega a que:
+
+\begin{align*}
+	H(s) & = \frac{-s \cdot C \cdot R_2 \cdot A_o}{\left( 1 + \frac{s}{\omega_p} \right) \cdot \left( 1 + s \cdot C \cdot (R_1 + 	R_2) \right) + A_o \cdot(1+ s \cdot C \cdot R_1)} \\
+	& = - \frac{ \frac{s \cdot c \cdot R_2 \cdot A_o}{A_o + 1} }{1 + s \cdot \frac{1+ \omega_p \cdot \left( A_o \cdot C \cdot R_1 + C \cdot ( R_1 + R_2) \right)}{\omega_p \cdot ( 1 + A_o)} + s^{2} \cdot \frac{C \cdot (R_1 + R_2)}{\omega_p \cdot (1+ A_O)}}
+\end{align*}
+
+De esta \'ultima expresi\'on se puede ver del denominador que hay un segundo orden, entonces se procede a obtener sus par\'ametros caracter\'isticos y as\'i determinar su comportamiento.
+
+\begin{equation}
+	\omega_o = \sqrt{\frac{\omega_p \cdot ( A_o + 1 ) }{C \cdot ( R_1 + R_2 ) }}
+\end{equation}
+
+\begin{equation}
+	\xi = \frac{\left[ 1 + \omega_p \cdot C \cdot ( R_1 \cdot (1 + A_o) + R_2) \right] }{2 \cdot \sqrt{\omega_p \cdot C \cdot (A_o + 1) \cdot (R_1 + R_2)}}
+	\label{eq:formula_xi}
+\end{equation}
+
+Ahora bien, para poder completar el an\'alisis del circuito es necesario determinar el valor de la resistencia $R_1$ la cual no ha sido determinada pues fue agregada a forma de compensaci\'on. Para poder determinar su valor se requieren los siguientes criterios: que no hayan sobrepicos en la funci\'on de transferencia y pueda funcionar hasta la mayor frecuencia posible, adem\'as debe tener un error en la fase menor a 3 grados.
+
+Para poder implementar estas condiciones en el circuito, hay que observar que en la funci\'on transferencia seg\'un sea el caso, primero el denominador debe tener un valor de $\xi \geqslant{1}$ dado que se evita as\'i un sistema subamortiguado cuya respuesta en frecuencia presente un sobrepico. Esta condici\'on se cumple partiendo de la ecuaci\'on \ref{eq:formula_xi}:
+
+\begin{align*}
+	& \xi \geqslant{1} \Leftrightarrow \\
+	& 1 + \omega_p \cdot C \cdot (R_1 \cdot (A_o + 1) + R_2) \geqslant 2 \cdot \sqrt{\omega_p \cdot C \cdot (A_o + 1) \cdot (R_1 + R_2)} \Leftrightarrow \\
+	& R_1^{2} \cdot (\omega_p^{2} \cdot C^{2} \cdot (A_o+1)^{2}) + R_1 \cdot 2 \cdot \omega_p \cdot C \cdot ( A_o + 1 ) \cdot (R_2 \cdot \omega_p \cdot C - 1)+  (1 + \omega_p^{2} \cdot R_2^{2} \cdot C^{2} + \omega_p \cdot C \cdot R_2 \cdot(- 2 - 4 \cdot A_o) \geqslant 0
+\end{align*}
+
+Resolviendo la cuadr\'atica y encontrando sus ra\'ices, se puede ver que el rango de resistencia con sentido f\'isico para los cuales se logra que el sistema se comporte sobreamortiguado o cr\'iticamente amortiguado, son aquellos donde $R_1 \geqslant 103,48 \Omega$. Por otro lado, para conseguir que el circuito derivador opere hasta la mayor frecuencia posible, habiendo descartado el casos subamortiguado para evitar los sobrepicos en la respuesta en frecuencia, se desea que en el caso \'optimo se encuentre en un amortiguamiento cr\'itico. Esto se debe a que de esta forma en la mayor frecuencia de corte posible se produce la ca\'ida a 40dB/dec, mientras que en un escenario sobreamortiguado el polo se separar\'ia en dos frecuencias de corte reduciendo el ancho de banda disponible.
+
+Con el fin de cumplir con estas condiciones y obtener como resultado el circuito con mejor rendimiento en t\'erminos del ancho de banda donde opera, se coloca un preset en vez de una resistencia fija para poder calibrar el sistema en un valor de aproximadamente $R = 103,487 \Omega$. 
+
+Este proceso de calibraci\'on consiste en utilizar el generador de funciones para excitar al circuito con un escal\'on. Por ser una entrada $V_i(s) = \frac{K}{s}$ con K un valor de amplitud dado, y tener un sistema derivador, la salida debiera de ser una delta de dirac que se ver\'a acotada por la saturaci\'on del amplificador operacional. No obstante, en la transici\'on de la respuesta del circuito se ver\'a la respuesta natural del mismo donde se podr\'a analizar si est\'a en cualquiera de los casos subamortiguado, sobreamortiguado o cr\'iticamente amortiguado, con lo cual se debe mover el preset hasta entrar en la zona sobreamortiguada y luego reducir su valor ligeramente hasta observar que en la salida se tiene el decrecimiento exponencial de menor constante de tiempo sin producir subamortiguamiento.
+
+\paragraph*{Impedancia de entrada con $A_{vol}$ finito} agregar una nueva resistencia en la entrada del circuito modifica la impedancia de entrada, de forma tal que el an\'alisis se puede aplicar de igual forma que para cuando no estaba, sumandole al resultado obtenido para el derivador sin compensar la resistencia adicional. Realizando algunos pasos algebraicos, se obtiene que:
+
+%TODO Colocar el nuevo circuito para realizar el despeje de la impedancia!
+\begin{equation}
+	Z_{in}(s) = \frac{1 + s \cdot C  \cdot R_1}{s \cdot C} \cdot \frac{1 + s \cdot \frac{R_1 \cdot C \cdot \left[ 2 \cdot (R_2 + Z_o) + r_{id} \cdot(1 + A_{vol}) \right]}{R_2 + Z_o + r_{id} \cdot (1 + A_{vol})}}{1 + s \cdot \frac{R_1 \cdot C \cdot \left[ (R_2 + Z_o) \cdot 2 + r_{id} \cdot ( 1 + A_{vol}) \right] - C \cdot r_{id} \cdot ( R_2 + Z_o)}{R_2 + Z_o + r_{id} \cdot(1+A_{vol})}}
+\end{equation}
+
+
+\paragraph*{Impedancia de entrada con polo dominante} de igual forma que para el caso anterior, se utilizan los c\'alculos realizados previamente para el circuito derivador sin compensar y luego agrega sumando la resistencia adicional en la entrada del circuito, obteniendo luego de algunos pasos algebraicos la impedancia de entrada para el caso donde se considera el polo dominante:
+
+\begin{equation}
+	Z_{in}(s) = \frac{1 + s \cdot C \cdot R_1}{s \cdot C} \cdot 
+	\frac{1 + s \cdot \frac{(R_2 + Z_o) \cdot (1 + 2 \cdot R_1 \cdot C \cdot \omega_p) + r_{id} \cdot (1 + R_1 \cdot C \cdot \omega_p \cdot (A_o + 1) }{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(A_o + 1) \right]} + s^{2}  \cdot \frac{R_1 \cdot C \cdot \left[ 2 \cdot (R_2 + Z_o) + r_{id} \right]}{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot (1 + A_o) \right]}}{1 + s \cdot \frac{(R_2 + Z_o) \cdot \left[ 1 - C \cdot \omega_p \cdot (r_{id} - 2 \cdot R_1) \right] + r_{id} \cdot \left[ 1 + R_1 \cdot C \cdot (1+ A_o) \cdot \omega_p \right]}{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot (1 + A_o)) \right] } + s^{2} \cdot \frac{C \cdot \left[ (R_2 + Z_o) \cdot (2 \cdot R_1 - r_{id}) + R_1 \cdot r_{id} \right]}{\omega_p \cdot \left[ R_2 + Z_o + \cdot r_{id} \cdot (1+A_o) \right]}}
+\end{equation}
+
+\paragraph*{Expresiones finales} de las expresiones te\'oricas obtenidas para el derivador compensado y luego de realizar el dise\~no para cumplir con los criterios impuestos, considerando que el preset calibrado estar\'a en el entorno de $R_1 = 103,487$, se obtienen las expresiones con valores num\'ericos para realizar las comparaciones te\'oricas. Vale aclarar que en la pr\'actica el preset no tendr\'a dicho valor, sino que la suma entre las resistencia de entrada del generador, las par\'asitas y la del preset dar\'an tal resultado.
+
+\begin{equation}
+	H(s) = - \frac{\frac{s}{10000,1}}{1 + s \cdot 2,08 \cdot 10^{-6} + \left( \frac{s}{2\pi \cdot 152,935 \cdot 10^{3}}\right)^{2}}
+\end{equation}
+
+\begin{equation}
+	Z_{in}(s) = \frac{1 + \frac{s}{2\pi \cdot 76,89kHz}}{\frac{s}{2\pi 7,95MHz}} \cdot 
+	\frac{1 + s \cdot 2,0806 \cdot 10 ^{-6} + \left( \frac{s}{2\pi \cdot 1,04MHz} \right)^{2}}{1 + s \cdot 2,076 \cdot 10^{-6} - \left( \frac{s}{2 \pi \cdot 155,64kHz} \right)^{2}}
+\end{equation}
+
+
+\subsubsection{Simulaci\'on}
+\subsubsection{Resultados}
+
+
+	\subsection{Circuito integrador}
+
+\subsubsection{An\'alisis Te\'orico}
+
+\paragraph*{Funci\'on transferencia en condiciones ideales} considerando el sistema LTI, causal y bibo-estable, bajo condiciones de idealidad donde $A_{vol} \rightarrow \infty$, luego como se conoce la expresi\'on para dicho caso del amplificador inversor, se obtiene que:
+
+\begin{equation}
+	H(s) = - \frac{\frac{1}{s \cdot C}}{R} = - \frac{1}{s \cdot C \cdot R}
+	\Rightarrow
+	H(s) = - \frac{1}{\frac{s}{2 \pi \cdot 1,591kHz}}
+	\label{eq:integrador_transfer_ideal}
+\end{equation}
+
+En este primer acercamiento al comportamiento del circuito, se puede observar en la funci\'on transferencia que se describe un sistema que no es bibo-estable como se asumi\'o en un principio, sino que posee un polo en el origen. Esto \'ultimo tiene sentido porque implica que para entradas acotadas, la respuesta ser\'a la integral de dicha entrada acotada, pudiendo dar un resultado no acotado en el tiempo. Desde otro punto de vista, para frecuencias muy bajas o se\~nales continuas, la impedancia del capacitor en la realimentaci\'on es demasiado grande y provoca una desconexi\'on o un lazo d\'ebil, por lo tanto el amplificador operacional satura puesto que amplifica en t\'erminos de su $A_{vol}$ correspondiente seg\'un sea el caso.
+
+\paragraph*{Funci\'on transferencia con $A_{vol}$ finito} consid\'erese un $A_{vol}$ finito, luego se plantean los valores de potencial el\'ectrico sobre los terminales de las entradas del amplificador operacional y se calcula la salida con la ecuaci\'on correspondiente al modelo del mismo. Entonces, se obtiene:
+
+\begin{equation*}
+	v^{-} = V_i \cdot \frac{\frac{1}{s \cdot C}}{\frac{1}{s \cdot C} + R} + V_o \cdot \frac{R}{\frac{1}{s \cdot C} + R}
+	\Rightarrow
+	v^{-} = \frac{V_i + V_o \cdot s \cdot C \cdot R}{1 + s \cdot C \cdot R}
+\end{equation*}
+
+\begin{equation*}
+	V_o = (v^{+} - v^{-}) \cdot A_{vol} \Rightarrow
+	V_o \cdot \left[ 1 + \frac{A_{vol} \cdot s \cdot R \cdot C}{1 + s \cdot C \cdot R} \right] =
+	- V_i \cdot \frac{A_{vol}}{1 + s \cdot C \cdot R}
+\end{equation*}
+
+\begin{equation}
+	H(s) = \frac{V_o(s)}{V_i(s)} = \frac{-A_{vol}}{1 + s \cdot C \cdot R \cdot (A_{vol} + 1)}
+	\Rightarrow
+	H(s) = \frac{-100000}{1 + \frac{s}{2 \pi \cdot 0,0159Hz}}
+	\label{eq:integrador_transfer_avol_finito}
+\end{equation}
+
+Se puede observar que con estas nuevas consideraciones, el sistema dej\'o de ser inestable en t\'erminos de su respuesta, no obstante sigue sucediendo que para frecuencias muy bajas la realimentaci\'on pasa a tener un lazo d\'ebil y satura el amplificador operacional.
+
+\paragraph*{Funci\'on transferencia con polo dominante} ahora se considera que la ganancia del amplificador operacional tiene el polo dominante, con lo cual no se mantiene invariante en frecuencia. Reutilizando la expresi\'on anterior para $A_{vol}$ finito y reemplazando tal t\'ermino por la expresi\'on con el polo dominante se obtiene:
+
+\begin{equation*}
+	H(s) = - \frac{A_o \cdot \omega_p}{s + \omega_p + s \cdot C \cdot R \cdot (A_o \cdot \omega_p + s + \omega_p)}
+	\Rightarrow
+	H(s) = - \frac{A_o}{1 + s \cdot \frac{1 + C \cdot R \cdot \omega_p \cdot ( A_o + 1 )}{\omega_p} + s^{2} \cdot \frac{C \cdot R}{\omega_p}}
+\end{equation*}
+
+\begin{equation*}
+	H(s) = - \frac{100000}{1 + s \cdot 10,001 + \left( \frac{s}{2 \pi \cdot 488,60Hz} \right)^{2}}
+\end{equation*}
+
+En esta nueva expresi\'on de la funci\'on transferencia, el sistema refleja un segundo orden en el denominador del cual se pueden determinar los par\'ametros caracter\'isticos del mismo, obteniendo que $\omega_o = 3069,96 \frac{1}{s}$ y $\xi = 15351,58 \geq 1$. Entonces el sistema se encuentra en un sobreamortiguamiento con frecuencias de corte ubicadas en $f_1 = 15,0017MHz$ y $f_2 = 0,01499Hz$.
+
+\begin{equation}
+	H(s) = - \frac{106092,66}{(1 + \frac{s}{2 \pi \cdot 0,014998Hz}) \cdot (1 + \frac{s}{2 \pi \cdot 15,0017MHz})}
+	\label{eq:integrador_transfer_polo_dominante}
+\end{equation}
+
+En este nuevo resultado la \'unica diferencia con respecto al anterior, es que ahora hay un polo adicional que aparece en una frecuencia muy alejada, no obstante sigue saturando para frecuencias muy bajas por el lazo d\'ebil, es por esto que este circuito no funcionar\'a correctamente con el prop\'osito para el que fue pensado desde un punto de vista ideal, por ende ser\'a necesario realizar alguna compensaci\'on para poder corregirlo.
+
+\paragraph*{Impedancia de entrada con $A_{vol}$ finito} para encontrar la impedancia de entrada considerando el $A_{vol}$ finito, se redibuja el circuito reemplazando al amplificador operacional con su circuito equivalente y se plantea la ley de nodos.
+
+%TODO Meteme el circuitito master!
+
+\begin{equation*}
+	I_1 = I_2 + I_3 \Rightarrow
+	\frac{V_i + V_d}{R_1} = 
+	\frac{-V_i}{R_1} + \frac{- V_i - V_i \cdot A_{vol}}{\frac{1}{s \cdot C} + R}
+\end{equation*}
+
+\begin{equation*}
+	V_d = \frac{- V_i \cdot r_i \cdot ( 1 + s \cdot C \cdot Z_o)}{r_i \cdot(s \cdot C \cdot Z_o + 1) + R_1 \cdot (1 + s \cdot C \cdot Z_o) + s \cdot C \cdot R_1 \cdot r_i \cdot (1 + A_{vol})}
+\end{equation*}
+
+\begin{equation*}
+	Z_i(s) = \frac{V_i(s)}{I_1(s)} = \frac{V_i(s)}{\frac{V_i(s) + V_d(s)}{R_1}}
+	\Rightarrow
+	Z_i(s) = (R_1 + r_i) \cdot \frac{1 + s \cdot \frac{C \cdot \left[ Z_o \cdot (R_1 + r_i) + R_1 \cdot r_i \cdot (A_{vol} + 1) \right]}{R_1 + r_i}}{1 + s \cdot C \left[ Z_o + r_i \cdot ( 1 + A_{vol}) \right]}
+\end{equation*}
+
+\begin{equation}
+	Z_i(s) = (180k \Omega) \cdot \frac{1 + \frac{s}{2 \pi \cdot 0,0163Hz}}{1 + \frac{s}{2 \pi \cdot 0,00045Hz}}
+	\label{eq:integrador_impedancia_avol_finito}
+\end{equation}
+
+\paragraph*{Impedancia de entrada con polo dominante} reutilizando la expresi\'on anterior para la impedancia de entrada y considerando la variaci\'on del $A_{vol}$ respecto de la frecuencia, se obtiene:
+
+\begin{equation*}
+	Z_i(s) = (R_1 + r_i) \cdot \frac{1 + s \cdot \frac{r_i + R_1 + \omega_p \cdot C \cdot \left[ Z_o \cdot ( R_1 + r_i ) + R_1 \cdot r_i \cdot (A_o + 1) \right]}{\omega_p \cdot (R_1 +r_i)} + s^{2} \cdot \frac{C \cdot \left[ Z_o \cdot (R_1 + r_i) + R_1 \cdot r_i \right]}{\omega_p \cdot (R_1 + r_i)}}{1 + s \cdot \frac{1 + \omega_p \cdot C \cdot (Z_o + r_i \cdot ( A_o + 1 ) )}{\omega_p} + s^{2} \cdot \frac{C \cdot(Z_o + r_i)}{\omega_p}}
+\end{equation*}
+
+\begin{equation*}
+	Z_i(s) = (180k \Omega) \cdot \frac{1 + s \cdot 9,723 + \left( \frac{s}{2 \pi \cdot 493,65Hz} \right)^{2}	}{1 + s \cdot 350,0045 + \left(\frac{s}{2 \pi \cdot 82,58Hz} \right)^{2}}
+\end{equation*}
+
+\begin{equation}
+	Z_i(s) = 180k \Omega \cdot \frac{(1 + \frac{s}{2 \pi \cdot 25,45Hz}) \cdot (1 + \frac{s}{2 \pi \cdot 9574,06Hz})}{(1 + \frac{s}{2 \pi \cdot 0,1178Hz}) \cdot (1 + \frac{s}{2 \pi \cdot 57,806kHz})}
+	\label{eq:integrador_impedancia_polo_dominante}
+\end{equation}
+
+\paragraph*{Conclusi\'on del an\'alisis} si se tienen en cuenta las expresiones resultantes para la funci\'on transferencia y la impedancia de entrada con la menor idealidad posible, es decir, los resultados de las Ec. \ref{eq:integrador_transfer_polo_dominante} y Ec. \ref{eq:integrador_impedancia_polo_dominante}. Asumiendo que el circuito se comportar\'a como integrador en las regiones de frecuencia para las cuales la fase sea $90^{\circ}$ puesto que podría aproximarse tal respuesta con la forma de $\frac{-1}{s}$ que en el dominio temporal equivale a la integral de la funci\'on, luego para frecuencias que cumplan estar en el rango $0,14998Hz \leq f \leq 1,5Mhz$ se puede aproximar el comportamiento de la $H(s)$ obtenida a dicha forma. No obstante, si se consideran bajas frecuencias, la impedancia del capacitor ser\'a tan elevado que el lazo de la realimentaci\'on dejar\'a de funcionar como tal, provocando que el amplificador operacional amplifique en t\'erminos de su $A_{vol}$ con lo cual saturar\'a y dejar\'a de funcionar para tales frecuencias.
+
+\subsubsection{Simulaci\'on}
+\subsubsection{Resultados}
+
+	\subsection{Circuito integrador compensado}
+
+\subsubsection{An\'alisis Te\'orico}
+
+\paragraph*{Funci\'on transferencia en condiciones ideales} utilizando la expresi\'on del amplificador inversor bajo condiciones ideales, se llama $Z_2$ a la impedancia que resulta del paralelo de la resistencia y el capacitor. Luego se obtiene:
+
+\begin{equation*}
+	Z_2 = R_2 // \frac{1}{s \cdot C} = \frac{R_2}{1 + s \cdot C \cdot R_2}
+\end{equation*}
+
+\begin{equation}
+	H(s) = \frac{V_o(s)}{V_i(s)} = - \frac{Z_2}{R_1} = - \frac{\frac{R_2}{R_1}}{1 + s \cdot C \cdot R_2}
+	\label{eq:integrador_compensado_transfer_ideal}
+\end{equation}
+
+\paragraph*{Funci\'on transferencia con $A_{vol}$ finito} considerando la misma impedancia del paralelo en la realimentaci\'on que en la resoluci\'on ideal, se calcula el valor del potencial en la pata inversora del amplificador operacional y luego se halla la expresi\'on de la funci\'on de la siguiente manera:
+
+\begin{equation*}
+	v^{-} = V_o \cdot \frac{R_1}{R_1+ Z_2} + V_i \cdot \frac{Z_2}{Z_2 + R_1} \Rightarrow
+	v^{-} = \frac{V_o \cdot R_1 \cdot ( 1 + s \cdot C \cdot R_2) + V_i \cdot R_2}{R_2 + R_1 \cdot (1 + s \cdot C \cdot R_2)}
 \end{equation*}
 
 \begin{align*}
-	Z_{in} & = \frac{1}{\frac{s}{2 \pi \cdot 7,957 \cdot 10^{6}}} \cdot
-	\frac{1 - s \cdot 11,923 \cdot 10^{-9} - \left(\frac{s}{2 \pi \cdot 153,94 \cdot 10^{3}}\right)^{2}}{1 - \frac{s}{2 \pi \cdot 14,5801 \cdot 10^{6}}} \\
-	\\
-	& = \frac{1}{\frac{s}{2 \pi \cdot 7,957 \cdot 10^{6}}} \cdot
-	\frac{(1 + \frac{s}{972826}) \cdot (1 - \frac{s}{961677})}{1 - \frac{s}{2 \pi \cdot 14,5801 \cdot 10^{6}}}
+	V_o = (v^{+} - v^{-}) \cdot A_{vol} = - A_{vol} \cdot \frac{V_o \cdot R_1 \cdot ( 1 + s \cdot C \cdot R_2) + R_2 \cdot V_i}{R_1 + R_2 + s \cdot C \cdot R_1 \cdot R_2} \Rightarrow \\
+	V_o \cdot \left[ 1 + \frac{A_{vol} \cdot R_1 \cdot ( 1 + s \cdot C \cdot R_2)}{R_1 + R_2 + s \cdot C \cdot R_1 \cdot R_2} \right] =
+	V_i \cdot \frac{-A_{vol} \cdot R_2}{R_1 + R_2 + s \cdot C \cdot R_1 \cdot R_2} 
 \end{align*}
 
-Como se puede observar en el resultado, la impedancia de entrada posee, entre otros, un polo y un cero en el semiplano positivo, con lo cual si expresamos la admitancia de entrada y despejamos la corriente de entrada, se obtiene:
-
 \begin{equation}
-	I_i(s) = \frac{V_i(s)}{Z_i(s)}
+	H(s) = \frac{- A_{vol} \cdot R_2}{R_1 \cdot ( 1 + A_{vol} ) + R_2} \cdot \frac{1}{1 + s \cdot \frac{C \cdot R_1 \cdot R_2 \cdot ( 1 + A_{vol})}{R_1 \cdot (1 + A_{vol}) + R_2}}
+	\label{eq:integrador_compensado_transfer_avol_finito}
 \end{equation}
 
-Esto establece que la corriente de entrada es la respuesta del sistema caracterizado por la funci\'on transferencia $Y_i(s) = \frac{1}{Z_i(s)}$ a la excitaci\'on impuesta por la entrada $V_i(s)$. Sin necesidad de realizar las sustituciones se puede ver claramente que en la transferencia mencionada hay un polo en el semiplano positivo, lo cual convierte al sistema descripto por tal funci\'on en inestable, esto quiere decir que para cualquier excitaci\'on en la entrada la corriente no se lograr\'a establecer o estabilizar. De esta \'ultima conclusi\'on se infiere que el circuito no funcionar\'a como fue analizado desde un marco ideal, y que lo m\'as probable al momento, es que no se pueda estabilizar la salida en un valor coherente con dicho marco.
+\paragraph*{Funci\'on transferencia con polo dominante} luego reemplazando en la expresi\'on anterior la forma del $A_{vol}(\omega)$ se obtiene:
 
-%TODO Es necesario mostrar el crecimiento exponencial?
+\begin{equation*}
+	H(s) = \frac{-A_o \cdot \omega_p \cdot R_2}{R_1 \cdot ( A_o \cdot \omega_p + s + \omega_p) + R_2 \cdot (s + \omega_p)} \cdot \frac{1}{1 + s \cdot \frac{C \cdot R_1 \cdot R_2 \cdot ( A_o \cdot \omega_p + s + \omega_p)}{R_2 \cdot ( s + \omega_p) + R_1 \cdot (A_o \cdot \omega_p + s + \omega_p)}}
+\end{equation*}
 
-\subsubsection*{Resultados}
+\begin{equation}
+	H(s) = \frac{-A_o \cdot R_2}{R_2 + R_1 \cdot (1+A_o)} \cdot \frac{1}{1 + s \cdot \frac{C \cdot R_1 \cdot R_2 \cdot \omega_p \cdot (A_o + 1) + R_1 + R_2}{\omega_p \cdot (R_2 + R_1 \cdot(A_o + 1))} + s^{2} \cdot \frac{C \cdot R_1 \cdot R_2}{\omega_p \cdot (R_2 + R_1 \cdot (A_o + 1))}}
+	\label{eq:integrador_compensado_transfer_polo_dominante}
+\end{equation}
+
+\paragraph*{Impedancia de entrada con $A_{vol}$ finito} llamando como $Z_2$ al paralelo entre la resistencia y el capacitor en el lazo de la realimentaci\'on y luego aplicando ley de nodos, se obtiene:
+
+\begin{align*}
+	I_1 & = I_2 + I_3 \Rightarrow \frac{V_i + V_d}{R_1} = \frac{-V_d}{R_{id}} + \frac{-V_d - V_d \cdot A_{vol}}{Z_o + Z_2}\\
+	& \Rightarrow
+	V_d = \frac{- V_i \cdot r_{id} \cdot \left[ R_2 + Z_o \cdot (1 + s \cdot C \cdot R_2) \right]}{(R_1 + r_{id}) \cdot \left[R_2 + Z_o \cdot (1 + s \cdot C \cdot R_2) \right] + (1 + A_{vol}) \cdot ( 1 + s \cdot C \cdot R_2) \cdot R_1 \cdot r_{id}}
+\end{align*}
+
+\begin{align}
+	Z_{in}(s) = \frac{V_i}{I_1} = \frac{(R_1 + r_{id}) \cdot (R_2 + Z_o) + (1 + A_{vol}) \cdot (R_1 + r_{id})}{R_2 + Z_o + r_{id} \cdot(1 + A_{vol})} \cdot \frac{1 + s \cdot \frac{C \cdot R_2 \cdot \left[ Z_o \cdot (R_1 + r_{id}) + R_1 \cdot r_{id} \cdot ( 1 + A_{vol}) \right]}{(R_1 + r_{id}) \cdot (R_2 + Z_o) + (1 + A_{vol}) \cdot R_1 \cdot r_{id}}}{1 + s \cdot \frac{C \cdot R_2 \left[ Z_o + r_{id} \cdot ( 1 + A_{vol}) \right]}{R_2 + Z_o + r_{id} \cdot ( 1 + A_{vol})}}
+\end{align}
+
+\paragraph*{Impedancia de entrada con polo dominante} reemplazando $A_{vol}$ por su expresi\'on incluyendo el polo dominante, se llega luego de unos pasos algebraicos a que:
+
+\begin{align}
+	Z_{in}(s) = & \frac{(R_1+r_{id})\cdot(R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1+A_o)}{R_2 + Z_o + r_{id} \cdot(1 + A_o)} \\
+	& \cdot \frac{1 + s \cdot \frac{(R_1 + r_{id}) \cdot \left[C \cdot R_2 \cdot Z_o \cdot \omega_p + R_2 + Z_o \right] + R_1 \cdot r_{id} \cdot \left[ 1 + C \cdot R_2 \cdot \omega_p \cdot (A_o + 1) \right] }{\omega_p \left[ (R_1 + r_{id}) \cdot (R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1 + A_o) \right] } + s^{2} \cdot \frac{C \cdot R_2 \cdot \left[ (R_1 + r_{id}) \cdot Z_o + R_1 \cdot r_{id} \right] }{\omega_p \left[ (R_1 + r_{id}) \cdot (R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1 + A_o) \right]}}{1 + s \cdot \frac{R_2 + Z_o + r_{id} + \omega_p \cdot C \cdot R_2 \cdot \left[ Z_o + (1 + A_o) \cdot r_{id} \right] }{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(1 + A_o) \right] } + s^{2} \cdot \frac{C \cdot R_2 \cdot (Z_o + r_{id})}{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(1 + A_o) \right] }}
+\end{align}
 
 
-	\subsection*{Circuito derivador compensado}
-
-\subsubsection*{An\'alisis Te\'orico}
-
-\subsubsection*{Resultados}
-
-
-	\subsection*{Circuito integrador}
-
-\subsubsection*{An\'alisis Te\'orico}
-
-\subsubsection*{Resultados}
-
-
-	\subsection*{Circuito integrador compensado}
-
-\subsubsection*{An\'alisis Te\'orico}
-
-\subsubsection*{Resultados}
+\subsubsection{Simulaci\'on}
+\subsubsection{Resultados}
 
 %TODO Eliminar al juntar documentos!
 \end{document}
