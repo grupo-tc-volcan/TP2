@@ -1,0 +1,5 @@
+Added Component: Designator=Voio(TPTH)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetOA_X1_6 Pin=Voio-1
+Added Member To Class: ClassName=SCH_Pro Member=Component Voio TP
+Added Room: Name=SCH_Pro
