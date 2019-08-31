@@ -12,7 +12,7 @@
 
 
 \usepackage[protrusion=true,expansion=true]{microtype}	
-\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{amsmath,amsfonts,amsthm, systeme} % Math packages
 \usepackage[pdftex]{graphicx}	
 \usepackage{url}
 \usepackage{import}
@@ -296,3 +296,14 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.14}
 %END OF NEEDED FOR lt2ti TOOL
+
+%THIS IS SO THAT REFERENCES CAN BE CLICKED
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=blue,    
+}
+%END OF REFERENCES
