@@ -1,0 +1,2 @@
+Remove Pin=OA_X2-4 From Net=-VCC
+Remove Pin=OA_X2-7 From Net=+VCC

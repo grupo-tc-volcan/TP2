@@ -1,0 +1,28 @@
+Circuit: * C:\Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\EJ5\Draft3.asc
+
+Direct Newton iteration for .op point succeeded.
+.step r=1
+.step r=10000
+.step r=50000
+.step r=100000
+.step r=150000
+.step r=200000
+.step r=250000
+
+Date: Sat Aug 31 13:08:49 2019
+Total elapsed time: 10.338 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 328863
+traniter = 328841
+tranpoints = 160042
+accept = 160037
+rejected = 5
+matrix size = 44
+fillins = 24
+solver = Normal
+Matrix Compiler1: 2.41 KB object code size  0.6/0.3/[0.1]
+Matrix Compiler2: off  [0.2]/0.4/0.3
+

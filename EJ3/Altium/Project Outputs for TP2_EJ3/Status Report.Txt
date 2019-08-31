@@ -1,0 +1,10 @@
+Output: Mixed Sim
+Type  : AdvSimNetlist
+From  : Project [TP2_EJ3.PrjPcb]
+   Generated File[TP2_EJ3.nsx]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 10:21:58 AM On 8/21/2019

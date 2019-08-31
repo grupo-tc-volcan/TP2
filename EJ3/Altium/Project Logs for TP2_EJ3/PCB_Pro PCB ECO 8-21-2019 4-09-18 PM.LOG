@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=C1 Old Footprint=CAP100 New Footprint=CAP200
+Change Component Footprint: Designator=C2 Old Footprint=CAP100 New Footprint=CAP200
+Change Component Kind : Designator=C2 Old Kind=Standard New Kind=Net Tie

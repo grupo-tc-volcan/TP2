@@ -1,0 +1,20 @@
+Circuit: * C:\Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\EJ5\Simulaciones\ClippingStage.asc
+
+Direct Newton iteration for .op point succeeded.
+
+Date: Sat Aug 31 13:49:41 2019
+Total elapsed time: 0.068 seconds.
+
+tnom = 27
+temp = 27
+method = trap
+totiter = 5
+traniter = 0
+tranpoints = 0
+accept = 0
+rejected = 0
+matrix size = 6
+fillins = 0
+solver = Normal
+Matrix Compiler1:      12 opcodes
+Matrix Compiler2: 394 bytes object code size

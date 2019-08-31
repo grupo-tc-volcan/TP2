@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=C1 Old Footprint=CAP200 New Footprint=CAP100
+Change Component Footprint: Designator=C2 Old Footprint=CAP200 New Footprint=CAP100
+Change Component Designator: OldDesignator=+-VCC1 NewDesignator=ALIMENTACIÓN
+Added Member To Class: ClassName=SCH_Pro Member=Component OA_X2 TL081IP
