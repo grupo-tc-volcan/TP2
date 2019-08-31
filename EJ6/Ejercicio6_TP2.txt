@@ -1,0 +1,27 @@
+Ejercicio6:
+	La salida tiene que ir entre 0v (35c) hasta 5v (45c)
+	Tl072 como opamp
+		tension de alimentacion: +-15V
+		dos opamps (uno no inversor, el otro sumador)
+	Sensor LM35
+		Entrada 4v a 30v -> el minimo tiene que ser 450mV para que pueda medir las t pedidas.
+		Salida 10mv/celsius.
+	
+	Proteccion con zener.
+	Bornera de alimentacion, entrada y salida
+	jumper para conmutar generador o lm35 a la entrada.
+
+------------------------------------------------------------------------------------------------
+en el rango de temperaturas pedido el sensor entrega 350mv -> 450mV
+-> obtenemos una amplitud de 100mv que deberia ser de 5v -> AMPLIFICO x50
+
+-> esto nos da un rango nuevo de 17.5v hasta 22.5v -> si amplificamos primero satura.
+
+-> Entonces primero aplicamos un offset de -350mV
+
+-> La señal ahora oscila entre 0 y 100mV
+
+-> Ahora si amplificamos 50 veces, y nos queda lo pedido.
+
+-> ponemos un zener a la salida (y un resistor?)
+
