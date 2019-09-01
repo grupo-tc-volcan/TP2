@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 
-WP = 10
+WP = 10 * 2 * np.pi
 F = 10000
 VCC = 15
 A0 = 100000
@@ -74,9 +74,9 @@ print("non inverter Vo/Vi=")
 print(latex(result.evalf()))
 
 r5 = (r1*(r2+RD))/(r1+r2+RD)
-r = r1 * (((r2+R0)/(RD*a))-1)
+r = r5 * (((r2+R0)/(RD*a))-1)
 zin = ((((r*r5)/(r+r5)+RD)*r4)/((r*r5)/(r+r5)+RD+r4))+r3
-result = replaceValues(zin, 2, aw)
+result = replaceValues(zin, 3, aw)
 print("non inverter: Zin=")
 print(latex(result.evalf()))
 

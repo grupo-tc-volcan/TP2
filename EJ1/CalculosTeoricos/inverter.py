@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 
-WP = 8 #* 2 * np.pi  #o 12Hz
+WP = 8 * 2 * np.pi  #o 12Hz
 F = 10000 #!!!!!!!!!
 VCC = 15
 A0 = 112000
@@ -79,7 +79,7 @@ print(latex(result.evalf()))
 r5 = (r4*R0)/(r4+R0)
 vo = VD * ((a/R0 - 1/r2)/(1/r5 + 1/r2))
 r6 = (vo*R0)/(VD*a)
-raux =(r3 * (r2+(r5*r6)/(r5+r6)))/(r3+r2+(r5*r6)/(r5+r6))
+raux =(r3 * (r2+((r5*r6)/(r5+r6))))/(r3+r2+((r5*r6)/(r5+r6)))
 zin = r1 + (RD*raux)/(RD+raux)
 result = replaceValues(zin, 1, aw)
 print("inverter: Zin=")
