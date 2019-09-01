@@ -1,2 +1,73 @@
 
-\section*{Ejercicio 1}
+\section*{Ejercicio 1: Comportamiento de amplificadores operacionales}
+En este ejercicio se analizan distintas caracter\'isticas de circuitos con amplificadores operacionales. Primero se utiliza un circuito con configuraci\'on inversora y luego otro con configuraci\'on no inversora.
+
+\subsection{Configuraci\'on inversora}
+
+\begin{figure}[h!]
+ \begin{center}
+    \begin{circuitikz}
+\ctikzset{bipoles/length=1cm}
+\draw
+(0, 0) node[op amp] (opamp) {}
+(opamp.-) to[short] (-2,0.35)
+to[R,l_=$R_1$,-o] (-4, 0.35) node[anchor=east]{IN}
+(-4,-1.5) to[sV,v=$V_{in}$] (-4,0.35)
+(-4,-1.5) node[ground]{}
+
+(-2,0.35) to[R=$R_3$] (-2,-1.5) node[ground]{}
+
+(opamp.-) to[short,*-] ++(0,0.5) coordinate (leftC)
+to[R=$R_2$] (leftC -| opamp.out)
+to[short,-*] (opamp.out)  node[anchor=west]{OUT}
+
+(opamp.+) -- (-1,-0.35) to (-1,-1.5) node[ground]{}
+(opamp.out) to[short] (0.85,-0.4)
+%to[R=$R_4$] (0.85,-1)  to[short] (0.85,-1.5)node[ground]{}
+ to[R=$R_4$] (0.85,-1.5) node[ground]{}
+;
+    \end{circuitikz}
+    \caption{Configuraci\'on inversora}
+\end{center}
+\end{figure}
+
+
+\subsection{Configuraci\'on no inversora}
+
+\begin{figure}[h!]
+ \begin{center}
+    \begin{circuitikz}
+\ctikzset{bipoles/length=1cm}
+\draw
+(0, 0) node[op amp] (opamp) {}
+%(opamp.-) to[short] (-2,0.35)
+%to[R,l_=$R_1$,-o] (-4, 0.35) 
+%(-4,0.35) to[short] (-4,-1.5) node[ground]{}
+(opamp.-) ++(0,0.5) coordinate (leftC) to[R,l_=$R_1$] (-3,0.8) node[ground]{}
+
+(opamp.-) to[short,*-] ++(0,0.5) coordinate (leftC)
+to[R=$R_2$] (leftC -| opamp.out)
+to[short,-*] (opamp.out)  node[anchor=west]{OUT}
+
+(opamp.+)  to[short] (-1,-0.35)
+to[R=$R_3$] (-3,-0.35) 
+(-1,-0.35) to[R=$R_4$] (-1,-2) node[ground]{}
+
+(-3,-2) to[sV,v=$V_{in}$] (-3,-0.35) node[anchor=east]{IN}
+(-3,-2) node[ground]{}
+;
+    \end{circuitikz}
+    \caption{Configuraci\'on inversora}
+\end{center}
+\end{figure}
+
+zin circuito1 caso1 teorica:
+\begin{equation}
+\frac{2500.0 \left(21052907.0 s - 9.43171129431577 \cdot 10^{17}\right)}{11051507.0 s - 4.95108409511588 \cdot 10^{17}}
+\end{equation}
+
+
+
+
+
+

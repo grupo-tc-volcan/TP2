@@ -1,12 +1,19 @@
 * C:\Users\Male\Desktop\TC\TP2\EJ1\simulacion_pcb\Circuito 1\Caso 2\ej1_circ1_caso2.asc
-R3 N001 0 25k
-R4 vout 0 100k
+R3 N001 0 2.5k
+R4 vout 0 10k
 V1 0 vee 15
 V2 vcc 0 15
-v3 vin 0 AC 1 Rser=50
-R1 vin N001 25k
-R2 vout N001 2.5k
+v3 V1 0 AC 1 Rser=50
+R1 Vin N001 2.5k
+R2 vout N001 25k
 XU2 0 N001 vcc vee vout LM324
+R5 V1 0 10Meg
+C1 V1 0 12p
+R7 vout 0 10Meg
+C3 vout 0 12p
+R8 Vin 0 10Meg
+C4 Vin 0 12p
+R6 Vin V1 27k
 .ac dec 10 1 100000000000
 .lib C:\Users\Male\Desktop\TC\TP2\EJ1\simulacion_pcb\Circuito 1\Caso 1\LM324.mod.txt
 .backanno
