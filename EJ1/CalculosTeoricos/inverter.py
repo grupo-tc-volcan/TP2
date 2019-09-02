@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 
-WP = 8 * 2 * np.pi  #o 12Hz
+WP = 10 * 2 * np.pi  #o 12Hz
 F = 10000 #!!!!!!!!!
 VCC = 15
 A0 = 112000
@@ -70,17 +70,43 @@ h = simplify(h)
 hMod = sqrt(re(h)**2 + im(h)**2)
 hMod = simplify(hMod)
 
-result = replaceValues(h, 1, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("inverter: Vo/Vi=")
+result = replaceValues(h, 1, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+print("CASO 1>")
+print(latex(result.evalf()))
+
+result = replaceValues(h, 2, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+print("CASO 2>")
+print(latex(result.evalf()))
+
+result = replaceValues(h, 3, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+print("CASO3>")
 print(latex(result.evalf()))
 
 
+#ESTO ES CONSIDERANDO R INTERNAS!-----------
+#r5 = (r4*R0)/(r4+R0)
+#vo = VD * ((a/R0 - 1/r2)/(1/r5 + 1/r2))
+#r6 = (vo*R0)/(VD*a)
+#raux =(r3 * (r2+((r5*r6)/(r5+r6))))/(r3+r2+((r5*r6)/(r5+r6)))
+#zin = r1 + (RD*raux)/(RD+raux)
+#HASTA ACAAAAAAAAAAAAA----------------------
 
-r5 = (r4*R0)/(r4+R0)
-vo = VD * ((a/R0 - 1/r2)/(1/r5 + 1/r2))
-r6 = (vo*R0)/(VD*a)
-raux =(r3 * (r2+((r5*r6)/(r5+r6))))/(r3+r2+((r5*r6)/(r5+r6)))
-zin = r1 + (RD*raux)/(RD+raux)
+#CASO IDEAL:
+zin_sp = (a*r1 + r1 + r2)/(1+a)
+rp=10000000
+cp=1/(s * 12e-12)
+puntas = (rp * cp)/(rp+cp)
+zin = (puntas * zin_sp)/(puntas + zin_sp)
+
 result = replaceValues(zin, 1, aw)
-print("inverter: Zin=")
+print("inverter: Zin caso1=")
+print(latex(result.evalf()))
+
+result = replaceValues(zin, 2, aw)
+print("inverter: Zin caso2=")
+print(latex(result.evalf()))
+
+result = replaceValues(zin, 3, aw)
+print("inverter: Zin caso3=")
 print(latex(result.evalf()))

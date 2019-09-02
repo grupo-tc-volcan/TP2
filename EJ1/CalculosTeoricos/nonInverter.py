@@ -70,13 +70,35 @@ hMod = sqrt(re(h)**2 + im(h)**2)
 hMod = simplify(hMod)
 
 result = replaceValues(h, 1, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
-print("non inverter Vo/Vi=")
+print("non inverter Vo/Vi CASO1=")
+print(latex(result.evalf()))
+
+result = replaceValues(h, 2, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+print("non inverter Vo/Vi CASO2=")
+print(latex(result.evalf()))
+
+result = replaceValues(h, 3, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+print("non inverter Vo/Vi CASO3=")
 print(latex(result.evalf()))
 
 r5 = (r1*(r2+RD))/(r1+r2+RD)
 r = r5 * (((r2+R0)/(RD*a))-1)
-zin = ((((r*r5)/(r+r5)+RD)*r4)/((r*r5)/(r+r5)+RD+r4))+r3
+zin_sp = ((((r*r5)/(r+r5)+RD)*r4)/((r*r5)/(r+r5)+RD+r4))+r3
+
+rp=10000000
+cp=1/(s * 12e-12)
+puntas = (rp * cp)/(rp+cp)
+zin = (puntas * zin_sp)/(puntas + zin_sp)
+
+result = replaceValues(zin, 1, aw)
+print("non inverter CASO1: Zin=")
+print(latex(result.evalf()))
+
+result = replaceValues(zin, 2, aw)
+print("non inverter CASO2: Zin=")
+print(latex(result.evalf()))
+
 result = replaceValues(zin, 3, aw)
-print("non inverter: Zin=")
+print("non inverter CASO3: Zin=")
 print(latex(result.evalf()))
 
