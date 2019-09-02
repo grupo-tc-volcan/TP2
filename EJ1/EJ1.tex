@@ -2,6 +2,22 @@
 \section*{Ejercicio 1: Comportamiento de amplificadores operacionales}
 En este ejercicio se analizan distintas caracter\'isticas de circuitos con amplificadores operacionales. Primero se utiliza un circuito con configuraci\'on inversora y luego otro con configuraci\'on no inversora.
 
+La Tabla \ref{table7} utiliza los datos proporcionados por el archivo ``bode.csv'' el cual se genera automáticamente con filecontents*.
+%\csvautotabular{bode.csv}
+%\csvreader[late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
+\begin{table}[h!]
+	\centering
+	\caption{Ejemplo de tabla centrada con datos desde ``bode.csv'}
+	\label{table7}
+	\begin{tabular}{c c c c c}%
+		\bfseries  & $\bm{R_1 = R_2}$ & $\bm{R_3}$ & $\bm{R_4}$  \\ \hline
+		caso 1 & 2,5k & 25k & 10k \\
+		caso 2 & 2,5k & 2.5k & 10k \\
+		caso 3 & 25k & 2.5k & 100k \\
+		\hline
+	\end{tabular}
+\end{table}
+
 \subsection{Configuraci\'on inversora}
 
 \begin{figure}[h!]
@@ -30,6 +46,8 @@ to[short,-*] (opamp.out)  node[anchor=west]{OUT}
     \caption{Configuraci\'on inversora}
 \end{center}
 \end{figure}
+
+\subsubsection{An\'alisis te\'orico}
 
 
 \subsection{Configuraci\'on no inversora}
@@ -105,6 +123,22 @@ CON PUNTA:
 \begin{equation}
 \frac{1.0 \left(3.64730077918927 \cdot 10^{20} s + 2.33335625 \cdot 10^{27}\right)}{4376760935.02712 s^{2} + 4.12996599321165 \cdot 10^{16} s + 9.35675022916667 \cdot 10^{22}}
 \end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+circ2 caso1 vovi:
+\begin{equation}
+\frac{2200000000.0}{437.676093502712 s + 250027500.0}
+\end{equation}
+
+circ2 caso2 vovi:
+\begin{equation}
+\frac{400000000.0}{79.5774715459477 s + 250005000.0}
+\end{equation}
+
+circ2 caso3 vovi:
+\begin{equation}
+\frac{2200000000.0}{437.676093502712 s + 2500027500.0}
+\end{equation}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CIRCUITO 2
 ZIN

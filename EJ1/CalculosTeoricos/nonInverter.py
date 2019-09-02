@@ -64,7 +64,8 @@ def replaceValues (equation, case, a_):
 s = Symbol('s')
 aw = A0 / (1 + s/WP) #W or wp?
 
-h = ((1+r2)/r1) / ((1/a) + (r2/(r1*a)) + 1 + (r3/(r4*a)) + ((r3*r2)/(r4*r1*a)) + (r3/r4))
+#h = ((1+r2)/r1) / ((1/a) + (r2/(r1*a)) + 1 + (r3/(r4*a)) + ((r3*r2)/(r4*r1*a)) + (r3/r4))
+h = (a*r4*(r1+r2))/((r4+r3)*(r1+r2+a*r1))
 h = simplify(h)
 hMod = sqrt(re(h)**2 + im(h)**2)
 hMod = simplify(hMod)
