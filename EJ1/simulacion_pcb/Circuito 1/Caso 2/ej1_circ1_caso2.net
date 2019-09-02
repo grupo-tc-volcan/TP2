@@ -1,11 +1,11 @@
 * C:\Users\Male\Desktop\TC\TP2\EJ1\simulacion_pcb\Circuito 1\Caso 2\ej1_circ1_caso2.asc
-R3 N001 0 2.5k
-R4 vout 0 10k
+R3 N001 0 25k
+R4 vout 0 100k
 V1 0 vee 15
 V2 vcc 0 15
 v3 V1 0 AC 1 Rser=50
-R1 Vin N001 2.5k
-R2 vout N001 25k
+R1 Vin N001 25k
+R2 vout N001 2.5k
 XU2 0 N001 vcc vee vout LM324
 R5 V1 0 10Meg
 C1 V1 0 12p

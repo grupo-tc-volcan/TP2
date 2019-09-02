@@ -82,10 +82,11 @@ result = replaceValues(h, 3, aw) #pasarle A0 o aw dependiendo de lo que quiera a
 print("non inverter Vo/Vi CASO3=")
 print(latex(result.evalf()))
 
-r5 = (r1*(r2+RD))/(r1+r2+RD)
-r = r5 * (((r2+R0)/(RD*a))-1)
-zin_sp = ((((r*r5)/(r+r5)+RD)*r4)/((r*r5)/(r+r5)+RD+r4))+r3
+# r5 = (r1*(r2+RD))/(r1+r2+RD)
+# r = r5 * (((r2+R0)/(RD*a))-1)
+# zin_sp = ((((r*r5)/(r+r5)+RD)*r4)/((r*r5)/(r+r5)+RD+r4))+r3
 
+zin_sp = r3+r4
 rp=10000000
 cp=1/(s * 12e-12)
 puntas = (rp * cp)/(rp+cp)
