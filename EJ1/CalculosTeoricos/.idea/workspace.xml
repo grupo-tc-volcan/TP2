@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f1b9888-21ff-4f43-9f85-3d26386ff2c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/inverter.py" beforeDir="false" afterPath="$PROJECT_DIR$/inverter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nonInverter.py" beforeDir="false" afterPath="$PROJECT_DIR$/nonInverter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.log" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.net" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.net" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.op.raw" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.op.raw" afterDir="false" />
