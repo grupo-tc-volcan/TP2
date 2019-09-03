@@ -1,0 +1,18 @@
+* C:\Users\Joaco\Desktop\repos\TC\TP2\EJ6\Simulation\TC_TP2_EJ6_simulation.asc
+XU2 0 N001 vcc vee N002 TL072
+XU3 0 N003 vcc vee vout TL072
+R1 N001 vee 42.857k
+R2 N001 vsensor 1k
+R3 N002 N001 50k
+R4 N003 N002 10k
+R5 vout N003 10k
+D1 0 vout BZX84B6V2L
+V1 0 vee 15
+V2 vcc 0 15
+V3 vsensor 0
+.model D D
+.lib C:\Users\Joaco\Documents\LTspiceXVII\lib\cmp\standard.dio
+.dc v3 0 1 1m
+.lib C:\Users\Joaco\Desktop\TL072.301
+.backanno
+.end
