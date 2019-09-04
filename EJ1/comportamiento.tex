@@ -1,0 +1,48 @@
+\subsection{Fen\'omenos que afectan al comportamiento de los circuitos} %VER SI DEJAR PARA C/CASO O AL FINAL, for BOTH, o al ppio introductoriamente
+	\subsubsection*{Efecto de slew rate (SR)}
+	\subsubsection*{Distorsi\'on de cruce por cero (Cross-Over Distortion)}
+	\subsubsection*{Gain Bandwidth Product (GBP)}
+	\subsubsection*{saturación}
+
+\subsection{Condiciones de comportamiento lineal del circuito}
+
+\subsubsection{An\'alisis te\'orico}
+
+La tensión de entrada máxima del circuito está limitada principalmente por el slew rate slew rate y la saturaci\'on. 
+
+\subsubsection*{Influenccia del slew rate en V_{in_{max}}}
+
+Partiendo de:
+\begin{equation}
+\begin{cases}
+	SR = m\'ax\bigg\{\frac{ dV_{out}}{dt}\bigg\} \\
+	V_{in} (\omega, t) = V_{in_{max}} \cdot sin(\omega t) \\
+	V_{out} (\omega, t) = G(\omega) \cdot V_{in_{max}} \cdot sin(\omega t)
+\end{cases}
+\label{srecs}
+\end{equation}
+ 
+Siendo $SR$ el slew rate, $V_{in}$ y $V_{out}$ las se\~nales de entrada y de salida respectivamente y G(\omega) la ganancia del circuito.
+
+Dado que
+
+\begin{equation}
+	\frac{dV_{out}}{dt} = G(\omega) \cdot V_{in_{max}} \cdot \omega \cdot cos(\omega t)
+\label{deriv}
+\end{equation}
+
+Maximizando la ecuaci\'on \ref{deriv} se obtiene que:
+
+\begin{equation}
+	SR = m\'ax\bigg\{\frac{dV_{out}}{dt}\bigg\} = G(\omega) \cdot V_{in_{max}} 
+\label{max}
+\end{equation}
+
+Despejando de la ecuaci\'on \ref{max}:
+
+\begin{equation}
+	 V_{in_{max}}  = \frac{SR}{G(\omega)}
+\end{equation}
+
+
+\subsubsection*{Influenccia de la saturaci\'on en V_{in_{max}}}

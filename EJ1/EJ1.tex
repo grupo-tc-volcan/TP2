@@ -1,24 +1,10 @@
+\section*{Resumen}
+%BLA BLA BLA BLA
+
 
 \section*{Ejercicio 1: Comportamiento de amplificadores operacionales}
-En este ejercicio se analizan distintas caracter\'isticas de circuitos con amplificadores operacionales. Primero se utiliza un circuito con configuraci\'on inversora y luego otro con configuraci\'on no inversora.
+En este ejercicio se analizan distintas caracter\'isticas de dos circuitos con amplificadores operacionales. Primero se estudia el circuito de la figura \ref{c1}, cuya configuraci\'on es inversora. Luego se analiza el circuirto \ref{c2} de configuraci\'on no inversora.
 
-La Tabla \ref{table7} utiliza los datos proporcionados por el archivo ``bode.csv'' el cual se genera automáticamente con filecontents*.
-%\csvautotabular{bode.csv}
-%\csvreader[late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
-\begin{table}[h!]
-	\centering
-	\caption{Ejemplo de tabla centrada con datos desde ``bode.csv'}
-	\label{table7}
-	\begin{tabular}{c c c c c}%
-		\bfseries  & $\bm{R_1 = R_2}$ & $\bm{R_3}$ & $\bm{R_4}$  \\ \hline
-		caso 1 & 2,5k & 25k & 10k \\
-		caso 2 & 2,5k & 2.5k & 10k \\
-		caso 3 & 25k & 2.5k & 100k \\
-		\hline
-	\end{tabular}
-\end{table}
-
-\subsection{Configuraci\'on inversora}
 
 \begin{figure}[h!]
  \begin{center}
@@ -44,13 +30,9 @@ to[short,-*] (opamp.out)  node[anchor=west]{OUT}
 ;
     \end{circuitikz}
     \caption{Configuraci\'on inversora}
+\label{c1}
 \end{center}
 \end{figure}
-
-\subsubsection{An\'alisis te\'orico}
-
-
-\subsection{Configuraci\'on no inversora}
 
 \begin{figure}[h!]
  \begin{center}
@@ -75,9 +57,51 @@ to[R=$R_3$] (-3,-0.35)
 (-3,-2) node[ground]{}
 ;
     \end{circuitikz}
-    \caption{Configuraci\'on inversora}
+    \caption{Configuraci\'on no inversora}
+\label{c2}
 \end{center}
 \end{figure}
+
+%\csvautotabular{bode.csv}
+%\csvreader[late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c c c c c}%
+		\bfseries  & $\bm{R_1 = R_2}$ & $\bm{R_3}$ & $\bm{R_4}$  \\ \hline
+		caso 1 & 2,5k & 25k & 10k \\
+		caso 2 & 2,5k & 2.5k & 10k \\
+		caso 3 & 25k & 2.5k & 100k \\
+		\hline
+	\end{tabular}
+	\caption{Valores de resistencias para cada caso a analizar de los circuitos.}
+	\label{casos}
+\end{table}
+
+
+\input{../EJ1/vovi.tex}
+\input{../EJ1/zin.tex}
+\input{../EJ1/dcsweep.tex}
+\input{../EJ1/res.tex}
+\input{../EJ1/comportamiento.tex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Circuito 1 Vo/Vi CASO 1

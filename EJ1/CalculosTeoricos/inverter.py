@@ -99,6 +99,11 @@ cp=1/(s * 12e-12)
 puntas = (rp * cp)/(rp+cp)
 zin = (puntas * zin_sp)/(puntas + zin_sp)
 
+
+expresion = simplify(zin)
+print("EXPRESION con puntas:")
+print(expresion)
+
 result = replaceValues(zin_sp, 1, aw)
 print("inverter: Zin caso1=")
 print(latex(result.evalf()))

@@ -92,6 +92,11 @@ cp=1/(s * 12e-12)
 puntas = (rp * cp)/(rp+cp)
 zin = (puntas * zin_sp)/(puntas + zin_sp)
 
+exp = simplify(zin)
+print("EXP SIMPLIFICADA:")
+print(exp)
+
+
 result = replaceValues(zin, 1, aw)
 print("non inverter CASO1: Zin=")
 print(latex(result.evalf()))

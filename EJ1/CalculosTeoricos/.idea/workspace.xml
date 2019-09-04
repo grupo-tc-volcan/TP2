@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f1b9888-21ff-4f43-9f85-3d26386ff2c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.log" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.net" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.net" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.op.raw" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.op.raw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.raw" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 1/Caso 2/ej1_circ1_caso2.raw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 2/Caso 2/ej1_circ2_caso2.log" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 2/Caso 2/ej1_circ2_caso2.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 2/Caso 2/ej1_circ2_caso2.op.raw" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 2/Caso 2/ej1_circ2_caso2.op.raw" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../simulacion_pcb/Circuito 2/Caso 2/ej1_circ2_caso2.raw" beforeDir="false" afterPath="$PROJECT_DIR$/../simulacion_pcb/Circuito 2/Caso 2/ej1_circ2_caso2.raw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EJ1.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../EJ1.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.tex" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,12 +14,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inverter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="101">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -33,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../../../ian/TP02/Ex1/iA/PlotZin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+            <state relative-caret-position="506">
+              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -42,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nonInverter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="88" column="14" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+            <state relative-caret-position="217">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -63,8 +60,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../../../../ian/TP02/Ex1/iA/PlotZin.py" />
-        <option value="$PROJECT_DIR$/nonInverter.py" />
         <option value="$PROJECT_DIR$/inverter.py" />
+        <option value="$PROJECT_DIR$/nonInverter.py" />
       </list>
     </option>
   </component>
@@ -80,8 +77,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="65" />
-    <option name="width" value="1719" />
-    <option name="height" value="1038" />
+    <option name="width" value="1720" />
+    <option name="height" value="1039" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -119,7 +116,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.inverter">
+  <component name="RunManager" selected="Python.nonInverter">
     <configuration name="PlotZin" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CalculosTeoricos" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -185,8 +182,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.inverter" />
         <item itemvalue="Python.nonInverter" />
+        <item itemvalue="Python.inverter" />
         <item itemvalue="Python.PlotZin" />
       </list>
     </recent_temporary>
@@ -205,32 +202,42 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="0" width="1375" height="830" extended-state="1" />
+    <frame x="52" y="0" width="1376" height="831" extended-state="1" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21882002" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21865672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38483548" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5042857" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/inverter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../ian/TP02/Ex1/iA/PlotZin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        <state relative-caret-position="506">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -239,18 +246,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nonInverter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="88" column="14" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inverter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="217">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
