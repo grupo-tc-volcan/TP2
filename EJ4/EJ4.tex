@@ -501,7 +501,10 @@ ninguna distorsi\'on o deformaci\'on de la salida, siempre y cuando lo obtenido 
 	\end{tabular}
 \end{table}
 
-\paragraph*{Impedancia de entrada}
+\paragraph*{Impedancia de entrada} como se puede observar, las curvas te\'oricas, medidas y simuladas contrastan bien salvo
+por diferencias en el m\'odulo en torno a la frecuencia de corte del cero de segundo orden. Esto \'ultimo se justifica de la misma forma que sucedi\' con la 
+respuesta en frecuencia, ya que en las mediciones se posee una resistencia del generador que modifica el comportamiento del sistema que efectivamente se mide,
+y por ello se puede apreciar que la medici\'on tiene un valor mucho menor que el caso cr\'iticamente amortiguado de la teor\'ia.
 
 \begin{figure}[H]
 	\centering
@@ -517,7 +520,8 @@ ninguna distorsi\'on o deformaci\'on de la salida, siempre y cuando lo obtenido 
 	\label{fig_derivador_compensado_impedancia_fase}
 \end{figure}
 
-\paragraph*{Respuesta a se\~nales no senoidales}
+\paragraph*{Respuesta a se\~nales no senoidales} en las curvas ilustradas, las amarillas corresponden a las se\~nales de entrada y las verdes
+a las se\~nales de salida.
 
 \begin{figure}[H]
 	\centering
@@ -697,7 +701,7 @@ se vuelve poco apreciable.
 	\label{fig:integrador_bode_fase}
 \end{figure}
 
-\paragraph*{Impedancia de entrada} en t\'erminos generales, tanto la respuesta en frecuencia como la medici\'no de la impedancia de entrada
+\paragraph*{Impedancia de entrada} en t\'erminos generales, tanto la respuesta en frecuencia como la impedancia de entrada
 obtenidos en la medici\'on y en la simulaci\'on son resultados que en s\'i mismos no logran caracterizar al sistema correctamente por los efectos indeseados
 de la saturaci\'on para bajas frecuencias del circuito. Esto \'ultimo tambi\'en se encuentra presente en LTSpice. En las figuras \ref{fig:integrador_simulacion} se puede observar
 que seg\'un la frecuencia el nivel de continua se modifica por lo explicado anteriormente.
@@ -802,32 +806,128 @@ el derivador un sobrepico por comportamientos subamortiguados, adem\'as de quere
 \paragraph*{Impedancia de entrada con polo dominante} reemplazando $A_{vol}$ por su expresi\'on incluyendo el polo dominante, se llega luego de unos pasos algebraicos a que:
 
 \begin{align}
-	Z_{in}(s) = & \frac{(R_1+r_{id})\cdot(R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1+A_o)}{R_2 + Z_o + r_{id} \cdot(1 + A_o)} \\
-	& \cdot \frac{1 + s \cdot \frac{(R_1 + r_{id}) \cdot \left[C \cdot R_2 \cdot Z_o \cdot \omega_p + R_2 + Z_o \right] + R_1 \cdot r_{id} \cdot \left[ 1 + C \cdot R_2 \cdot \omega_p \cdot (A_o + 1) \right] }{\omega_p \left[ (R_1 + r_{id}) \cdot (R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1 + A_o) \right] } + s^{2} \cdot \frac{C \cdot R_2 \cdot \left[ (R_1 + r_{id}) \cdot Z_o + R_1 \cdot r_{id} \right] }{\omega_p \left[ (R_1 + r_{id}) \cdot (R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1 + A_o) \right]}}{1 + s \cdot \frac{R_2 + Z_o + r_{id} + \omega_p \cdot C \cdot R_2 \cdot \left[ Z_o + (1 + A_o) \cdot r_{id} \right] }{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(1 + A_o) \right] } + s^{2} \cdot \frac{C \cdot R_2 \cdot (Z_o + r_{id})}{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(1 + A_o) \right] }}
+	Z_{in}(s) = \frac{(R_1+r_{id})\cdot(R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1+A_o)}{R_2 + Z_o + r_{id} \cdot(1 + A_o)} \cdot \frac{1 + s \cdot \beta + s^{2} \cdot \alpha}{1 + s \cdot b + s^{2} \cdot a }
 \end{align}
+
+\begin{align*}
+	a & = \frac{C \cdot R_2 \cdot (Z_o + r_{id})}{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(1 + A_o) \right]} \\
+	b & = \frac{R_2 + Z_o + r_{id} + \omega_p \cdot C \cdot R_2 \cdot \left[ Z_o + (1 + A_o) \cdot r_{id} \right] }{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(1 + A_o) \right] } \\
+	\alpha & = \frac{C \cdot R_2 \cdot \left[ (R_1 + r_{id}) \cdot Z_o + R_1 \cdot r_{id} \right] }{\omega_p \left[ (R_1 + r_{id}) \cdot (R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1 + A_o) \right]} \\
+	\beta & = \frac{(R_1 + r_{id}) \cdot \left[C \cdot R_2 \cdot Z_o \cdot \omega_p + R_2 + Z_o \right] + R_1 \cdot r_{id} \cdot \left[ 1 + C \cdot R_2 \cdot \omega_p \cdot (A_o + 1) \right] }{\omega_p \left[ (R_1 + r_{id}) \cdot (R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1 + A_o) \right] }
+\end{align*}
 
 \paragraph*{Expresiones finales} para finalizar con el dise\~no y an\'alisis te\'orico del integrador compensado es necesario determinar el valor de la resistencia de compensaci\'on que debe ser colocada en paralelo
 al capacitor, para que de esta forma se logre que en bajas frecuencias cuando el lazo de realimentaci\'on por el capacitor se ve debilitado, la resistencia mantenga tal realimentaci\'on. Por otro lado, a dicha resistencia se le imponen
 las condiciones mencionadas al principio de esta secci\'on, estas son, que no presente sobrepicos la respuesta en frecuencia, que integre en el mayor rango de frecuencias con un error de fase menor a 3 grados y se logre compensar
 efectivamente el circuito.
 
-Para lograr lo propuesto, se observa que para el $LM833$ en la hoja de datos se encuentra que la corriente de bias tiene un valor de $I_{io} = 200nA$ y la tensi\'on de polarizaci\'on es de
-$V_{io} = 5mV$. Utilizando esto para limitar el valor de tensi\'on de salida de forma que no haya saturaci\'on, se encuentra que la componente de salida vale:
+Para lograr estas condiciones, se propone an\'alizar te\'oricamente cu\'ales son las componentes de corriente continua del $LM833$ que pueden provocar la saturaci\'on
+del integrador incluso cuando no hay entrada. Para ello se analiza el efecto de las corrientes de bias y la tensi\'on de polarizaci\'on del amplificador operacional.
+Analizando la hoja de datos, se obtiene que la corriente de bias tiene un valor de $I_{io} = 200nA$ y la tensi\'on de polarizaci\'on es de
+$V_{io} = 5mV$. Utilizando esto para limitar el valor de tensi\'on de salida de forma que no haya saturaci\'on y considerando que el circuito se encuentra configurado
+de forma \'optima para el menor efecto de las corrientes de bias, se encuentra que la componente de salida de continua y sobre ella se imponen tales restricciones, considerando que en el peor caso se quiere una tensi\'on de salida m\'axima de $V_{max} = 1V$ simplemente 
+para tener un valor de resistencia de referencia que no se puede sobrepasar
+, y luego imponiendo como una condici\'on adicional, que la frecuencia de corte como m\'axmio debe estar ubicada en aproximadamente $f_o = 20Hz$ para
+ lograr un ancho de banda amplio dentro del cual se integre correctamente, se llega a que:
 
 \begin{equation*}
-	V_{dc} = (200nA + 1\mu A) \cdot R_2 + 5mV \cdot ( 1 + \frac{R_2}{R_1} )
+	V_{dc} = (200nA) \cdot R_2 + 5mV \cdot ( 1 + \frac{R_2}{R_1} )
+	\Rightarrow
+	R_2 < 829,16 k \Omega 
 \end{equation*}
 
-Considerando que en el peor caso se quiere una tensi\'on de salida m\'axima de $V_{max} = 1V$, y luego imponiendo como una condici\'on adicional, que la frecuencia de corte
-debe estar ubicada en aproximadamente $f_o = 10Hz$ para lograr un ancho de banda amplio dentro del cual se integre correctamente, se llega a que:
-
 \begin{align*}
-	R_2 < 829,16 k \Omega 
+	f_o & = \frac{1}{2 \pi \cdot C \cdot R_2} 
 	\Rightarrow
-	f_o = \frac{1}{2 \pi \cdot C \cdot R_2}
+	R_2 > \frac{1}{2 \pi \cdot C \cdot f_o}
+	\Rightarrow
+	R_2 > 397,89k \Omega
 \end{align*}
 
-\subsubsection{Resultados}
+En consecuencia se opta por tomar un valor de resistencia $R_2 = 470k\Omega$ puesto que ajusta correctamente en el rango de los criterios adoptados.
+
+\begin{equation}
+	H(s) = \frac{-93,91}{1 + s \cdot 9,392 \cdot 10^{-3} + \left( \frac{s}{2 \pi \cdot 15,94kHz} \right)^{2}}
+\end{equation}
+
+\begin{equation}
+	Z_{in}(s) = \frac{5000 + s \cdot 46,995 + s^{2} \cdot 5,02 \cdot 10^{-7}}{1 + s \cdot 9,39 \cdot 10^{-3} + s^{2} \cdot 9,975 \cdot 10^{-11}}
+\end{equation}
+
+	\subsubsection{Resultados}
+Antes de presentar los resultados obtenidos a este circuito, es importante aclarar que al momento de realizar las mediciones, cuando se utilizaban entradas
+al circuito integrador compensado con altas frecuencias suced\'ia que la salida se ve\'ia atenuada demasiado, con lo cual a pesar de haber tomado algunas mediciones 
+para esos extremos, se decidi\'o no incluirlas ni tomar valores en ese rango tan amplio porque se obten\'ian resultados que no eran apreciables.
+
+\paragraph*{Respuesta en frecuencia} se puede observar en lo gr\'aficos obtenidos, que el circuito integrador compensado
+contrasta te\'oricamente con las mediciones y simulaciones, a pesar de algunas diferencias en la fase para bajas frecuencias. No obstante,
+como se puede observar, la fase se mantiene en aproximadamente $90^{\circ}$ para un rango de frecuencias de $ 1kHz < f < 500kHz $, si consideramos como
+la regi\'on v\'alida para integraci\'on aquella donde la desviaci\'on no supera los 3 grados como fue consignado.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c c c c c}%
+		$V_{gen} [V]$ & $f_{gen} [Hz]$ & $V_{out} [V]$ & $\phase{V_{out}} [\circ]$ & $\frac{V_o}{V_i} [dB]$ \\ \hline
+		\csvreader[head to column names, late after line=\\]{bode.csv}{}{\in & \f & \out & \p & \db}
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Recursos/Integrador_compensado/bode_modulo.png}
+	\caption{Diagrama de bode en m\'odulo del circuito integrador compensado}
+	\label{fig:integrador_compensado_bode_modulo}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Recursos/Integrador_compensado/bode_fase.png}
+	\caption{Diagrama de bode en fase del circuito integrador compensado}
+	\label{fig:integrador_compensado_bode_fase}
+\end{figure}
+
+\paragraph*{Impedancia de entrada} se puede observar en las curvas obtenidas de la simulaci\'on, la medici\'on y los c\'alculos
+te\'oricos, que la fase contrasta con muy poco error, no obstante en las mediciones del m\'odulo tiene un valor medio de 
+$|Z_{in}| = 5,25k \Omega$ con un error medio de $E_r = 5,02\% $. Dado que el error se da para toda frecuencia, no se puede asumir que las puntas
+de osciloscopio hayan tenido una implicancia, se atribuye el error de la impedancia a las desviaciones provocadas por la tolerancia de los componentes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Recursos/Integrador_compensado/impedancia_modulo.png}
+	\caption{Impedancia de entrada en m\'odulo del circuito integrador compensado}
+	\label{fig:integrador_compensado_impedancia_modulo}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.6]{Recursos/Integrador_compensado/impedancia_fase.png}
+	\caption{Impedacia de entrada en fase del circuito integrador compensado}
+	\label{fig:integrador_compensado_impedancia_fase}
+\end{figure}
+
+De las comparaciones anteriores se pueden sacar algunas conclusiones sobre el comportamiento del circuito compensado, como el hecho de que la impedancia
+de entrada depende, para un amplio rango de frecuencias, de la resistencia $R_1$ en la entrada del circuito. Adem\'as el circuito tiene un comportamiento
+resistivo.
+
+\paragraph*{Respuesta a se\~nales no senoidales} se utilizaron como se\~nales de excitaci\'on para el circuito, una cuadrada de $50 \%$ de duty de frecuencia $f = 1kHz$, una
+cuadrada de $62 \%$ de duty y frecuencia $f = 10kHz$, una triangular de $50 \%$ de duty y frecuencia $f = 1kHz$ y, finalmente, una triangular de $80 \%$ de duty y frecuencia de 
+$f = 1kHz$. Vale mencionar, que la curva amarilla corresponde a la entrada y la verde a la salida.
+
+Durante la realizaci\'on de estas \'ultimas mediciones se observ\' que para se\~nales con valor medio no nulo, se produce que en la salida
+hay un nivel de continua consecuencia del promedio de tal entrada.
+
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{c c}
+		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_15.png} &
+		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_16.png} \\
+		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_23.png} &
+		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_27.png}
+	\end{tabular}
+	\caption{Respuestas a se\~nales no senoidales}
+	\label{fig:respuestas_integrador_compensado}
+\end{figure}
 
 \subsection{Implementaci\'on pr\'actica}
 Para la contrastaci\'on emp\'irica del an\'alisis te\'orico y los resultados de las simulaciones es necesario realizar mediciones sobre
@@ -889,7 +989,20 @@ componentes en dicha tecnolog\'ia, se utilizan resistencias y capacitores de tec
 \end{figure}
 
 Por \'ultimo, como comentario final, el PCB podr\'ia ser mejorado agregandole un label que indique cual posici\'on del jumper de selecci\'on
-corresponde al derivador y cual al integrador.
+corresponde al derivador y cual al integrador. Adem\'as podr\'a agregarse al integrador una etapa previa para proteger al circuito de se\~nales que tengan
+componente de corriente continua, utilizando un filtro pasaaltos.
 
-%TODO Eliminar al juntar documentos!
+\subsection{Conclusiones}
+Los circuitos derivador e integrador propuestos poseen limitaciones en funcionamiento para bajas y altas
+frecuencias, puesto que el derivador en bajas frecuencia aten\'ua demasiado y para altas frecuencias, antes de que deje de comportarse como derivador, posee limitaci\'on de funcionamiento por
+el slew rate del amplificador operacional, mientras que el integrador para bajas frecuencias tiene alta ganancia y es susceptible a saturar el amplificador operacional, mientras que para altas frecuencias,
+antes de que deje de comportarse como integrador, posee una muy alta atenuaci\'on de la se\~nal.
+
+Por otro lado, luego del estudio de estos dos circuitos se ve la importancia de la comparaci\'on del modelo ideal con el modelo no ideal con la menor
+cantidad de aproximaciones posible, puesto que este \'ultimo revela para que rango de operaci\'on se puede considerar v\'alido el modelo ideal, y por ende,
+el comportamiento que se espera del circuito. Dicho en otras palabras, para los circuitos derivadores e integradores el comportamiento puramente derivador o integrador
+se observa en el modelo ideal, no obstante, viendo el modelo m\'as amplio se puede analizar para que rango vale dicho comportamiento. Adem\'as, es de gran importancia
+tener en cuenta la impedancia de entrada del circuito a la hora de analizar correctamente los resultados obtenidos, puesto que juega un papel importante cuando tenemos en cuenta
+la forma en que se arman y conectan los sistemas que se modelizan.
+
 \end{document}
