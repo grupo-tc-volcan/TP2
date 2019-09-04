@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f1b9888-21ff-4f43-9f85-3d26386ff2c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/inverter.py" beforeDir="false" afterPath="$PROJECT_DIR$/inverter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EJ1.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../EJ1.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.tex" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inverter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="102" column="26" lean-forward="true" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+            <state relative-caret-position="101">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -36,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nonInverter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1694">
-              <caret line="88" column="14" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+            <state relative-caret-position="217">
+              <caret line="98" selection-start-line="98" selection-end-line="98" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -57,8 +60,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../../../../ian/TP02/Ex1/iA/PlotZin.py" />
-        <option value="$PROJECT_DIR$/nonInverter.py" />
         <option value="$PROJECT_DIR$/inverter.py" />
+        <option value="$PROJECT_DIR$/nonInverter.py" />
       </list>
     </option>
   </component>
@@ -199,8 +202,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="0" width="1376" height="831" extended-state="0" />
-    <editor active="true" />
+    <frame x="52" y="0" width="1376" height="831" extended-state="1" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21865672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -224,8 +226,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/inverter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="102" column="26" lean-forward="true" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+        <state relative-caret-position="101">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -244,8 +246,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nonInverter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1694">
-          <caret line="88" column="14" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
+        <state relative-caret-position="217">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
