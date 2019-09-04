@@ -1,24 +1,8 @@
+\section*{Resumen}
+%BLA BLA BLA BLA
 
 \section*{Ejercicio 1: Comportamiento de amplificadores operacionales}
-En este ejercicio se analizan distintas caracter\'isticas de circuitos con amplificadores operacionales. Primero se utiliza un circuito con configuraci\'on inversora y luego otro con configuraci\'on no inversora.
-
-La Tabla \ref{table7} utiliza los datos proporcionados por el archivo ``bode.csv'' el cual se genera automáticamente con filecontents*.
-%\csvautotabular{bode.csv}
-%\csvreader[late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
-\begin{table}[h!]
-	\centering
-	\caption{Ejemplo de tabla centrada con datos desde ``bode.csv'}
-	\label{table7}
-	\begin{tabular}{c c c c c}%
-		\bfseries  & $\bm{R_1 = R_2}$ & $\bm{R_3}$ & $\bm{R_4}$  \\ \hline
-		caso 1 & 2,5k & 25k & 10k \\
-		caso 2 & 2,5k & 2.5k & 10k \\
-		caso 3 & 25k & 2.5k & 100k \\
-		\hline
-	\end{tabular}
-\end{table}
-
-\subsection{Configuraci\'on inversora}
+En este ejercicio se analizan distintas caracter\'isticas de dos circuitos con amplificadores operacionales. Primero se estudia el circuito de la figura \ref{c1}, cuya configuraci\'on es inversora. Luego se analiza el circuirto \ref{c2} de configuraci\'on no inversora.
 
 \begin{figure}[h!]
  \begin{center}
@@ -44,13 +28,9 @@ to[short,-*] (opamp.out)  node[anchor=west]{OUT}
 ;
     \end{circuitikz}
     \caption{Configuraci\'on inversora}
+\label{c1}
 \end{center}
 \end{figure}
-
-\subsubsection{An\'alisis te\'orico}
-
-
-\subsection{Configuraci\'on no inversora}
 
 \begin{figure}[h!]
  \begin{center}
@@ -75,9 +55,352 @@ to[R=$R_3$] (-3,-0.35)
 (-3,-2) node[ground]{}
 ;
     \end{circuitikz}
-    \caption{Configuraci\'on inversora}
+    \caption{Configuraci\'on no inversora}
+\label{c2}
 \end{center}
 \end{figure}
+
+%\csvautotabular{bode.csv}
+%\csvreader[late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c c c c c}%
+		\bfseries  & $\bm{R_1 = R_2}$ & $\bm{R_3}$ & $\bm{R_4}$  \\ \hline
+		caso 1 & 2,5k & 25k & 10k \\
+		caso 2 & 2,5k & 2.5k & 10k \\
+		caso 3 & 25k & 2.5k & 100k \\
+		\hline
+	\end{tabular}
+	\caption{Valores de resistencias para cada caso a analizar de los circuitos.}
+	\label{casos}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% CIRCUITO 1 %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Configuraci\'on inversora}
+
+\subsubsection{Respuesta en frecuencia del circuito}
+
+\subsubsection*{An\'alisis te\'orico} %%%%%%%
+Se calcula de forma te\'orica la ganancia del circuito \ref{c1}, considerando al amplificador operacional como ideal, es decir, con impedancia de entrada infinita, impedancia de salida nula y masa virtual en la terminal de entrada $V^{-}$. Se parte de las siguientes ecuaciones:
+\begin{equation}
+	\begin{cases}
+		V_{out} = A_{vol}\cdot(V^+ - V^-) = -A_{vol}\\
+		V_{in} - R_1 \cdot I_1 = V^- \\
+		V_{out} - R_2 \cdot I_2 = V^- 
+	\end{cases}
+	\label{ecsbase}
+\end{equation}
+
+Operando matem\'aticamente se obtiene la siguiente expresi\'on:
+
+\begin{equation}
+	\frac{V{out}}{V_{in}} = - \frac{R_2/R_1}{1 + \frac{R_2/R_1}{A_{vol}} + \frac{R_2/R_3}{A_{vol}}}
+	\label{c1vovi}
+\end{equation}
+
+Reemplazando en la ecuaci\'on \ref{c1vovi} con los valores correspondientes de resistencias para cada uno de los tres casos (indicados en la tabla \ref{casos}) y  considerando $A_{vol}(\omega)$ (con $s = j\omega$), se obtienen las siguientes expresiones:
+
+Caso1:
+\begin{equation}
+	\frac{V_{out}}{V_{in}} = - \frac{7\cdot10^{12}}{2088,9 \cdot 10^3 s + 7 \cdot 10^{11}}
+	\label{c1c1vovi}
+\end{equation}
+
+caso 2:
+\begin{equation}
+	\frac{V_{out}}{V_{in}} = - \frac{7 \cdot 10^{11}}{298.4 \cdot 10^{3} s +7 \cdot 10^{11}}
+	\label{c1c2vovi}
+\end{equation}
+
+caso 3:
+\begin{equation}
+	\frac{V_{out}}{V_{in}} = - \frac{7 \cdot 10^{12}}{119,366 \cdot 10^{5} s +7 \cdot 10^{13}}
+	\label{c1c3vovi}
+\end{equation}
+
+A continuaci\'on en los gr\'aficos \ref{c1voviTeoMod} y \ref{c1voviTeoPh} se observa c\'omo var\'ia la ganancia del circuito para los tres casos en funci\'on de la frecuencia.
+
+\begin{figure}[H] %!ht
+	\centering
+	%\includegraphics[scale=0.45]{../EJ1/00GRAFICOS/teoricos/circ1voviw.png}
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/teoricos/circ1voviw.png}
+	\caption{Configuración inversora - Comparaci\'on te\'orica del m\'odulo de $V_{out}/V_{in}$ para los tres casos.}
+	\label{c1voviTeoMod}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/teoricos/circ1vovifasew.png}
+	\caption{Configuración inversora - Comparaci\'on te\'orica de la fase de $V_{out}/V_{in}$ para los tres casos.}
+	\label{c1voviTeoPh}
+\end{figure}
+
+El gr\'afico \ref{c1voviTeoMod} permite ver una caracter\'istica importante que diferencia a los tres casos de resistencias para este circuito: la ganancia a bajas frecuencias. Las tres configuraciones corresponden a filtros pasabajos. Si bien aten\'uan a altas frecuencias, tienen comportamientos diferentes en las frecuencias bajas. Aqu\'el con resistencias para el caso 1 presenta una ganancia de 20dB, mientras que el del caso 3 aten\'ua 20 dB. El circuito del caso 2, por el contrario, no gana ni aten\'ua en frecuencias bajas.
+
+%ANALIZAR AVOL FINITO . AVOL W ES LO QUE YA ESTA HECHO
+
+\subsubsection*{Mediciones y resultados obtenidos} %%%%%%%
+
+Se simul\'o y se midi\'o la ganancia para los tres casos del circuito \ref{c1} y a continuacio\'on se puede ver la diferencia entre sus resultados y los de las ecuaciones \ref{c1c1vovi}, \ref{c1c2vovi} y \ref{c1c3vovi}; correspondientes a la ganancia calculada de forma te\'orica y considerando al amplificador operacional como ideal.
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c1/c1c1voviMod.png}
+	\caption{Configuración inversora -  Caso 1 - Módulo de $V_{out}/V_{in}$}
+	\label{c1c1voviM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c1/c1c1voviFASE.png}
+	\caption{Configuración inversora - Caso 1 - Fase de $V_{out}/V_{in}$}
+	\label{c1c1voviP}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c2/c1c2voviMod.png}
+	\caption{Configuración inversora - Caso 2 - Módulo de $V_{out}/V_{in}$}
+	\label{c1c2voviM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c2/c1c2voviFASE.png}
+	\caption{Configuración inversora - Caso 2 - Fase de $V_{out}/V_{in}$ }
+	\label{c1c2voviP}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c3/c1c3voviMod.png}
+	\caption{Configuración inversora - Caso 3 - M\'odulo de$V_{out}/V_{in}$}	
+	\label{c1c3voviM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c3/c1c3voviFASE.png}
+	\caption{Configuración inversora - Fase de $V_{out}/V_{in}$}
+	\label{c1c3voviP}
+\end{figure}
+
+\subsubsection{Impedancia de entrada del circuito} %%%%%
+
+
+\subsubsection*{An\'alisis te\'orico} %%%%%%
+Se hicieron distintos c\'alculos que permitieron obtener expresiones distintas para la impedancia de entrada del circuito.
+
+Es importante mencionar que en primer lugar se consider\'o al amplificador operacional como ideal. Si bien las caracter\'isticas de dicha situaci\'on fueron mencionadas previamente, se considera relevante hacer unas breves aclaraciones para comprender el resultado de este an\'alisis. La impedancia entre los bornes de entrada del amplificador operacional fue, por lo tanto, tomada como infinita (circuito abierto); mientras que la impedancia interna a la salida del amplificador operacional fue considerada como cero (cable). Dado que en el caso ideal del amplificador operacional hay una masa virtual en $V^-$ y que la entrada $V^+$ est\'a f\'isicamente conectada a Tierra, la fuente interna que se encuentra en serie con la impedancia de salida vale cero ya que depende de la diferencia de tensi\'on entre $V^+$ y $V^-$. Entonces, partiendo de las ecuaciones \ref{ecsbase} y operando matem\'aticamente se obtiene la siguiente expresi\'on:
+%PONER FORMULA ZIN TEORICA IDEAL!!!
+%GRAFICAR Y PONER FORMULAS TEORICAS DE CASO IDEAL!!!!!!!!!!!!!!!
+%hablar de las diferencias entre cada caso
+
+Dado que luego se llevar\'ian a cabo mediciones para contrastar los resultados con el c\'alculo te\'orico, se decidi\'o buscar la expresi\'on correspondiente a la $Z_{in}$ que incluyera una punta del osciloscopio, es decir, se calcul\'o la impedancia que ser\'ia vista idealmente al utilizar el osciloscopio. Para esto, se le agreg\'o en paralelo el modelo equivalente a una punta X10 (la empleada) al resultado obtenido previamente de la $Z_{in}$. Dicho modelo consiste en una resistencia de $10M\Omega$ en paralelo con un capacitor de $12pF$. As\'i se obtuvo la siguiente expresi\'on:
+%EXPRESION CON PUNTA ZIN
+%FORMULA CON PUNTA ZIN PARA CADA UNO DE LOS 3 CASOS
+%GRAFICOS COMPARATIVOS.
+
+\subsubsection*{Mediciones y resultados obtenidos} %%%%%%
+Para medir la impedancia de entrada del circuito en funci\'on de la frecuencia, deb\'iamos hacer el cociente $V_{in}/I_{in}$. Si bien se puede medir la tensi\'on de entrada al circuito de forma directa con el osciloscopio, no es tan sensillo obtener la corriente que entra al circuito, ya que el osciloscopio mide tensiones y no corrientes. Se busc\'o una resistencia $R_L$ cuyo valor comerical fuera lo m\'as parecido posible (igual o el primero mayor) al valor obtenido en el c\'alculo te\'rico para cada uno de los casos de resistencias. Se coloc\'o dicha resistencia en serie al generador, a la entrada del circuito. Luego se midi\'o la ca\'ida de tensi\'on sobre ella, ya que al dividirla por el valor de la $R_L$ colocada se obtendr\'ia la corriente de entrada al circuito $I_{in}$. El criterio de buscar una resistencia similar al valor calculado de $Z_{in}$ surge de que si se pusiese una resistencia muy chica, la diferencia entre las tensiones medidas sobre sus bornes ser\'ia muy chica (aumentando incertidumbre) y si se colocase una resistencia muy grande, la tensi\'on que caer\'ia ser\'ia mucho mayor a la que caer\'ia en el circuito, haciendo que la tensi\'on luego de la resistencia sea muy chica (se podr\'ia acercar al nivel de ruido) y que la diferencia de tensi\'on entre sus bornes tienda a la tensi\'on entregada por el generador. Por eso se consider\'o \'optimo que la resistencia tenga un valor similar al calculado de forma te\'orica y en caso de no conseguir el mismo valor, prefiri\'endose un valor mayor y no menor.
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c1/c1c1ZINpunta.png}
+	\caption{Configuración inversora - Caso 1 - M\'odulo de $Z_{in}$}
+	\label{c1c1zinM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c1/c1c1zinFASE.png}
+	\caption{Configuración inversora - Caso 1 - Fase de $Z_{in}$ }
+	\label{c1c1zinP}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c2/c1c2ZINpunta.png}
+	\caption{Configuración inversora - Caso 2 - M\'odulo de $Z_{in}$}
+	\label{c1c2zinM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c2/c1c2zinFASE.png}
+	\caption{Configuración inversora - Caso 2 - Fase de $Z_{in}$}
+	\label{c1c2zinP}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c3/c1c3ZINpunta.png}
+	\caption{Configuración inversora - Caso 3 - M\'odulo de $Z_{in}$}
+	\label{c1c3zinM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c1c3/c1c3zinFASE.png}
+	\caption{Configuración inversora - Caso 3 - Fase de $Z_{in}$}
+	\label{c1c3zinP}
+\end{figure}
+
+\subsubsection{DC Sweep desde $-V_{CC}$ hasta $V_{CC}$}
+%Buscar valor maximo en hoja de datos vcc aprox 17 creo.BUSCAR voutMAX!!!
+Dado que se nos pidi\'o alimentar al amplificador operacional con $V_{CC} = \pm 15V$, un DC Sweep desde $-V_{CC}$ hasta $V_{CC}$ requerir\'ia $30V_{pp}$ del generador de se\~nales. Una limitaci\'on de los generadores del laboratorio es que alcanzan un m\'aximo de $20V_{pp}$, por lo que no podr\'iamos llevar a cabo las mediciones generando una rampa en el rango de tesniones mencionado. La desici\'on tomada para lograr lo pedido fue, en el dise\~no del circuito, agregarle una etapa previa de amplificaci\'on utilizando otro amplificador operacional. 
+El amplificador operacional no permite amplificar mas de un valor determinado, y por lo tanto no hay forma de llegar exactamente a -15V y a 15V a la entrada del circuito ya que su tensi\'on de entrada es la salida del amplificador operacional empleado en la etapa previa de amplificaci\'on de la se\~nal del generador.
+%BUSCAR VALORES!!!!!!
+
+\subsubsection{Presencia de la resistencia $R_4$}
+%HACER
+
+\subsubsection{Ausencia de la resistencia $R_3$}
+%HACER
+
+\subsubsection{Fen\'omenos que afectan al comportamiento del circuito} %VER SI DEJAR PARA C/CASO O AL FINAL, for BOTH, o al ppio introductoriamente
+	\subsubsection*{Efecto de slew rate (SR)}
+	\subsubsection*{Distorsi\'on de cruce por cero (Cross-Over Distortion)}
+	\subsubsection*{Gain Bandwidth Product (GBP)}
+
+\subsubsection{Condiciones de comportamiento lineal del circuito}
+%HACER
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% CIRCUITO 2 %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Configuraci\'on no inversora}
+
+\subsubsection{Respuesta en frecuencia del circuito} %%%%%%
+\subsubsection*{An\'alisis te\'orico} %%%%%%
+
+\begin{figure}[H] %!ht
+\centering
+\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/teoricos/circ2voviw.png}
+\caption{Configuración no inversora - Comparaci\'on te\'orica del m\'odulo de$V_{out}/V_{in}$ de los tres casos.}
+\label{c2voviTeoMod}
+\end{figure}
+
+\begin{figure}[H] %!ht
+\centering
+\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/teoricos/circ2vovifasew.png}
+\caption{Configuración no inversora - Comparaci\'on te\'orica de la fase de $V_{out}/V_{in}$ de los tres casos.}
+\label{c2voviTeoPh}
+\end{figure}
+
+\subsubsection*{Mediciones y resultados obtenidos} %%%%%%
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c1/c2c1voviMod.png}
+	\caption{Configuración no inversora - Caso 1 -  M\'odulo de $V_{out}/V_{in}$}
+	\label{c2c1voviM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c1/c2c1voviFASE.png}
+	\caption{Configuración no inversora - Caso 1 - Fase de $V_{out}/V_{in}$}
+	\label{c2c1voviP}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c2/c2c2voviMod.png}
+	\caption{Configuración no inversora - Caso 2 - M\'odulo de $V_{out}/V_{in}$}
+	\label{c2c2voviM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c2/c2c2voviFASE.png}
+	\caption{Configuración no inversora - Caso 2 - Fase de $V_{out}/V_{in}$}
+	\label{c2c2voviP}
+\end{figure}
+
+%\begin{figure}[H] %!ht
+%	\centering
+%	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c3/c2c3voviMod.png}
+%	\caption{Configuración no inversora - Caso 3 - M\'odulo de $V_{out}/V_{in}$}	
+%	\label{c2c3voviM}
+%\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c3/c2c3voviFASE.png}
+	\caption{Configuración no inversora - Caso 3 - Fase de $V_{out}/V_{in}$}
+	\label{c2c3voviP}
+\end{figure}
+
+
+\subsubsection{Impedancia de entrada del circuito}%%%%%%
+
+\subsubsection*{An\'alisis te\'orico} %%%%%%
+%GRAFICAR Y PONER FORMULAS!!!!!!!!!!!!!!!
+
+\subsubsection*{Mediciones y resultados obtenidos} %%%%%%
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c1/c2c1ZINpunta.png}
+	\caption{Configuración no inversora - Caso 1 - M\'odulo de $Z_{in}$}
+	\label{c2c1zinM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c1/c2c1zinFASE.png}
+	\caption{Configuración no inversora - Caso 1 - Fase de $Z_{in}$}
+	\label{c2c1zinP}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c2/c2c2ZINpunta.png}
+	\caption{Configuración no inversora - Caso 2 - M\'odulo de $Z_{in}$}
+	\label{c2c2zinM}
+\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c2/c2c2zinFASE.png}
+	\caption{Configuración no inversora - Caso 2 - Fase de $Z_{in}$}
+	\label{c2c2zinP}
+\end{figure}
+
+%\begin{figure}[H] %!ht
+%	\centering
+%	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c3/c2c3ZINpunta.png}
+%	\caption{Configuración no inversora - Caso 3 - M\'odulo de $Z_{in}$}
+%	\label{c2c3zinM}
+%\end{figure}
+
+\begin{figure}[H] %!ht
+	\centering
+	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c3/c2c3zinFASE.png}
+	\caption{Configuración no inversora - Caso 3 - Fase de $V_{out}/V_{in}$}
+	\label{c2c3zinP}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Circuito 1 Vo/Vi CASO 1
