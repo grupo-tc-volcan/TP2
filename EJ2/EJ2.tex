@@ -38,7 +38,8 @@ Se desprende también, de las condiciones de idealidad impuestas, que la impedan
 Para la resolución del circuito con las consideraciones ya mencionadas, es necesario ahora especificar qué datos serán utilizados para los cálculos.
 Los mismos fueron obtenidos de las correspondientes datasheets 
 \footnote{Datasheet para operacional LM833: https://www.ti.com/lit/ds/symlink/lm833.pdf \\Datasheet para operacional NE5534: https://www.onsemi.com/pub/Collateral/NE5534-D.PDF}, 
-y se presentan en el cuadro \ref{tab:parameters_for_equations}.
+y se presentan en el cuadro \ref{tab:parameters_for_equations}. \par
+En particular, para la frecuencia del polo dominante del NE5534, se tomó el dato del polo dominante cuando el capacitor de compensación colocado es de 22pF (el que fue utilizado).
 \begin{table}[H]
     \label{tab:parameters_for_equations}
     \centering
@@ -46,7 +47,7 @@ y se presentan en el cuadro \ref{tab:parameters_for_equations}.
         \hline
         \textbf{\begin{tabular}[c]{@{}l@{}}Modelo de operacional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}$f_0$ (Hz)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}$A_0$ \end{tabular}} & \textbf{$r_{in_{opamp}}(K\Omega)$} & \textbf{$r_{out_{opamp}}(\Omega)$} & \textbf{$C_{in_{opamp}}(pF)$} \\ \hline
         \textbf{LM833}                                                         & $16 \cdot 10^3$                                             & $1000$                                                  & $175$                              & $37$                               & $12$                          \\
-        \textbf{NE5534}                                                        & $100$                                                       & $10 \cdot 10^5$                                         & $100$                              & $0,3$                              & -                             \\ \hline
+        \textbf{NE5534}                                                        & $1 \cdot 10^3$                                              & $10 \cdot 10^5$                                         & $100$                              & $0,3$                              & -                             \\ \hline
         \end{tabular}
     \caption{Parámetros para cálculo de circuito no ideal.}
 \end{table}
@@ -120,3 +121,12 @@ En ambos casos, se simuló la respuesta en frecuencia utilizando la función AC 
 A continuación se presentan los circuitos utilizados para tal fin:
 \missingfigure{Circuit in LTspice for LM833}
 \missingfigure{Circuit in LTspice for NE5534}
+
+\subsection{Resultados y comparación}
+\subsubsection{Con operacional LM833}
+Se presentan a continuación los gráficos para la comparación de los resultados teóricos, simulados y experimentales, correspondientes a los diagramas de bode (en módulo y fase), e impedancia de entrada (también en módulo y fase):
+
+
+
+\subsubsection{Con operacional NE5534}
+Se presentan a continuación los gráficos para la comparación de los resultados teóricos, simulados y experimentales, correspondientes a los diagramas de bode (en módulo y fase), e impedancia de entrada (también en módulo y fase):
