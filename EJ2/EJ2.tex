@@ -35,7 +35,7 @@ y se presentan en el cuadro \ref{tab:parameters_for_equations}.
     \centering
     \begin{tabular}{|l|llll|}
         \hline
-        \textbf{\begin{tabular}[c]{@{}l@{}}Modelo de operacional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}$f_0$ (Hz)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}$A_0$ \end{tabular}} & \textbf{$Z_{in_{opamp}}$(K\Omega)} & \textbf{$Z_{out_{opamp}}$(\Omega)} \\ \hline
+        \textbf{\begin{tabular}[c]{@{}l@{}}Modelo de operacional\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}$f_0$ (Hz)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}l@{}}$A_0$ \end{tabular}} & \textbf{$Z_{in_{opamp}}(K\Omega)$} & \textbf{$Z_{out_{opamp}}(\Omega)$} \\ \hline
         \textbf{LM833}                                                         & $16 \cdot 10^3$                                             & $1000$                                                  & $175$                              & $37$                               \\
         \textbf{NE5534}                                                        & $100$                                                       & $10 \cdot 10^5$                                         & $100$                              & $0,3$                              \\ \hline
         \end{tabular}
@@ -68,8 +68,7 @@ Se entiende al circuito como dos mallas cuyas ecuaciones son las descriptas en \
     &v_o = \left(v^+ - v^-\right) \cdot A_v \\
     &v^+ = v_{in} - i_1 \cdot R_3 \\
     &v^- = v_{in} - i_1 \cdot R_3 - i_1 \cdot Z_{in} \\
-    &Z_{in} = \frac{R_{in}}{R_{in} \cdot C_{in} \cdot s + 1} \\
-    \label{eq:zin}
+    &Z_{in} = \frac{R_{in}}{R_{in} \cdot C_{in} \cdot s + 1} \label{eq:zin} \\
     &A_v = \frac{A_0}{1+\frac{s}{\omega_p}}
     \label{eq:system_meshes}
 \end{align}
