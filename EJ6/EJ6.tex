@@ -48,7 +48,7 @@ Si decidimos fijar $R_2$ entonces agregando presets en serie a $R_1$ y $R_3$ pod
 Realizando los c\'alculos apropiados para conocer los valores de los resistores se llega a la siguiente expresi\'on:
 
 \begin{equation}
-    Aca van las equivalencias entre resistores
+    Aca-van-las-equivalencias-entre-resistores
     \label{fig:EJ6_ecuacion_resistores}
 \end{equation}
 
@@ -120,3 +120,8 @@ Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de fo
 
  Como se mencion\'o previamente, todos los componentes tienen una determinada tolerancia en sus valores nominales, adem\'as de ser \'estos normalizados y dependientes de factores externos como temperatura de operaci\'on, aging, etc.
   De esto se deriva la necesidad de implementar un m\'etodo de calibraci\'on que permita al circuito operar como lo esperado. El PCB cuenta con dos preset a tal fin, cuya funci\'on est\'a debidamente indicada en el mismo.
+  Para realizar la calibraci\'on del circuito primero se recomienda conectar un generador de señales a la entrada para poder simular la respuesta del sensor en forma de rampa.
+ Luego se debe conectar la salida a un osciloscopio y girar el preset de Offset hasta que el pico inferior de la rampa se sit\'ue en el cero. Una vez realizado esto se procede a girar el preset de ganancia hasta que el pico superior de la rampa alcance una tensi\'on de 5V.
+  Cabe destacar que un proceso similar puede ser realizado con el sensor LM35 conectado e inyectando se\~al, utilizando la temperatuta de $35°C$ como referencia y otro punto dentro del rango.
+
+  \subsection{Datasheet de la implementaci\'on}
