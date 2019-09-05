@@ -56,4 +56,26 @@ Con las equivalencias anteriores y fijando un valor comercial para el resistor $
   Luego se normalizan estos valores, al valor comercial inmediato inferior que tambi\'en se encuentre disponible en el pa\~nol de la facultad.
   Por \'ultimo se agregan dos presets de $100k\Omega$ en serie a $R_1$ y $R_3$ para poder efectuar la calibraci\'on del circuito. Se obtiene la configuraci\'on que se detalla en la tabla de abajo.
 
+  \begin{table}[H]
+	\begin{center}
+		\begin{tabular}{c c c c c}
+		$R_2$ & $R_1$ & $R_{1n}$ & $R_3$ & $R_{3n}$ \\
+		\hline
+		$xx k\Omega$ & $xx k\Omega + 100 k\Omega$ & $xx k\Omega$ & $xx k\Omega + 100 k\Omega$
+		\end{tabular}
+		
+		\caption{Valores de resistores empleados}
+	\end{center}
+\end{table}
 
+Los presets fueron sobredimensionados con el prop\'osito de ampliar el rango de calibraci\'on, de tal forma de compensar las tolerancias de los resistores (que en todos los casos es del 5\percent).
+ De esta forma, se concluye la primera etapa del diseño del circuito.
+
+ \subsection{Limitaci\'on del rango de salida}
+
+ Se pide que la salida del circuito siempre pertenezca al rango $[-1V , 6V]$. Para lograr esto se puede colocar un diodo zener en paralelo a esta, limitando el rango de tensiones.
+  El problema que se presenta en este caso es la limitación en corriente a la salida del integrado TL082. Si la intensidad es considerablemente alta se quemar\'a el IC. 
+  Esta situaci\'on se puede evitar conectando una impedancia en serie a la salida, antes del diodo zener.
+
+
+Seg\'un la datasheet del TL082 extra\'ida de la web de Texas Instruments, la corriente de cortocircuito de salida oscila entre 
