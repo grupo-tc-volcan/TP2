@@ -18,29 +18,64 @@ Como primer paso se deben definir las entradas y salidas del sistema para poder 
   
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{dummypath/EJ6_circuito.png}
+    \includegraphics[width=0.9\textwidth]{../EJ_6/Captures/EJ6_circuito_teorico.png}
     \caption{Circuito adaptador}
     \label{fig:EJ6_circuito} 
 \end{figure}
 
 Dado que se utilizan dos amplificadores operacionales se creyó conveniente emplear el integrado TL082. La ecuación que caracteriza a dicho circuito se reproduce a continuación.
 
-\begin{equation}[H]
-    Acá va la ecuación del sistema.
+\begin{equation}
+    v_{out}= \left( - \frac{R_3}{R_2} \cdot v_{sensor}  - \frac{R_3}{R_1} \cdot v_{offset} \right) \cdot \left( -\frac{R_5}{R_4}   \right)
     \label{fig:EJ6_ecuacion_sistema} 
 \end{equation}
 
-Si suponemos que el amplificador inversor tiene ganancia unitaria (esto es, $Rx=Rx$) obtenemos
+Si suponemos que el amplificador inversor tiene ganancia unitaria (esto es, $R_5=R_4$), y que la tensión que se usará como offset es $-V_{cc}$ obtenemos
 
-\begin{equation}[H]
-    Acá va la ecuación del sistema simplificada.
-    \label{fig:EJ6_ecuacion_sistema_simplificada} 
+\begin{equation}
+    v_{out}= \frac{R_3}{R_2} \cdot v_{sensor}  - \frac{R_3}{R_1} \cdot v_{cc} 
+    \label{fig:EJ6_ecuacion_sistema2} 
 \end{equation}
 
 En la ecuación anterior se pueden apreciar las dos etapas de adaptación mencionadas anteriormente (escalamiento y corrimiento). Ahora si operamos sobre esta simplificación obtenemos
 
-\begin{equation}[H]
-    Acá va la ecuación del sistema simplificada final.
+\begin{equation}
+    \frac{R_3}{R_2} \cdot \left( v_{sensor} - \frac{R_2}{R_1} \cdot v_{cc} \right)
     \label{fig:EJ6_ecuacion_sistema_simplificada_final} 
 \end{equation}
 
+Si decidimos fijar $R_2$ entonces agregando presets en serie a $R_1$ y $R_3$ podremos ajustar de forma independiente el corrimiento y escalamiento, respectivamente.
+Realizando los c\'alculos apropiados para conocer los valores de los resistores se llega a la siguiente expresi\'on:
+
+\begin{equation}
+    Aca van las equivalencias entre resistores
+    \label{fig:EJ6_ecuacion_resistores}
+\end{equation}
+
+Con las equivalencias anteriores y fijando un valor comercial para el resistor $R_2$ se pueden calcular los valores teóricos de resistencia para $R_1$ y $R_3$.
+  Luego se normalizan estos valores, al valor comercial inmediato inferior que tambi\'en se encuentre disponible en el pa\~nol de la facultad.
+  Por \'ultimo se agregan dos presets de $100k\Omega$ en serie a $R_1$ y $R_3$ para poder efectuar la calibraci\'on del circuito. Se obtiene la configuraci\'on que se detalla en la tabla de abajo.
+
+  \begin{table}[H]
+	\begin{center}
+		\begin{tabular}{c c c c c}
+		$R_2$ & $R_1$ & $R_{1n}$ & $R_3$ & $R_{3n}$ \\
+		\hline
+		$xx k\Omega$ & $xx k\Omega + 100 k\Omega$ & $xx k\Omega$ & $xx k\Omega + 100 k\Omega$
+		\end{tabular}
+		
+		\caption{Valores de resistores empleados}
+	\end{center}
+\end{table}
+
+Los presets fueron sobredimensionados con el prop\'osito de ampliar el rango de calibraci\'on, de tal forma de compensar las tolerancias de los resistores (que en todos los casos es del 5\percent).
+ De esta forma, se concluye la primera etapa del diseño del circuito.
+
+ \subsection{Limitaci\'on del rango de salida}
+
+ Se pide que la salida del circuito siempre pertenezca al rango $[-1V , 6V]$. Para lograr esto se puede colocar un diodo zener en paralelo a esta, limitando el rango de tensiones.
+  El problema que se presenta en este caso es la limitación en corriente a la salida del integrado TL082. Si la intensidad es considerablemente alta se quemar\'a el IC. 
+  Esta situaci\'on se puede evitar conectando una impedancia en serie a la salida, antes del diodo zener.
+
+
+Seg\'un la datasheet del TL082 extra\'ida de la web de Texas Instruments, la corriente de cortocircuito de salida oscila entre 
