@@ -125,3 +125,17 @@ Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de fo
   Cabe destacar que un proceso similar puede ser realizado con el sensor LM35 conectado e inyectando se\~al, utilizando la temperatuta de $35°C$ como referencia y otro punto dentro del rango.
 
   \subsection{Datasheet de la implementaci\'on}
+    A continuaci\'on se reproducen algunos datos \'utiles del circuito.
+    
+  \begin{table}[]
+    \begin{tabular}{c|ccc}
+    \textbf{Item}                                    & \textbf{Min} & \textbf{Typ} & \textbf{Max} \\ \hline
+    +Vcc {[}V{]}                                     & 5            & 15           & 36           \\
+    -Vcc {[}V{]}                                     & -12          & -15          & -17          \\
+    Vout {[}V{]}                                     & -0.8         & -            & 5.45         \\
+    Amplitud de salida {[}V{]}                       & 3.92         & -            & 5.3          \\
+    Impedancia de salida {[}\textbackslash{}Omega{]} & -            & 1000         & -            \\
+    Amplificador Operacional                         & \multicolumn{3}{c|}{TL072CN}               \\
+    Sensor de Temperatura                            & \multicolumn{3}{c|}{LM35DZ}               
+    \end{tabular}
+    \end{table}
