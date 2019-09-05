@@ -125,8 +125,79 @@ A continuación se presentan los circuitos utilizados para tal fin:
 \subsection{Resultados y comparación}
 \subsubsection{Con operacional LM833}
 Se presentan a continuación los gráficos para la comparación de los resultados teóricos, simulados y experimentales, correspondientes a los diagramas de bode (en módulo y fase), e impedancia de entrada (también en módulo y fase):
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/LM833_Bode_Amp}
+        \caption{Bode de amplitud para operacional LM833.}
+        \label{fig:LM833_Bode_Amp}
+    \end{minipage}\hfill
+\end{figure}
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/LM833_Bode_Fase}
+        \caption{Bode de fase para operacional LM833.}
+        \label{fig:LM833_Bode_Fase}
+    \end{minipage}\hfill
+\end{figure}
 
+Los diagramas de bode se presentan con buena concordancia entre teoría, simulación y práctica, observándose únicamente discrepancias en la frecuencia exacta de corte, y en la magnitud del sobrepico.
+Tanto en la amplitud como la fase, se observa una diferencia de aproximadamente 50KHz entre la frecuencia de corte del teórico y del simulado, y otros 10KHz con el medido.
+En lo que respecta al sobrepico, el teórico se encuentra en 41dB aproximadamente, mientras que el simulado es de 42, y el medido de 44.
+Por otro lado, se observa una coincidencia en la pendiente decreciente posterior al polo, siendo la misma de 40dB por década en las tres curvas.
+Esto, sumado 
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/LM833_Zin_Amp}
+        \caption{Amplitud de $Z_{in}$ para operacional LM833.}
+        \label{fig:LM833_Zin_Amp}
+    \end{minipage}\hfill
+\end{figure}
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/LM833_Zin_Fase}
+        \caption{Fase de $Z_{in}$ para operacional LM833.}
+        \label{fig:LM833_Zin_Fase}
+    \end{minipage}\hfill
+\end{figure}
+
+El caso es distinto para la impedancia de entrada.
 
 
 \subsubsection{Con operacional NE5534}
 Se presentan a continuación los gráficos para la comparación de los resultados teóricos, simulados y experimentales, correspondientes a los diagramas de bode (en módulo y fase), e impedancia de entrada (también en módulo y fase):
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/NE5534_Bode_Amp}
+        \caption{Bode de amplitud para operacional NE5534.}
+        \label{fig:NE5534_Bode_Amp}
+    \end{minipage}\hfill
+\end{figure}
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/NE5534_Bode_Fase}
+        \caption{Bode de fase para operacional NE5534.}
+        \label{fig:NE5534_Bode_Fase}
+    \end{minipage}\hfill
+\end{figure}
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/NE5534_Zin_Amp}
+        \caption{Amplitud de $Z_{in}$ para operacional NE5534.}
+        \label{fig:NE5534_Zin_Amp}
+    \end{minipage}\hfill
+\end{figure}
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/NE5534_Zin_Fase}
+        \caption{Fase de $Z_{in}$ para operacional NE5534.}
+        \label{fig:NE5534_Zin_Fase}
+    \end{minipage}\hfill
+\end{figure}
