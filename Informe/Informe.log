@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.21)  5 SEP 2019 19:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.21)  5 SEP 2019 19:55
 entering extended mode
 **"c:/Users/Carlos/Desktop/ITBA/3er año/1er cuatri/TC/TP2/Informe/TP2/Informe/Informe.tex"
 ("c:/Users/Carlos/Desktop/ITBA/3er año/1er cuatri/TC/TP2/Informe/TP2/Informe/Informe.tex"
@@ -1078,10 +1078,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip79
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 307.
-) ("c:/Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\Informe\Informe.aux"
-LaTeX Info: Redefining \. on input line 25.
-LaTeX Info: Redefining \% on input line 25.
-)
+) ("c:/Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\Informe\Informe.aux")
 \openout1 = `Informe.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -1213,7 +1210,6 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 4.
 LaTeX Info: Redefining \pageref on input line 4.
 LaTeX Info: Redefining \nameref on input line 4.
- ("c:/Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\Informe\Informe.out") ("c:/Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\Informe\Informe.out")
 \@outlinefile=\write4
 \openout4 = `Informe.out'.
 
@@ -1284,100 +1280,666 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
 
-{C:/Users/Carlos/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (../EJ3/EJ3.tex
-<../EJ3/Recursos/Circuito_completo.png, id=37, 941.31676pt x 371.28712pt>
-File: ../EJ3/Recursos/Circuito_completo.png Graphic file (type png)
-<use ../EJ3/Recursos/Circuito_completo.png>
-Package pdftex.def Info: ../EJ3/Recursos/Circuito_completo.png  used on input line 26.
-(pdftex.def)             Requested size: 241.84843pt x 95.38795pt.
+{C:/Users/Carlos/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (../EJ1/EJ1.tex
+
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 2.
+
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 31.
+(Font)              scaled to size 6.99199pt on input line 13.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 31.
+(Font)              scaled to size 5.51999pt on input line 13.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 13.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 13.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 31.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 31.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 31.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 31.
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--38
-
- []
-
-[2 <../EJ3/Recursos/Circuito_completo.png>]
-<../EJ3/Recursos/Modelo.png, id=54, 602.55113pt x 403.20638pt>
-File: ../EJ3/Recursos/Modelo.png Graphic file (type png)
-<use ../EJ3/Recursos/Modelo.png>
-Package pdftex.def Info: ../EJ3/Recursos/Modelo.png  used on input line 51.
-(pdftex.def)             Requested size: 241.84843pt x 161.8334pt.
- [3 <../EJ3/Recursos/Modelo.png>]
-<../EJ3/Recursos/first_stable.png, id=69, 226.14488pt x 218.61674pt>
-File: ../EJ3/Recursos/first_stable.png Graphic file (type png)
-<use ../EJ3/Recursos/first_stable.png>
-Package pdftex.def Info: ../EJ3/Recursos/first_stable.png  used on input line 103.
-(pdftex.def)             Requested size: 241.84843pt x 233.80083pt.
-<../EJ3/Recursos/first_unstable.png, id=71, 226.14488pt x 218.61674pt>
-File: ../EJ3/Recursos/first_unstable.png Graphic file (type png)
-<use ../EJ3/Recursos/first_unstable.png>
-Package pdftex.def Info: ../EJ3/Recursos/first_unstable.png  used on input line 112.
-(pdftex.def)             Requested size: 241.84843pt x 233.80083pt.
- [4 <../EJ3/Recursos/first_stable.png>] [5 <../EJ3/Recursos/first_unstable.png>]
+(Font)              scaled to size 10.07397pt on input line 13.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 234.
+(Font)              scaled to size 7.63599pt on input line 13.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 13.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.63599pt on input line 13.
+\realshift=\dimen278
+\realshift=\dimen279
+\realshift=\dimen280
+\realshift=\dimen281
+\realshift=\dimen282
+\realshift=\dimen283
+\realshift=\dimen284
+\realshift=\dimen285
+) (../EJ2/EJ2.tex
+
+Class scrartcl Warning: incompatible usage of \@ssect detected.
+(scrartcl)              You've used the KOMA-Script implementation of \@ssect
+(scrartcl)              from within a non compatible caller, that does not
+(scrartcl)              \scr@s@ct@@nn@m@ locally.
+(scrartcl)              This could result in several error messages on input line 2.
+
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 6.
+
+LaTeX Warning: Reference `fig:initial_circuit' on page 2 undefined on input line 6.
+
+<../EJ2/recursos_para_el_informe/circuito_a_analizar_ideal.png, id=36, 1001.99344pt x 625.58719pt>
+File: ../EJ2/recursos_para_el_informe/circuito_a_analizar_ideal.png Graphic file (type png)
+<use ../EJ2/recursos_para_el_informe/circuito_a_analizar_ideal.png>
+Package pdftex.def Info: ../EJ2/recursos_para_el_informe/circuito_a_analizar_ideal.png  used on input line 10.
+(pdftex.def)             Requested size: 483.69687pt x 301.99666pt.
+[2]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 234.
+(Font)              scaled to size 8.27998pt on input line 31.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 234.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 234.
- [6]
-Underfull \hbox (badness 10000) in paragraph at lines 246--252
-
- []
+(Font)              scaled to size 8.27998pt on input line 31.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--252
+LaTeX Warning: Reference `tab:parameters_for_equations' on page 3 undefined on input line 32.
 
- []
+../EJ2/EJ2.tex:38: Missing $ inserted
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-<../EJ3/Recursos/Inversor.png, id=115, 784.73175pt x 327.02174pt>
-File: ../EJ3/Recursos/Inversor.png Graphic file (type png)
-<use ../EJ3/Recursos/Inversor.png>
-Package pdftex.def Info: ../EJ3/Recursos/Inversor.png  used on input line 260.
-(pdftex.def)             Requested size: 241.84843pt x 100.78687pt.
-<../EJ3/Recursos/Off_comp.png, id=119, 818.75888pt x 390.258pt>
-File: ../EJ3/Recursos/Off_comp.png Graphic file (type png)
-<use ../EJ3/Recursos/Off_comp.png>
-Package pdftex.def Info: ../EJ3/Recursos/Off_comp.png  used on input line 279.
-(pdftex.def)             Requested size: 241.84843pt x 115.27397pt.
-[7 <../EJ3/Recursos/Inversor.png>]) [8 <../EJ3/Recursos/Off_comp.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
- ("c:/Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\Informe\Informe.aux"
-LaTeX Info: Redefining \. on input line 25.
-LaTeX Info: Redefining \% on input line 25.
-)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
-Package rerunfilecheck Info: File `Informe.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
- ) 
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+../EJ2/EJ2.tex:38: Missing } inserted
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+../EJ2/EJ2.tex:38: Extra }, or forgotten $
+(That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 35976 strings out of 492945
- 786219 string characters out of 3125808
- 1215675 words of memory out of 3000000
- 38997 multiletter control sequences out of 15000+200000
- 152807 words of font info for 281 fonts, out of 3000000 for 9000
+ 36495 strings out of 492945
+ 801361 string characters out of 3125808
+ 1227675 words of memory out of 3000000
+ 39698 multiletter control sequences out of 15000+200000
+ 147252 words of font info for 171 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,12n,85p,9187b,392s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Carlos/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/Carlos/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/fourier/fourier-mex.pfb><C:/Users/Carlos/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/fourier/fourier-ml.pfb><C:/Users/Carlos/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/fourier/fourier-mlit.pfb><C:/Users/Carlos/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/fourier/fourier-ms.pfb><C:/Users/Carlos/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/adobe/utopia/putr8a.pfb><C:/Users/Carlos/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on "c:/Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\Informe\Informe.pdf" (8 pages, 239323 bytes).
-PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 43 named destinations out of 1000 (max. 500000)
- 51907 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 66i,16n,85p,9187b,964s stack positions out of 5000i,500n,10000p,200000b,50000s
 
+../EJ2/EJ2.tex:38:  ==> Fatal error occurred, no output PDF file produced!
