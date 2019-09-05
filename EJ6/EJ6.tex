@@ -48,8 +48,13 @@ Si decidimos fijar $R_2$ entonces agregando presets en serie a $R_1$ y $R_3$ pod
 Realizando los c\'alculos apropiados para conocer los valores de los resistores se llega a la siguiente expresi\'on:
 
 \begin{equation}
-    Aca-van-las-equivalencias-entre-resistores
+    R_1 = \frac{v_{cc} \cdot 50 \cdot R_2}{17.5}
     \label{fig:EJ6_ecuacion_resistores}
+\end{equation}
+
+\begin{equation}
+  R_3 = 50 \cdot R_2
+  \label{fig:EJ6_ecuacion_resistores2}
 \end{equation}
 
 Con las equivalencias anteriores y fijando un valor comercial para el resistor $R_2$ se pueden calcular los valores teóricos de resistencia para $R_1$ y $R_3$.
@@ -138,4 +143,5 @@ Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de fo
     Amplificador Operacional                         & \multicolumn{3}{c|}{TL072CN}               \\
     Sensor de Temperatura                            & \multicolumn{3}{c|}{LM35DZ}               
     \end{tabular}
+    \label{"Datasheet de la implementaci\'on"}
     \end{table}
