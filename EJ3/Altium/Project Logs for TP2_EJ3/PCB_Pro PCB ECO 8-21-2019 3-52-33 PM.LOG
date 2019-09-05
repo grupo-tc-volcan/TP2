@@ -1,8 +1,0 @@
-Removed Pin From Net: NetName=+VCC Pin=+-VCC1-1
-Removed Pin From Net: NetName=-VCC Pin=+-VCC1-3
-Added Pin To Net: NetName=-VCC Pin=+-VCC1-1
-Added Pin To Net: NetName=+VCC Pin=+-VCC1-3
-Added Member To Class: ClassName=SCH_Pro Member=Component OA_X1 TL081IP
-Added Member To Class: ClassName=SCH_Pro Member=Component OA_X2 TL081IP
-Added Member To Class: ClassName=SCH_Pro Member=Component R2 
-Added Room: Name=SCH_Pro
