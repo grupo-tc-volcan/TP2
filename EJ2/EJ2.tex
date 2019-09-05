@@ -1,5 +1,5 @@
 
-\section{Ejercicio 2}
+\section{Ejercicio 2 \label{sec:ej2_initial}}
 \subsection{Análisis teórico}
 El circuito a analizar consiste, a grandes rasgos, en un amplificador no inversor.
 Para su estudio teórico se tomarán dos modelos, donde, en primer lugar, se considerará al amplificador operacional en su versión ideal, para luego introducir no idealidades en su impedancia de entrada, salida y en la ganancia del mismo.
@@ -101,7 +101,8 @@ De los resultados obtenidos en \ref{eq:i1_and_vout}, y con los datos de la tabla
 \begin{align}
     & \frac{v_{out}^{LM833}}{v_{in}} = \frac{1,11 \cdot 10^{-4} \cdot s^{4} + 1,105 \cdot 10^{3} \cdot s^{3} + 3,698 \cdot 10^{13} \cdot s^{2} + 3,471b\cdot 10^{20} \cdot s + 2,692 \cdot 10^{26}}
     {s^{4} + 1,034 \cdot 10^{7} s^{3} + 1,678 \cdot 10^{13} \cdot s^{2} + 1,203 \cdot 10^{19} s + 3,948 \cdot 10^{24}} \label{eq:LM833_transfer_fun} \\
-    & Z_{in}^{LM833} = \label{eq:LM833_in_impedance} \\
+    & Z_{in}^{LM833} = \frac{2,21 \cdot 10^{5} \cdot s^3 + 1,89 \cdot 10^{11} \cdot s^2 + 1,49 \cdot 10^{17} \cdot s + 4,12 \cdot 10^{22}}
+    {s^3 + 4,78 \cdot 10^{5} \cdot s^2 + 3,79 \cdot 10^{10} \cdot s} \label{eq:LM833_in_impedance} \\
 \end{align}
 \todo[inline]{NE5534 Transfer function}
 
@@ -124,6 +125,8 @@ A continuación se presentan los circuitos utilizados para tal fin:
 
 \subsection{Resultados y comparación}
 \subsubsection{Con operacional LM833}
+Para realizar las mediciones con este operacional, se decidió buscar la forma de paliar los efectos de la resistencia de $220K\Omega$ mediante el uso de un cable cercano a la misma, y conectado a tierra.
+Este cable hace las veces de shield, al ofrecerle a las señales parásitas un camino de menor esfuerzo hacia tierra. \par
 Se presentan a continuación los gráficos para la comparación de los resultados teóricos, simulados y experimentales, correspondientes a los diagramas de bode (en módulo y fase), e impedancia de entrada (también en módulo y fase):
 \begin{figure}[H]
     \begin{minipage}{\textwidth}
@@ -164,10 +167,17 @@ Esto, sumado
     \end{minipage}\hfill
 \end{figure}
 
-El caso es distinto para la impedancia de entrada.
+El caso es distinto para la impedancia de entrada, donde las discrepancias son más apreciables.
+Mientras que la teoría y la práctica mantienen cierta concordancia, a pesar de su desplazamiento relativo, los valores medidos están en desacuerdo con lo esperado, ya que no presentan el mínimo que caracteriza al teórico y simulado, y en frecuencias donde la fase teórica y simulada crece acercándose al 0, en la práctica decrece. \par
+Las razones detrás de estas diferencias pueden estar debidas a las condiciones a las que el circuito fue sometido.
+Cabe recordar que a la entrada del mismo se colocó una resistencia de un valor descomunalmente alto para esta aplicación ($220K\Omega$), que es susceptible a captar señales rondantes al mismo.
+Esta característica, sumada al hecho de que se está requiriendo una alta amplificación por parte del circuito (cercana a 40dB), contribuyen a que el mismo se encuentre en condiciones excepcionales y límite.
+En estas condiciones, es posible que aparezcan efectos en el operacional que no fueron considerados en el análisis teórico ni agregados en el modelo de spice, o que por el contrario, las mediciones hayan carecido de exactitud, siendo más permeables al ruido.
+
 
 
 \subsubsection{Con operacional NE5534}
+Para las mediciones con este operacional, se decidió dejar de lado la resistencia de $220K\Omega$, y reemplazarla por $1K\Omega$, bajo el criterio mencionado en la sección \ref{sec:ej2_initial}. \par
 Se presentan a continuación los gráficos para la comparación de los resultados teóricos, simulados y experimentales, correspondientes a los diagramas de bode (en módulo y fase), e impedancia de entrada (también en módulo y fase):
 \begin{figure}[H]
     \begin{minipage}{\textwidth}
@@ -185,6 +195,12 @@ Se presentan a continuación los gráficos para la comparación de los resultado
         \label{fig:NE5534_Bode_Fase}
     \end{minipage}\hfill
 \end{figure}
+
+El análisis de los resultados de las mediciones con el operacional NE5534 presenta mayores diferencias entre valores prácticos, teóricos e incluso simulados.
+En primer lugar, debe ser señalado que el teórico no se realizó teniendo en cuenta la compensación externa con el capacitor de 22pF, razón por la cual se ve que mantiene la ganancia ideal en un ancho de banda mucho más amplio.
+En cuanto a la comparación entre el simulado y el experimental, hay una característica fundamental a destacar, y es que la pendiente de decrecimiento de la curva experimental es claramente superior a la simulada, indicando la posible presencia de un polo de segundo orden en lugar de uno simple como sugiere la simulación.
+A esto se suma un leve sobrepico que presentan los resultados prácticos, sugiriendo que además de ser de segundo órden, el polo es levemente subamortiguado.
+La hipótesis del polo de segundo órden parece ser confirmada en el diagrama de la fase, en el cual se puede observar que mientras que la simulación presenta un cambio de fase de 90°, la experimental salta 180°.
 \begin{figure}[H]
     \begin{minipage}{\textwidth}
         \centering
@@ -201,3 +217,16 @@ Se presentan a continuación los gráficos para la comparación de los resultado
         \label{fig:NE5534_Zin_Fase}
     \end{minipage}\hfill
 \end{figure}
+
+En la impedancia de entrada del NE5534, las diferencias entre las tres curvas se vuelven considerables.
+Estas diferencias pueden ser debidas, en parte, a lo señalado por los diagramas de bode, y a las condiciones extremas de uso de un operacional con pobres características.
+El NE5534 tiene una baja impedancia de entrada ($100K\Omega$), para una aplicación con tanta ganancia (40dB), y considerando además que ni la teoría ni la simulación tuvieron en cuenta algún componente del operacional que provoca el segundo orden en el polo, puede entenderse entonces que hayan diferencias.
+De todas maneras, se concluye que el análisis previo a las mediciones no fue suficiente para predecir los efectos que se presentaron en la práctica.
+
+
+
+\subsection{Conclusiones}
+De lo visto en este ejercicio se extraen principalmente los conocimientos construidos a partir de los problemas ocasionados por la alta resistencia a la entrada.
+Se concluye que es necesario prestar atención a altas impedancias en el nodo de entrada del operacional, ya que convierte al mismo en una antena.
+En estas condiciones, y dependiendo del layout del circuito, el mismo puede ser sometido a señales que lo hagan saturar y oscilar.
+Finalmente, sobre los operacionales utilizados, se considera que no son recomendables para aplicaciones con tan alta ganancia, particularmente el NE5534, ya que además de requerir una compensación externa, presenta efectos no esperados como un polo de segundo orden.
