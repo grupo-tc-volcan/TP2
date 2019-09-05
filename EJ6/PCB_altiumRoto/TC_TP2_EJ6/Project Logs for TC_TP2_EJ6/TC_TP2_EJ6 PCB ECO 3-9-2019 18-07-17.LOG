@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=NetR3_2 Pin=R5-1
+Removed Pin From Net: NetName=NetJ2_2 Pin=R7-1
+Removed Pin From Net: NetName=NetR3_2 Pin=U1-1
+Change Component Comment : Designator=R7 Old Comment=2k New Comment=50k-
+Change Component Comment : Designator=R2 Old Comment=4.7k New Comment=4.7k-
+Change Component Comment : Designator=R5 Old Comment=4.7k New Comment=4.7k-
+Change Component Comment : Designator=R6 Old Comment=4.7k New Comment=4.7k-
+Change Component Comment : Designator=R4 Old Comment=50k New Comment=50k-
+Change Component Comment : Designator=R1 Old Comment=220k New Comment=180k-
+Change Component Comment : Designator=R3 Old Comment=270k New Comment=220k-
+Added Pin To Net: NetName=NetJ2_2 Pin=R2-1
+Added Pin To Net: NetName=NetR3_2 Pin=R7-1
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Pin To Net: NetName=NetR5_1 Pin=R7-2
+Added Pin To Net: NetName=NetR5_1 Pin=R7-3
+Added Pin To Net: NetName=NetR5_1 Pin=U1-1
+Added Net: Name=NetR5_1
+Added Room: Name=TC_TP2_EJ6
