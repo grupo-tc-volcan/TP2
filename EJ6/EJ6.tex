@@ -40,7 +40,7 @@ Si suponemos que el amplificador inversor tiene ganancia unitaria (esto es, $R_5
 En la ecuación anterior se pueden apreciar las dos etapas de adaptación mencionadas anteriormente (escalamiento y corrimiento). Ahora si operamos sobre esta simplificación obtenemos
 
 \begin{equation}
-    \frac{R_3}{R_2} \cdot \left( v_{sensor} - \frac{R_2}{R_1} \cdot v_{cc} \right)
+    v_{out}= \frac{R_3}{R_2} \cdot \left( v_{sensor} - \frac{R_2}{R_1} \cdot v_{cc} \right)
     \label{fig:EJ6_ecuacion_sistema_simplificada_final} 
 \end{equation}
 
@@ -48,7 +48,7 @@ Si decidimos fijar $R_2$ entonces agregando presets en serie a $R_1$ y $R_3$ pod
 Realizando los c\'alculos apropiados para conocer los valores de los resistores se llega a la siguiente expresi\'on:
 
 \begin{equation}
-    Aca van las equivalencias entre resistores
+    Aca-van-las-equivalencias-entre-resistores
     \label{fig:EJ6_ecuacion_resistores}
 \end{equation}
 
@@ -73,9 +73,55 @@ Los presets fueron sobredimensionados con el prop\'osito de ampliar el rango de 
 
  \subsection{Limitaci\'on del rango de salida}
 
- Se pide que la salida del circuito siempre pertenezca al rango $[-1V , 6V]$. Para lograr esto se puede colocar un diodo zener en paralelo a esta, limitando el rango de tensiones.
+ Se pide que la salida del circuito siempre pertenezca al rango $[-1V , 6V]$. Para lograr esto se puede colocar un diodo zener de $v_z = 5.6 V$ en paralelo a esta, limitando el rango de tensiones a $[-0.7V , 5.6V]$.
   El problema que se presenta en este caso es la limitación en corriente a la salida del integrado TL082. Si la intensidad es considerablemente alta se quemar\'a el IC. 
   Esta situaci\'on se puede evitar conectando una impedancia en serie a la salida, antes del diodo zener.
 
 
-Seg\'un la datasheet del TL082 extra\'ida de la web de Texas Instruments, la corriente de cortocircuito de salida oscila entre 
+Seg\'un la datasheet del TL082 extra\'ida de la web de Texas Instruments, cuando el operacional tiene conectada a su salida una carga tal que $R_L \geq 2k\Omega$ puede hacer un swing m\'aximo de tensi\'on a la salida de $\v_{out} = pm10V$.
+ Esta limitaci\'on est\'a dada por la corriente m\'axima que puede entregar en circuito integrado en estas condiciones. Aplicando ley de ohm se obtiene que en el peor caso
+
+ \begin{equation}
+    I_{max} = \frac{v_{max}}{R_L} = \frac{10V}{2k\Omega} = 5mA
+    \label{fig:EJ6_ecuacion_corriente}
+\end{equation}
+
+Con esta corriente, y suponiendo ademas que el m\'odulo de la tensi\'on m\'axima de salida es menor a  $\v_{max} = 10V$ y que caen $5.6V$ sobre el zener, se calcula el resistor m\'inimo a ser colocado
+
+\begin{equation}
+    R_{min} = \frac{v_{max}-v_{z}}{I_{max}} = \frac{10V - 5.6V}{5mA} = 880\Omega
+    \label{fig:EJ6_ecuacion_resistor_serie}
+\end{equation}
+
+Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de forma tal de agregar un factor de seguridad al circuito.
+ Esta resistencia serie sumada a la impedancia de salida del circuito adaptador forman un divisor de tensi\'on que atenuar\'a la salida en un determivtinado valor. Esto se compensar\'a con el sobredimensionamiento de los presets de calibraci\'on.
+
+ \subsection{Aspectos constructivos}
+
+ Luego de la etapa de c\'alculo se procedi\'o al dise\~no propiamente dicho. En cuanto a conectividad, el PCB cuenta con una bornera de entrada con entrada triple y dos pares de pines de salida: uno que responde a la señal de salida del circuito, y otro que actúa como entrada de una señal de prueba que emula al sensor LM35.
+  Esta \'ultima conexi\'on es especialmente \'util a la hora de realizar el proceso de calibraci\'on. Para poder conmutar entre la se\~nal simulada y la propia del sensor existe un jumper. A continuaci\'on se muestra un layout del PCB diseñado en Altium y una captura del esquem\'atico.
+ 
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../EJ_6/Captures/EJ6_PCB.png}
+    \caption{PCB del circuito}
+    \label{fig:EJ6_PCB} 
+\end{figure}
+ \subsection{M\'etodo de calibraci\'on}
+
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../EJ_6/Captures/EJ6_schematic.png}
+    \caption{Esquem\'atico del circuito}
+    \label{fig:EJ6_schematic} 
+\end{figure}
+
+ \subsection{M\'etodo de calibraci\'on}
+
+ Como se mencion\'o previamente, todos los componentes tienen una determinada tolerancia en sus valores nominales, adem\'as de ser \'estos normalizados y dependientes de factores externos como temperatura de operaci\'on, aging, etc.
+  De esto se deriva la necesidad de implementar un m\'etodo de calibraci\'on que permita al circuito operar como lo esperado. El PCB cuenta con dos preset a tal fin, cuya funci\'on est\'a debidamente indicada en el mismo.
+  Para realizar la calibraci\'on del circuito primero se recomienda conectar un generador de señales a la entrada para poder simular la respuesta del sensor en forma de rampa.
+ Luego se debe conectar la salida a un osciloscopio y girar el preset de Offset hasta que el pico inferior de la rampa se sit\'ue en el cero. Una vez realizado esto se procede a girar el preset de ganancia hasta que el pico superior de la rampa alcance una tensi\'on de 5V.
+  Cabe destacar que un proceso similar puede ser realizado con el sensor LM35 conectado e inyectando se\~al, utilizando la temperatuta de $35°C$ como referencia y otro punto dentro del rango.
+
+  \subsection{Datasheet de la implementaci\'on}
