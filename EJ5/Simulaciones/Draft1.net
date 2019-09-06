@@ -1,0 +1,11 @@
+* C:\Users\Carlos\Desktop\ITBA\3er año\1er cuatri\TC\TP2\Informe\TP2\EJ5\Simulaciones\Draft1.asc
+Ra N002 N001 10K
+Rc N002 0 200
+R1 +VCC N001 {R}
+R2 N001 -VCC {10K-{R}}
+V1 +VCC 0 15
+V2 0 -VCC 15
+.step param R list 100 200 300 500 1k 2k 3k 4k 5k 8k 9.9k
+.op
+.backanno
+.end

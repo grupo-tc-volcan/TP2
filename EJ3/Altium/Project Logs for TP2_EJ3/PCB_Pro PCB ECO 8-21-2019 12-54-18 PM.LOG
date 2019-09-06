@@ -1,5 +1,0 @@
-Removed Pin From Net: NetName=NetOA_X1_3 Pin=sw2-1
-Removed Pin From Net: NetName=NetR4_2 Pin=sw2-2
-Added Pin To Net: NetName=NetR4_2 Pin=sw2-1
-Added Pin To Net: NetName=NetOA_X1_3 Pin=sw2-2
-Added Room: Name=SCH_Pro
