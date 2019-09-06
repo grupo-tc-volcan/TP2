@@ -104,24 +104,38 @@ De los resultados obtenidos en \ref{eq:i1_and_vout}, y con los datos de la tabla
     & Z_{in}^{LM833} = \frac{2,21 \cdot 10^{5} \cdot s^3 + 1,89 \cdot 10^{11} \cdot s^2 + 1,49 \cdot 10^{17} \cdot s + 4,12 \cdot 10^{22}}
     {s^3 + 4,78 \cdot 10^{5} \cdot s^2 + 3,79 \cdot 10^{10} \cdot s} \label{eq:LM833_in_impedance} \\
 \end{align}
-\todo[inline]{NE5534 Transfer function}
 
 \subsubsection{Ecuaciones teóricas para el NE5534}
 De los resultados obtenidos en \ref{eq:i1_and_vout}, y con los datos de la tabla \ref{tab:parameters_for_equations}, se tiene:
 \begin{align}
-    & \frac{v_{out}^{NE5534}}{v_{in}} = \label{eq:NE5534_transfer_fun} \\
-    & Z_{in}^{NE5534} = \label{eq:NE5534_in_impedance}
+    & \frac{v_{out}^{NE5534}}{v_{in}} = \frac{1,21 \cdot 10^{-2} \cdot s^4 + 4,43 \cdot 10^{6} \cdot s^3 + 2,57 \cdot 10^{18} \cdot s^2 + 1,18 \cdot 10^{27} \cdot s + 4,46 \cdot 10^{34}}
+    {s^4 + 5,01 \cdot 10^{8} \cdot s^3 + 6,86 \cdot 10^{16} \cdot s^2 + 1,53 \cdot 10^{25} \cdot s + 5,51 \cdot 10^{32}} \label{eq:NE5534_transfer_fun} \\
+    & Z_{in}^{NE5534} = \frac{1,99 \cdot 10^{3} \cdot s^2 + 8,33 \cdot 10^{10} \cdot s + 6,31 \cdot 10^{17}}
+    {s^2 + 6,28 \cdot 10^{3} s} \label{eq:NE5534_in_impedance}
 \end{align}
-\todo[inline]{LM833 Input inpedance}
-\todo[inline]{NE5534 Input inpedance}
 
 
 \subsection{Simulación}
 Para el análisis de los circuitos mediante herramientas de simulación se empleó el programa LTspice, para el cual se realizaron dos esquemáticos, uno para cada uno de los operacionales.
 En ambos casos, se simuló la respuesta en frecuencia utilizando la función AC Analysis, y se obtuvieron así los diagramas de bode e impedancia de entrada del sistema, seleccionando las variables pertinentes a observar en el graficador.
 A continuación se presentan los circuitos utilizados para tal fin:
-\missingfigure{Circuit in LTspice for LM833}
-\missingfigure{Circuit in LTspice for NE5534}
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/LM833_Spice}
+        \caption{Circuito en LTspice para simulacion con el LM833.}
+        \label{fig:LM833_Spice}
+    \end{minipage}\hfill
+\end{figure}
+\begin{figure}[H]
+    \begin{minipage}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{../EJ2/recursos_para_el_informe/NE5534_Spice}
+        \caption{Circuito en LTspice para simulacion con el NE5534.}
+        \label{fig:NE5534_Spice}
+    \end{minipage}\hfill
+\end{figure}
+
 
 \subsection{Resultados y comparación}
 \subsubsection{Con operacional LM833}
