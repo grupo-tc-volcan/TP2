@@ -48,8 +48,13 @@ Si decidimos fijar $R_2$ entonces agregando presets en serie a $R_1$ y $R_3$ pod
 Realizando los c\'alculos apropiados para conocer los valores de los resistores se llega a la siguiente expresi\'on:
 
 \begin{equation}
-    Aca-van-las-equivalencias-entre-resistores
+    R_1 = \frac{v_{cc} \cdot 50 \cdot R_2}{17.5}
     \label{fig:EJ6_ecuacion_resistores}
+\end{equation}
+
+\begin{equation}
+  R_3 = 50 \cdot R_2
+  \label{fig:EJ6_ecuacion_resistores2}
 \end{equation}
 
 Con las equivalencias anteriores y fijando un valor comercial para el resistor $R_2$ se pueden calcular los valores teóricos de resistencia para $R_1$ y $R_3$.
@@ -61,7 +66,7 @@ Con las equivalencias anteriores y fijando un valor comercial para el resistor $
 		\begin{tabular}{c c c c c}
 		$R_2$ & $R_1$ & $R_{1n}$ & $R_3$ & $R_{3n}$ \\
 		\hline
-		$xx k\Omega$ & $xx k\Omega + 100 k\Omega$ & $xx k\Omega$ & $xx k\Omega + 100 k\Omega$
+		$6.8 k\Omega$ & $291.49 k\Omega$ & $220 k\Omega + 100 k\Omega$ & $340 k\Omega$ & $270 k\Omega + 100 k\Omega$
 		\end{tabular}
 		
 		\caption{Valores de resistores empleados}
@@ -125,3 +130,18 @@ Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de fo
   Cabe destacar que un proceso similar puede ser realizado con el sensor LM35 conectado e inyectando se\~al, utilizando la temperatuta de $35°C$ como referencia y otro punto dentro del rango.
 
   \subsection{Datasheet de la implementaci\'on}
+    A continuaci\'on se reproducen algunos datos \'utiles del circuito.
+    
+  \begin{table}[]
+    \begin{tabular}{c|ccc}
+    \textbf{Item}                                    & \textbf{Min} & \textbf{Typ} & \textbf{Max} \\ \hline
+    +Vcc {[}V{]}                                     & 5            & 15           & 36           \\
+    -Vcc {[}V{]}                                     & -12          & -15          & -17          \\
+    Vout {[}V{]}                                     & -0.8         & -            & 5.45         \\
+    Amplitud de salida {[}V{]}                       & 3.92         & -            & 5.3          \\
+    Impedancia de salida {[}\textbackslash{}Omega{]} & -            & 1000         & -            \\
+    Amplificador Operacional                         & \multicolumn{3}{c|}{TL072CN}               \\
+    Sensor de Temperatura                            & \multicolumn{3}{c|}{LM35DZ}               
+    \end{tabular}
+    \label{"Datasheet de la implementaci\'on"}
+    \end{table}
