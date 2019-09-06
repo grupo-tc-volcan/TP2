@@ -37,7 +37,7 @@ caso 3:
 Dado que luego se llevar\'ian a cabo mediciones para contrastar los resultados con el c\'alculo te\'orico, se decidi\'o buscar la expresi\'on correspondiente a la $Z_{in}$ que incluyera una punta del osciloscopio, es decir, se calcul\'o la impedancia que ser\'ia vista idealmente al utilizar el osciloscopio. Para esto, se le agreg\'o en paralelo el modelo equivalente a una punta X10 (la empleada) al resultado obtenido previamente de la $Z_{in}$. Dicho modelo consiste en una resistencia de $10M\Omega$ en paralelo con un capacitor de $12pF$. As\'i se obtuvo la siguiente expresi\'on:
 
 \begin{equation}
-	Z_{in}\rvert_{c/punta} = 8.33 \cdot 10^17\cdot (A \cdot R1 + R1 + R2)/(8.33 \cdot 10^17 \cdot A + (10^7 s + 8,33 \cdot 10^10) \cdot (A \cdot R1 + R1 + R2) + 8.33 \cdot 10^17)
+	Z_{in}\rvert_{c/punta} = \frac{8.33 \cdot 10^{17}\cdot (A \cdot R1 + R1 + R2)}{8.33 \cdot 10^{17} \cdot A + (10^7 s + 8,33 \cdot 10^{10}) \cdot (A \cdot R1 + R1 + R2) + 8.33 \cdot 10^{17}}
 	\label{zinp}
 \end{equation}
 
@@ -106,7 +106,7 @@ Como el circuito es resistivo y la expresi\'on \ref{c2zint} no depende de $A_{vo
 
 
 \begin{equation}
-	Z_{in}\rvert_{c/punta} = 8,33 \cdot 10^{17} \cdot (R3 + R4)/((R3 + R4) \cdot (10^7 s + 8,33 \cdot 10^{10}) + 8,33 \cdot 10^{17})
+	Z_{in}\rvert_{c/punta} = \frac{8,33 \cdot 10^{17} \cdot (R3 + R4)}{(R3 + R4) \cdot (10^7 s + 8,33 \cdot 10^{10}) + 8,33 \cdot 10^{17}}
 	\label{zinp}
 \end{equation}
 
@@ -116,13 +116,13 @@ Evaluando para cada uno de los casos indicados en la tabla \ref{casos}, se llega
 
 Casos 1 y 2:
 \begin{equation}
-	Z_{in}\rvert_{c/punta} = \frac{1,04 \cdot 10^22}{1,25 \cdot 10^11 + 8.34 \cdot 10^17}
+	Z_{in}\rvert_{c/punta} = \frac{1,04 \cdot 10^{22}}{1,25 \cdot 10^11 + 8.34 \cdot 10^{17}}
 	\label{c2c1zinp}
 \end{equation}
 
 Caso 3:
 \begin{equation}
-	Z_{in}\rvert_{c/punta} = \frac{1,04 \cdot 10^23}{1,25 \cdot 10^12 + 8,43 \cdot 10^17}
+	Z_{in}\rvert_{c/punta} = \frac{1,04 \cdot 10^{23}}{1,25 \cdot 10^{12} + 8,43 \cdot 10^{17}}
 	\label{c2c3zinp}
 \end{equation}
 
