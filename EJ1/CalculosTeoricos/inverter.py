@@ -14,7 +14,7 @@ import numpy as np
 WP = 10 * 2 * np.pi  #o 12Hz
 F = 10000 #!!!!!!!!!
 VCC = 15
-A0 = 112000
+A0 = 100000
 VD = 1 #!!!!!!!!!!!
 RD = 500000#SIMULAR Y VER!!!!!!!!!!!
 R0 = 1#SIMULAR Y VER!!!!!!!!!!
@@ -71,17 +71,32 @@ hMod = sqrt(re(h)**2 + im(h)**2)
 hMod = simplify(hMod)
 
 print("inverter: Vo/Vi=")
-result = replaceValues(h, 1, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+result1 = replaceValues(h, 1, A0) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("CASO 1>")
-print(latex(result.evalf()))
+print(latex(result1.evalf()))
 
-result = replaceValues(h, 2, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+result2 = replaceValues(h, 2, A0) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("CASO 2>")
-print(latex(result.evalf()))
+print(latex(result2.evalf()))
 
-result = replaceValues(h, 3, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+result3 = replaceValues(h, 3, A0) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("CASO3>")
-print(latex(result.evalf()))
+print(latex(result3.evalf()))
+
+
+
+print("VIN MAX:")
+vinm = (500000)/(sqrt(re(h)**2+im(h)**2)*s) #500000
+print("CASO 1>")
+vinmax = replaceValues(vinm, 1, aw)
+print(latex(vinmax.evalf()))
+print("CASO 2>")
+vinmax = replaceValues(vinm, 2, aw)
+print(latex(vinmax.evalf()))
+print("CASO 3>")
+vinmax = replaceValues(vinm, 3, aw)
+print(latex(vinmax.evalf()))
+
 
 
 #ESTO ES CONSIDERANDO R INTERNAS!-----------
@@ -115,3 +130,5 @@ print(latex(result.evalf()))
 result = replaceValues(zin_sp, 3, aw)
 print("inverter: Zin caso3=")
 print(latex(result.evalf()))
+
+
