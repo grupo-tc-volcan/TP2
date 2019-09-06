@@ -1,6 +1,3 @@
-\input{./EJ4_preamble.tex}
-\begin{document}
-
 \section{Ejercicio 4: Derivador e Integrador}
 En la presente secci\'on se estudiar\'an los circuitos derivador e integrador implementados con amplificador operacionales, analizando su comportamiento, rango de funcionamiento y cualidades o defectos. Adem\'as se presentar\'a un circuito para cada uno de ellos con modificaciones con el fin de mejorar su funcionamiento y se comparar\'an los resultados entre ellos.
 
@@ -16,32 +13,17 @@ Adem\'as, todo an\'alisis te\'orico se realiza teniendo en cuenta que los circui
 	\item $Z_o = 37 \Omega$
 \end{itemize}
 
-<<<<<<< HEAD
 	\subsection{Circuito derivador}
  
 \subsubsection{An\'alisis Te\'orico}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.8]{Recursos/Derivador/Circuito_derivador.png}
+	\includegraphics[scale=0.8]{../EJ4/Recursos/Derivador/Circuito_derivador.png}
 	\caption{Circuito derivador}
 	\label{fig:circuito_derivador}
 \end{figure}
 
-=======
-
-	\subsection{Circuito derivador}
- 
-\subsubsection{An\'alisis Te\'orico}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.8]{Recursos/Derivador/Circuito_derivador.png}
-	\caption{Circuito derivador}
-	\label{fig:circuito_derivador}
-\end{figure}
-
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 \paragraph*{Funci\'on transferencia en condiciones ideales}se busca la funci\'on de transferencia del circuito bajo condiciones ideales, esto es, asumiendo que el amplificador operacional no tiene variaci\'on en su ganancia de lazo abierto con la frecuencia y que la misma tiende a infinito, $A_{vol} \to \infty$. En este marco de idealidad, las impedancias de entrada y salida del amplificador operacional son $Z_{in} \to \infty$ y $r_o = 0$. Para este c\'alculo se conoce la ganancia ideal de un amplificador inversor y se asume al mismo un sistema LTI, causal y bibo-estable.
 
 \begin{equation}
@@ -103,11 +85,7 @@ en t\'erminos de estabilidad, pues a diferencia de un derivador ideal, a altas f
 \paragraph*{Funci\'on transferencia con polo dominante} tomando en cuenta el polo dominante 
 que el fabricante del amplificador operacional coloca a una baja frecuencia para 
 que el ruido se vea atenuado en las altas frecuencias, pues es donde saldr\'ia en contrafase
-<<<<<<< HEAD
 y producir\'ia una realimentaci\'on positiva. Entonces reemplazado la ecuaci\'on \ref{eq:derivador_polo_dominante} 
-=======
-y producir\'ia una realimentaci\'on positiva. Entonces reemplazado la ecuaci\'on \ref{eq:polo_dominante} 
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 en la ecuaci\'on \ref{eq:derivador_transfer_avol_finito} y operando:
 
 \begin{equation}
@@ -177,8 +155,8 @@ De esta forma se agrupan las impedancias y se encuentra la $Z_{in}$, para ello s
 
 \begin{figure}[H]
 \begin{tabular}{c c}
-	\includegraphics[scale=0.55]{Recursos/Derivador/Circuito_derivador_modelo.png} &
-	\includegraphics[scale=0.55]{Recursos/Derivador/Circuito_derivador_simplificacion.png}
+	\includegraphics[scale=0.55]{../EJ4/Recursos/Derivador/Circuito_derivador_modelo.png} &
+	\includegraphics[scale=0.55]{../EJ4/Recursos/Derivador/Circuito_derivador_simplificacion.png}
 \end{tabular}
 \caption{Circuito derivador con modelo del amplificador y transformaci\'on}
 \label{fig:circuito_derivador_impedancia}
@@ -201,7 +179,7 @@ En primera instancia, se observa que la impedancia de entrada del circuito deriv
 sino que var\'ia, y particularmente para el rango de frecuencias donde $f < 15,79MHz$ la impedancia del mismo, dentro del contexto del an\'alisis, se puede
 aproximar a la del capacitor.
 
-\paragraph*{Impedancia de entrada con polo dominante} ahora se adaptan los c\'alculos previos para incluir la apreciaci\'on del polo dominante dentro del an\'alisis de la impedancia de entrada. Operando con la expresi\'on del polo dominante \ref{eq:polo_dominante} se llega a que:
+\paragraph*{Impedancia de entrada con polo dominante} ahora se adaptan los c\'alculos previos para incluir la apreciaci\'on del polo dominante dentro del an\'alisis de la impedancia de entrada. Operando con la expresi\'on del polo dominante \ref{eq:derivador_polo_dominante} se llega a que:
 
 \begin{equation*}
 	Z_{in} = \frac{R + Z_o + r_{id} \cdot (A_o + 1 + \frac{s}{\omega_p}) + s \cdot C \cdot r_{id} \cdot (R + Z_o) \cdot (1 + \frac{s}{\omega_p})}{s \cdot C \cdot \left[ (R + Z_o) \cdot (1 + \frac{s}{\omega_p}) + r_{id} \cdot (1 + A_o + \frac{s}{\omega_p}) \right]}
@@ -260,29 +238,21 @@ Si bien agregando la resistencia del generador justifica la ca\'ida del sobrepic
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Derivador/Mediciones/Osciloscopio/Justificacion/scope_4.png}
-<<<<<<< HEAD
+	\includegraphics[scale=0.4]{../EJ4/Derivador/Mediciones/Osciloscopio/Justificacion/scope_4.png}
 	\caption{Se\~nal amarilla es una entrada senoidal, se\~nal verde es la salida.}
-=======
-	\caption{Señal amarilla es una entrada senoidal, señal verde es la salida.}
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 	\label{fig:justificacion_derivador}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-<<<<<<< HEAD
-	\includegraphics[scale=0.6]{Recursos/Derivador/bode_modulo.png}
-=======
-	\includegraphics[scale=0.6]{Recursos/Derivador/bode_modulo_correcion.png}
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Derivador/bode_modulo.png}
 	\caption{Diagrama de bode en m\'odulo de H(f) del derivador}
 	\label{fig:derivador_bode_modulo}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Derivador/bode_fase.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Derivador/bode_fase.png}
 	\caption{Diagrama de bode en fase de H(f) del derivador}
 	\label{fig:derivador_bode_fase}
 \end{figure}
@@ -297,23 +267,19 @@ donde estos aspectos no afecten, se ver\'ia que para tales frecuencias el slew r
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Recursos/Derivador/impedancia_modulo.png}
+	\includegraphics[scale=0.7]{../EJ4/Recursos/Derivador/impedancia_modulo.png}
 	\caption{Impedancia de entrada en m\'odulo, graficada con escalas logar\'itmicas}
 	\label{fig:derivador_impedancia_modulo}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Recursos/Derivador/impedancia_fase.png}
+	\includegraphics[scale=0.7]{../EJ4/Recursos/Derivador/impedancia_fase.png}
 	\caption{Impedancia de entrada en fase, graficada con escalas logar\'itmicas}
 	\label{fig:derivador_impedancia_fase}
 \end{figure}
 
-<<<<<<< HEAD
 \paragraph*{Respuesta a se\~nales no senoidales} en la figura \ref{fig:derivador_respuestas} se pueden observar las respuestas
-=======
-\paragraph*{Respuesta a señales no senoidales} en la figura \ref{fig:derivador_respuestas} se pueden observar las respuestas
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 al derivador sin compensar para cuatro casos diferentes, una triangular con simetr\'ia del $80\%$ y una frecuencia de $10kHz$,
 una triangular con simetr\'ia de $50\%$ y frecuencia de $1kHz$, una cuadrada de frecuencia $1kHz$ con duty del $50\%$ y finalmente una cuadrada
 de frecuencia $10kHz$ y duty del $50\%$.
@@ -327,16 +293,12 @@ de compensar el circuito de alguna forma, como se ver\'a a continuaci\'on.
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Sin_Compensar/scope_11.png} &
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Sin_Compensar/scope_3.png} \\
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Sin_Compensar/scope_5.png} &
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Sin_Compensar/scope_7.png}
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Sin_Compensar/scope_11.png} &
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Sin_Compensar/scope_3.png} \\
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Sin_Compensar/scope_5.png} &
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Sin_Compensar/scope_7.png}
 	\end{tabular}
-<<<<<<< HEAD
 	\caption{Entrada y salida, se\~nal amarilla y verde respectivamente.}
-=======
-	\caption{Entrada y salida, señal amarilla y verde respectivamente.}
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 	\label{fig:derivador_respuestas}
 \end{figure}
 
@@ -352,7 +314,7 @@ Por tanto, se propone a continuaci\'on una modificaci\'on al circuito con el fin
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Recursos/Derivador_compensado/Circuito_derivador_compensado.png}
+	\includegraphics[scale=0.7]{../EJ4/Recursos/Derivador_compensado/Circuito_derivador_compensado.png}
 	\caption{Circuito derivador compensado}
 	\label{fig:derivador_compensado_circuito}
 \end{figure}
@@ -434,10 +396,10 @@ Este proceso de calibraci\'on consiste en utilizar el generador de funciones par
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Compensado/Calibracion/scope_19.png} &
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Compensado/Calibracion/scope_21.png}
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Compensado/Calibracion/scope_19.png} &
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Compensado/Calibracion/scope_21.png}
 	\end{tabular}
-	\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Compensado/Calibracion/scope_15.png} 
+	\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Compensado/Calibracion/scope_15.png} 
 	\caption{Calibraci\'on del sistema desde el estado subamortiguado al cr\'iticamente amortiguado}
 	\label{fig:calibracion_derivador}
 \end{figure}
@@ -450,7 +412,7 @@ zoom sobre la respuesta transitoria del sistema y se calibra tal cual fue descri
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.75]{Recursos/Derivador_compensado/Compensado_modelo_impedancia.png}
+	\includegraphics[scale=0.75]{../EJ4/Recursos/Derivador_compensado/Compensado_modelo_impedancia.png}
 	\caption{Modelo equivalente del circuito incluyendo compensaci\'on}
 	\label{fig:derivador_compensado_modelo}
 \end{figure}
@@ -494,7 +456,7 @@ de una resistencia de compensaci\'on resultante de la agrupaci\'on serie entre e
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador/correccion.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Integrador/correccion.png}
 	\caption{Diagrama explicativo del error cometido en el dise\~no}
 	\label{fig:derivador_correccion}
 \end{figure}
@@ -507,14 +469,14 @@ m\'etodo de calibraci\'on analizando la respuesta temporal es la mejor forma de 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Derivador_compensado/bode_modulo.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Derivador_compensado/bode_modulo.png}
 	\caption{Diagrama de bode en m\'odulo del derivador compensado}
 	\label{fig:derivador_compensado_bode_modulo}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Derivador_compensado/bode_fase.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Derivador_compensado/bode_fase.png}
 	\caption{Diagrama de bode en fase del derivador compensado}
 	\label{fig:derivador_compensado_bode_fase}
 \end{figure}
@@ -530,7 +492,7 @@ ninguna distorsi\'on o deformaci\'on de la salida, siempre y cuando lo obtenido 
 	\centering
 	\begin{tabular}{c c c c c}%
 		$V_{gen} [V]$ & $f_{gen} [Hz]$ & $V_{out} [V]$ & $\phase{V_{out}} [\circ]$ & $\frac{V_o}{V_i} [dB]$ \\ \hline
-		\csvreader[head to column names, late after line=\\]{bode_derivador_compensado.csv}{}{\gen & \f & \out & \p & \db}
+		\csvreader[head to column names, late after line=\\]{../EJ4/bode_derivador_compensado.csv}{}{\gen & \f & \out & \p & \db}
 		\hline
 	\end{tabular}
 \end{table}
@@ -542,14 +504,14 @@ y por ello se puede apreciar que la medici\'on tiene un valor mucho menor que el
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Recursos/Derivador_compensado/impedancia_modulo.png}
+	\includegraphics[scale=0.7]{../EJ4/Recursos/Derivador_compensado/impedancia_modulo.png}
 	\caption{Impedancia de entrada del derivador compensado, en modulo}
 	\label{fig:derivador_compensado_impedancia_modulo}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Recursos/Derivador_compensado/impedancia_fase.png}
+	\includegraphics[scale=0.7]{../EJ4/Recursos/Derivador_compensado/impedancia_fase.png}
 	\caption{Impedancia de entrada del derivador compensado, en fase}
 	\label{fig_derivador_compensado_impedancia_fase}
 \end{figure}
@@ -560,10 +522,10 @@ a las se\~nales de salida.
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Compensado/EJ_1_TABLA_6.png} &
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Compensado/osc_4.png} \\
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Compensado/osc_8.png} &
-		\includegraphics[scale=0.2]{Derivador/Mediciones/Osciloscopio/PCB_Compensado/scope_23.png} 
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Compensado/EJ_1_TABLA_6.png} &
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Compensado/osc_4.png} \\
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Compensado/osc_8.png} &
+		\includegraphics[scale=0.2]{../EJ4/Derivador/Mediciones/Osciloscopio/PCB_Compensado/scope_23.png} 
 	\end{tabular}
 	\caption{Medici\'on de respuesta a se\~nales no senoidales}
 	\label{fig:respuesta_derivador_compensado}
@@ -573,14 +535,13 @@ a las se\~nales de salida.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.8]{Recursos/Integrador/Circuito_integrador.png}
+	\includegraphics[scale=0.8]{../EJ4/Recursos/Integrador/Circuito_integrador.png}
 	\caption{Circuito integrador sin compensar}
 	\label{fig:circuito_integrador}
 \end{figure}
 \subsubsection{An\'alisis Te\'orico}
 
 \paragraph*{Funci\'on transferencia en condiciones ideales} considerando el sistema LTI, causal y bibo-estable, bajo condiciones de idealidad donde $A_{vol} \rightarrow \infty$, luego como se conoce la expresi\'on para dicho caso del amplificador inversor, se obtiene que:
-<<<<<<< HEAD
 
 \begin{equation}
 	H(s) = - \frac{\frac{1}{s \cdot C}}{R} = - \frac{1}{s \cdot C \cdot R}
@@ -640,7 +601,7 @@ Se llama a la diferencia de potencial $V_d = V^{+} - V^{-}$.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Recursos/Integrador/Circuito_integrador_modelo_impedancia.png}
+	\includegraphics[scale=0.7]{../EJ4/Recursos/Integrador/Circuito_integrador_modelo_impedancia.png}
 	\caption{Circuito equivalente para c\'alculo de impedancia de entrada}
 	\label{fig:integrador_modelo}
 \end{figure}
@@ -724,14 +685,14 @@ se vuelve poco apreciable.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador/bode_modulo.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Integrador/bode_modulo.png}
 	\caption{Diagrama de bode en m\'odulo del integrador sin compensar}
 	\label{fig:integrador_bode_modulo}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador/bode_fase.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Integrador/bode_fase.png}
 	\caption{Diagrama de bode en fase del integrador sin compensar}
 	\label{fig:integrador_bode_fase}
 \end{figure}
@@ -744,8 +705,8 @@ que seg\'un la frecuencia el nivel de continua se modifica por lo explicado ante
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.55]{Integrador/Simulaciones/Seno100.png} &
-		\includegraphics[scale=0.55]{Integrador/Simulaciones/Seno10k.png}
+		\includegraphics[scale=0.55]{../EJ4/Integrador/Simulaciones/Seno100.png} &
+		\includegraphics[scale=0.55]{../EJ4/Integrador/Simulaciones/Seno10k.png}
 	\end{tabular}
 	\caption{Respuesta del integrador sin compensar a senoidales de $100Hz$ y $10kHz$}
 	\label{fig:integrador_simulacion}
@@ -753,14 +714,14 @@ que seg\'un la frecuencia el nivel de continua se modifica por lo explicado ante
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Recursos/Integrador/impedancia_modulo.png}
+	\includegraphics[scale=0.7]{../EJ4/Recursos/Integrador/impedancia_modulo.png}
 	\caption{Impedancia de entrada en m\'odulo del integrador sin compensar}
 	\label{fig:integrador_impedancia_modulo}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{Recursos/Integrador/impedancia_fase.png}
+	\includegraphics[scale=0.7]{../EJ4/Recursos/Integrador/impedancia_fase.png}
 	\caption{Impedancia de entrada en fase del integrador sin compensar}
 	\label{fig:integrador_impedancia_fase}
 \end{figure}
@@ -772,8 +733,8 @@ seg\'un la frecuencia.
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Sin_Compensar/osc_11.png} & 
-		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Sin_Compensar/osc_12.png}
+		\includegraphics[scale=0.2]{../EJ4/Integrador/Mediciones/Osciloscopio/PCB_Sin_Compensar/osc_11.png} & 
+		\includegraphics[scale=0.2]{../EJ4/Integrador/Mediciones/Osciloscopio/PCB_Sin_Compensar/osc_12.png}
 	\end{tabular}
 	\caption{Respuestas a se\~nales no senoidales}
 	\label{fig:integrador_respuestas}
@@ -885,312 +846,6 @@ En consecuencia se opta por tomar un valor de resistencia $R_2 = 470k\Omega$ pue
 	H(s) = \frac{-93,91}{1 + s \cdot 9,392 \cdot 10^{-3} + \left( \frac{s}{2 \pi \cdot 15,94kHz} \right)^{2}}
 \end{equation}
 
-=======
-
-\begin{equation}
-	H(s) = - \frac{\frac{1}{s \cdot C}}{R} = - \frac{1}{s \cdot C \cdot R}
-	\Rightarrow
-	H(s) = - \frac{1}{\frac{s}{2 \pi \cdot 1,591kHz}}
-	\label{eq:integrador_transfer_ideal}
-\end{equation}
-
-En este primer acercamiento al comportamiento del circuito, se puede observar en la funci\'on transferencia que se describe un sistema que no es bibo-estable como se asumi\'o en un principio, sino que posee un polo en el origen. Esto \'ultimo tiene sentido porque implica que para entradas acotadas, la respuesta ser\'a la integral de dicha entrada acotada, pudiendo dar un resultado no acotado en el tiempo. Desde otro punto de vista, para frecuencias muy bajas o se\~nales continuas, la impedancia del capacitor en la realimentaci\'on es demasiado grande y provoca una desconexi\'on o un lazo d\'ebil, por lo tanto el amplificador operacional satura puesto que amplifica en t\'erminos de su $A_{vol}$ correspondiente seg\'un sea el caso.
-
-\paragraph*{Funci\'on transferencia con $A_{vol}$ finito} consid\'erese un $A_{vol}$ finito, luego se plantean los valores de potencial el\'ectrico sobre los terminales de las entradas del amplificador operacional y se calcula la salida con la ecuaci\'on correspondiente al modelo del mismo. Entonces, se obtiene:
-
-\begin{equation*}
-	v^{-} = V_i \cdot \frac{\frac{1}{s \cdot C}}{\frac{1}{s \cdot C} + R} + V_o \cdot \frac{R}{\frac{1}{s \cdot C} + R}
-	\Rightarrow
-	v^{-} = \frac{V_i + V_o \cdot s \cdot C \cdot R}{1 + s \cdot C \cdot R}
-\end{equation*}
-
-\begin{equation*}
-	V_o = (v^{+} - v^{-}) \cdot A_{vol} \Rightarrow
-	V_o \cdot \left[ 1 + \frac{A_{vol} \cdot s \cdot R \cdot C}{1 + s \cdot C \cdot R} \right] =
-	- V_i \cdot \frac{A_{vol}}{1 + s \cdot C \cdot R}
-\end{equation*}
-
-\begin{equation}
-	H(s) = \frac{V_o(s)}{V_i(s)} = \frac{-A_{vol}}{1 + s \cdot C \cdot R \cdot (A_{vol} + 1)}
-	\Rightarrow
-	H(s) = \frac{-100000}{1 + \frac{s}{2 \pi \cdot 0,0159Hz}}
-	\label{eq:integrador_transfer_avol_finito}
-\end{equation}
-
-Se puede observar que con estas nuevas consideraciones, el sistema dej\'o de ser inestable en t\'erminos de su respuesta, no obstante sigue sucediendo que para frecuencias muy bajas la realimentaci\'on pasa a tener un lazo d\'ebil y satura el amplificador operacional.
-
-\paragraph*{Funci\'on transferencia con polo dominante} ahora se considera que la ganancia del amplificador operacional tiene el polo dominante, con lo cual no se mantiene invariante en frecuencia. Reutilizando la expresi\'on anterior para $A_{vol}$ finito y reemplazando tal t\'ermino por la expresi\'on con el polo dominante se obtiene:
-
-\begin{equation*}
-	H(s) = - \frac{A_o \cdot \omega_p}{s + \omega_p + s \cdot C \cdot R \cdot (A_o \cdot \omega_p + s + \omega_p)}
-	\Rightarrow
-	H(s) = - \frac{A_o}{1 + s \cdot \frac{1 + C \cdot R \cdot \omega_p \cdot ( A_o + 1 )}{\omega_p} + s^{2} \cdot \frac{C \cdot R}{\omega_p}}
-\end{equation*}
-
-\begin{equation*}
-	H(s) = - \frac{100000}{1 + s \cdot 10,001 + \left( \frac{s}{2 \pi \cdot 488,60Hz} \right)^{2}}
-\end{equation*}
-
-En esta nueva expresi\'on de la funci\'on transferencia, el sistema refleja un segundo orden en el denominador del cual se pueden determinar los par\'ametros caracter\'isticos del mismo, obteniendo que $\omega_o = 3069,96 \frac{1}{s}$ y $\xi = 15351,58 \geq 1$. Entonces el sistema se encuentra en un sobreamortiguamiento con frecuencias de corte ubicadas en $f_1 = 15,0017MHz$ y $f_2 = 0,01499Hz$.
-
-\begin{equation}
-	H(s) = - \frac{106092,66}{(1 + \frac{s}{2 \pi \cdot 0,014998Hz}) \cdot (1 + \frac{s}{2 \pi \cdot 15,0017MHz})}
-	\label{eq:integrador_transfer_polo_dominante}
-\end{equation}
-
-En este nuevo resultado la \'unica diferencia con respecto al anterior, es que ahora hay un polo adicional que aparece en una frecuencia muy alejada, no obstante sigue saturando para frecuencias muy bajas por el lazo d\'ebil, es por esto que este circuito no funcionar\'a correctamente con el prop\'osito para el que fue pensado desde un punto de vista ideal, por ende ser\'a necesario realizar alguna compensaci\'on para poder corregirlo.
-
-\paragraph*{Impedancia de entrada con $A_{vol}$ finito} para encontrar la impedancia de entrada considerando el $A_{vol}$ finito, se redibuja el circuito reemplazando al amplificador operacional con su circuito equivalente y se plantea la ley de nodos.
-Se llama a la diferencia de potencial $V_d = V^{+} - V^{-}$.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.7]{Recursos/Integrador/Circuito_integrador_modelo_impedancia.png}
-	\caption{Circuito equivalente para c\'alculo de impedancia de entrada}
-	\label{fig:integrador_modelo}
-\end{figure}
-
-\begin{equation*}
-	I_1 = I_2 + I_3 \Rightarrow
-	\frac{V_i + V_d}{R_1} = 
-	\frac{-V_i}{R_1} + \frac{- V_i - V_i \cdot A_{vol}}{\frac{1}{s \cdot C} + R}
-\end{equation*}
-
-\begin{equation*}
-	V_d = \frac{- V_i \cdot r_i \cdot ( 1 + s \cdot C \cdot Z_o)}{r_i \cdot(s \cdot C \cdot Z_o + 1) + R_1 \cdot (1 + s \cdot C \cdot Z_o) + s \cdot C \cdot R_1 \cdot r_i \cdot (1 + A_{vol})}
-\end{equation*}
-
-\begin{equation*}
-	Z_i(s) = \frac{V_i(s)}{I_1(s)} = \frac{V_i(s)}{\frac{V_i(s) + V_d(s)}{R_1}}
-	\Rightarrow
-	Z_i(s) = (R_1 + r_i) \cdot \frac{1 + s \cdot \frac{C \cdot \left[ Z_o \cdot (R_1 + r_i) + R_1 \cdot r_i \cdot (A_{vol} + 1) \right]}{R_1 + r_i}}{1 + s \cdot C \left[ Z_o + r_i \cdot ( 1 + A_{vol}) \right]}
-\end{equation*}
-
-\begin{equation}
-	Z_i(s) = (180k \Omega) \cdot \frac{1 + \frac{s}{2 \pi \cdot 0,0163Hz}}{1 + \frac{s}{2 \pi \cdot 0,00045Hz}}
-	\label{eq:integrador_impedancia_avol_finito}
-\end{equation}
-
-\paragraph*{Impedancia de entrada con polo dominante} reutilizando la expresi\'on anterior para la impedancia de entrada y considerando la variaci\'on del $A_{vol}$ respecto de la frecuencia, se obtiene:
-
-\begin{equation*}
-	Z_i(s) = (R_1 + r_i) \cdot \frac{1 + s \cdot \frac{r_i + R_1 + \omega_p \cdot C \cdot \left[ Z_o \cdot ( R_1 + r_i ) + R_1 \cdot r_i \cdot (A_o + 1) \right]}{\omega_p \cdot (R_1 +r_i)} + s^{2} \cdot \frac{C \cdot \left[ Z_o \cdot (R_1 + r_i) + R_1 \cdot r_i \right]}{\omega_p \cdot (R_1 + r_i)}}{1 + s \cdot \frac{1 + \omega_p \cdot C \cdot (Z_o + r_i \cdot ( A_o + 1 ) )}{\omega_p} + s^{2} \cdot \frac{C \cdot(Z_o + r_i)}{\omega_p}}
-\end{equation*}
-
-\begin{equation*}
-	Z_i(s) = (180k \Omega) \cdot \frac{1 + s \cdot 9,723 + \left( \frac{s}{2 \pi \cdot 493,65Hz} \right)^{2}	}{1 + s \cdot 350,0045 + \left(\frac{s}{2 \pi \cdot 82,58Hz} \right)^{2}}
-\end{equation*}
-
-\begin{equation}
-	Z_i(s) = 180k \Omega \cdot \frac{(1 + \frac{s}{2 \pi \cdot 25,45Hz}) \cdot (1 + \frac{s}{2 \pi \cdot 9574,06Hz})}{(1 + \frac{s}{2 \pi \cdot 0,1178Hz}) \cdot (1 + \frac{s}{2 \pi \cdot 57,806kHz})}
-	\label{eq:integrador_impedancia_polo_dominante}
-\end{equation}
-
-\paragraph*{Conclusi\'on del an\'alisis} si se tienen en cuenta las expresiones resultantes para 
-la funci\'on transferencia y la impedancia de entrada con la menor idealidad posible, es decir, los
-resultados de las Ec. \ref{eq:integrador_transfer_polo_dominante} y
-Ec. \ref{eq:integrador_impedancia_polo_dominante}. Asumiendo que el circuito se comportar\'a como
-integrador en las regiones de frecuencia para las cuales la fase sea $90^{\circ}$ puesto que podría
-aproximarse tal respuesta con la forma de $\frac{-1}{s}$ que en el dominio temporal equivale a la
-integral de la funci\'on, luego para frecuencias que cumplan estar en el rango 
-$0,14998Hz \leq f \leq 1,5Mhz$ se puede aproximar el comportamiento de la $H(s)$ obtenida a
-dicha forma. No obstante, si se consideran bajas frecuencias, la impedancia del capacitor ser\'a 
-tan elevada que el lazo de la realimentaci\'on dejar\'a de funcionar como tal, provocando que el
-amplificador operacional amplifique en t\'erminos de su $A_{vol}$ con lo cual saturar\'a y dejar\'a de
- funcionar para tales frecuencias. Desde un an\'alisis temporal, y bajo condiciones de idealidad, cualquier componente
- de continua en la entrada provocar\'ia que circule una determinada corriente constante sobre el capacitor provocando
- que su carga acumulada crezca indefinidamente hasta saturar, esta es la consecuencia directa de la inestabilidad del sistema a trav\'es del
- polo en el origen de la funci\'on transferencia ideal.
-
- Si bien por un lado podr\'ia considerarse que el circuito puede llegar a funcionar correctamente siempre y cuando se limiten
- las componentes de corriente de continua en la entrada para evitar provocar las inestabilidades mencionadas, debe tenerse en cuenta
- la presencia de las corrientes de bias y tensi\'on de polarizaci\'on del amplificador operacional que podr\'ian tener tal efecto y eventualmente
- saturar la salida. Ergo, dado el caso donde tales corrientes y tensiones de continua por offset del amplificador no se vean compensadas,
- el circuito saturar\'a y no funcionar\'a.
-
-\subsubsection{Resultados}
-A continuaci\'on se presentan los resultados de las simulaciones y mediciones, contrastantdo con lo te\'orico analizado anteriormente. T\'engase en cuenta,
-que se parte de la conclusi\'on de que el circuito no deber\'ia funcionar correctamente, o directamente no funcionar. A pesar de ello, se somete al circuito tanto por simulaci\'on
-como por mediciones pr\'acticas reales, a un conjunto de ensayos para caracterizarlo.
-
-\paragraph*{Respuesta en frecuencia} en las curvas de la respuesta en frecuencia se puede observar tres conjuntos correspondientes a los resultados de la 
-simulaci\'on, de lo te\'orico y la medici\'on. En una primera inspecci\'on de los resultados para un rango de frecuencias de $100Hz$ a $100kHz$ se puede observar que
-las curvas se superponen y contrastan adecuadamente, no obstante para bajas y para altas frecuencias el comportamiento del circuito resulta de forma muy diferente entre lo simulado,
-lo medido y lo calculado. No s\'olo esto, sino que adem\'as como se puede observar en el gr\'afico resultante de las mediciones, s\'olo se tomaron algunos valores de la respuesta en frecuencia
-porque se encontr\'o que a medida que aumenta la frecuencia la salida empieza a presentar un nivel de continua y la se\~nal alterna se ve altamente atenuada. Esto produce que a medida que se aumenta
-la frecuencia, la salida se vuelve poco apreciable y pierde sentido la medici\'on.
-
-Esto \'ultimo se debe a que las corrientes de bias y la tensi\'on de polarizaci\'on del amplificador operacional provocan que el capacitor se cargue a un valor en el cual alcanza el equilibrio,
-produciendo la saturaci\'on de la salida. No obstante, cuando se inyecta en la entrada una se\~nal alterna de una dada frecuencia, en los semiciclo positivo y negativo, se produce una circulaci\'on de corriente
-sobre la resistencia de la entrada del circuito que va en un sentido u otro, provocando que el capacitor se cargue y descargue. Por esto \'ultimo, para frecuencias bajas los semiciclos negativos producen una corriente que descarga el capacitor
-durante un tiempo prolongado, y por ello el nivel de continua disminuye. Mientras que para altas frecuencias el tiempo de semiciclo negativo es menor y la descarga se da en menor magnitud, provocando que el nivel de continua
-de la carga del capacitor perdure, por esto \'ultimo sin se\~nal de entrada la salida satura y a medida que inyectamos senoides de menor a mayor frecuencia, el nivel sube desde un valor bajo hasta la saturaci\'on cuando la se\~nal de salida
-se vuelve poco apreciable.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador/bode_modulo.png}
-	\caption{Diagrama de bode en m\'odulo del integrador sin compensar}
-	\label{fig:integrador_bode_modulo}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador/bode_fase.png}
-	\caption{Diagrama de bode en fase del integrador sin compensar}
-	\label{fig:integrador_bode_fase}
-\end{figure}
-
-\paragraph*{Impedancia de entrada} en t\'erminos generales, tanto la respuesta en frecuencia como la impedancia de entrada
-obtenidos en la medici\'on y en la simulaci\'on son resultados que en s\'i mismos no logran caracterizar al sistema correctamente por los efectos indeseados
-de la saturaci\'on para bajas frecuencias del circuito. Esto \'ultimo tambi\'en se encuentra presente en LTSpice. En las figuras \ref{fig:integrador_simulacion} se puede observar
-que seg\'un la frecuencia el nivel de continua se modifica por lo explicado anteriormente.
-
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{c c}
-		\includegraphics[scale=0.55]{Integrador/Simulaciones/Seno100.png} &
-		\includegraphics[scale=0.55]{Integrador/Simulaciones/Seno10k.png}
-	\end{tabular}
-	\caption{Respuesta del integrador sin compensar a senoidales de $100Hz$ y $10kHz$}
-	\label{fig:integrador_simulacion}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.7]{Recursos/Integrador/impedancia_modulo.png}
-	\caption{Impedancia de entrada en m\'odulo del integrador sin compensar}
-	\label{fig:integrador_impedancia_modulo}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.7]{Recursos/Integrador/impedancia_fase.png}
-	\caption{Impedancia de entrada en fase del integrador sin compensar}
-	\label{fig:integrador_impedancia_fase}
-\end{figure}
-
-\paragraph*{Respuesta a se\~nales no senoidales} A pesar de que se considera que el circuito como tal no funciona correctamente por el malfuncionamiento provocado ante las componetes de continuas,
-se observ\'o la respuesta del circuito ante una se\~nal cuadrada y una se\~nal triangular, en ambos casos el resultado es en cierta forma apreciable, sin embargo se puede observar la presencia de continuas
-seg\'un la frecuencia.
-
-\begin{figure}[H]
-	\centering
-	\begin{tabular}{c c}
-		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Sin_Compensar/osc_11.png} & 
-		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Sin_Compensar/osc_12.png}
-	\end{tabular}
-	\caption{Respuestas a se\~nales no senoidales}
-	\label{fig:integrador_respuestas}
-\end{figure}
-
-	\subsection{Circuito integrador compensado}
-A partir de los resultados de las mediciones y simulaciones del circuito integrador no compensado, se llega a la conclusi\'on de que como tal, el circuito no puede funcionar como integrador correctamente
-y es necesario colocar una resistencia de compensaci\'on con el objetivo de limitar la ganancia para se\~nales de baja frecuencia. Por otro lado, se busca que el valor sea tal que el resultado no presente efectos no deseados como lo era para
-el derivador un sobrepico por comportamientos subamortiguados, adem\'as de querer que el funcionamiento del integrador se d\'e en el mayor ancho de banda posible con un error en la fase menor a tres grados.
-
-\subsubsection{An\'alisis Te\'orico}
-
-\paragraph*{Funci\'on transferencia en condiciones ideales} utilizando la expresi\'on del amplificador inversor bajo condiciones ideales, se llama $Z_2$ a la impedancia que resulta del paralelo de la resistencia y el capacitor. Luego se obtiene:
-
-\begin{equation*}
-	Z_2 = R_2 // \frac{1}{s \cdot C} = \frac{R_2}{1 + s \cdot C \cdot R_2}
-\end{equation*}
-
-\begin{equation}
-	H(s) = \frac{V_o(s)}{V_i(s)} = - \frac{Z_2}{R_1} = - \frac{\frac{R_2}{R_1}}{1 + s \cdot C \cdot R_2}
-	\label{eq:integrador_compensado_transfer_ideal}
-\end{equation}
-
-\paragraph*{Funci\'on transferencia con $A_{vol}$ finito} considerando la misma impedancia del paralelo en la realimentaci\'on que en la resoluci\'on ideal, se calcula el valor del potencial en la pata inversora del amplificador operacional y luego se halla la expresi\'on de la funci\'on de la siguiente manera:
-
-\begin{equation*}
-	v^{-} = V_o \cdot \frac{R_1}{R_1+ Z_2} + V_i \cdot \frac{Z_2}{Z_2 + R_1} \Rightarrow
-	v^{-} = \frac{V_o \cdot R_1 \cdot ( 1 + s \cdot C \cdot R_2) + V_i \cdot R_2}{R_2 + R_1 \cdot (1 + s \cdot C \cdot R_2)}
-\end{equation*}
-
-\begin{align*}
-	V_o = (v^{+} - v^{-}) \cdot A_{vol} = - A_{vol} \cdot \frac{V_o \cdot R_1 \cdot ( 1 + s \cdot C \cdot R_2) + R_2 \cdot V_i}{R_1 + R_2 + s \cdot C \cdot R_1 \cdot R_2} \Rightarrow \\
-	V_o \cdot \left[ 1 + \frac{A_{vol} \cdot R_1 \cdot ( 1 + s \cdot C \cdot R_2)}{R_1 + R_2 + s \cdot C \cdot R_1 \cdot R_2} \right] =
-	V_i \cdot \frac{-A_{vol} \cdot R_2}{R_1 + R_2 + s \cdot C \cdot R_1 \cdot R_2} 
-\end{align*}
-
-\begin{equation}
-	H(s) = \frac{- A_{vol} \cdot R_2}{R_1 \cdot ( 1 + A_{vol} ) + R_2} \cdot \frac{1}{1 + s \cdot \frac{C \cdot R_1 \cdot R_2 \cdot ( 1 + A_{vol})}{R_1 \cdot (1 + A_{vol}) + R_2}}
-	\label{eq:integrador_compensado_transfer_avol_finito}
-\end{equation}
-
-\paragraph*{Funci\'on transferencia con polo dominante} luego reemplazando en la expresi\'on anterior la forma del $A_{vol}(\omega)$ se obtiene:
-
-\begin{equation*}
-	H(s) = \frac{-A_o \cdot \omega_p \cdot R_2}{R_1 \cdot ( A_o \cdot \omega_p + s + \omega_p) + R_2 \cdot (s + \omega_p)} \cdot \frac{1}{1 + s \cdot \frac{C \cdot R_1 \cdot R_2 \cdot ( A_o \cdot \omega_p + s + \omega_p)}{R_2 \cdot ( s + \omega_p) + R_1 \cdot (A_o \cdot \omega_p + s + \omega_p)}}
-\end{equation*}
-
-\begin{equation}
-	H(s) = \frac{-A_o \cdot R_2}{R_2 + R_1 \cdot (1+A_o)} \cdot \frac{1}{1 + s \cdot \frac{C \cdot R_1 \cdot R_2 \cdot \omega_p \cdot (A_o + 1) + R_1 + R_2}{\omega_p \cdot (R_2 + R_1 \cdot(A_o + 1))} + s^{2} \cdot \frac{C \cdot R_1 \cdot R_2}{\omega_p \cdot (R_2 + R_1 \cdot (A_o + 1))}}
-	\label{eq:integrador_compensado_transfer_polo_dominante}
-\end{equation}
-
-\paragraph*{Impedancia de entrada con $A_{vol}$ finito} llamando como $Z_2$ al paralelo entre la resistencia y el capacitor en el lazo de la realimentaci\'on y luego aplicando ley de nodos, se obtiene:
-
-\begin{align*}
-	I_1 & = I_2 + I_3 \Rightarrow \frac{V_i + V_d}{R_1} = \frac{-V_d}{R_{id}} + \frac{-V_d - V_d \cdot A_{vol}}{Z_o + Z_2}\\
-	& \Rightarrow
-	V_d = \frac{- V_i \cdot r_{id} \cdot \left[ R_2 + Z_o \cdot (1 + s \cdot C \cdot R_2) \right]}{(R_1 + r_{id}) \cdot \left[R_2 + Z_o \cdot (1 + s \cdot C \cdot R_2) \right] + (1 + A_{vol}) \cdot ( 1 + s \cdot C \cdot R_2) \cdot R_1 \cdot r_{id}}
-\end{align*}
-
-\begin{align}
-	Z_{in}(s) = \frac{V_i}{I_1} = \frac{(R_1 + r_{id}) \cdot (R_2 + Z_o) + (1 + A_{vol}) \cdot (R_1 + r_{id})}{R_2 + Z_o + r_{id} \cdot(1 + A_{vol})} \cdot \frac{1 + s \cdot \frac{C \cdot R_2 \cdot \left[ Z_o \cdot (R_1 + r_{id}) + R_1 \cdot r_{id} \cdot ( 1 + A_{vol}) \right]}{(R_1 + r_{id}) \cdot (R_2 + Z_o) + (1 + A_{vol}) \cdot R_1 \cdot r_{id}}}{1 + s \cdot \frac{C \cdot R_2 \left[ Z_o + r_{id} \cdot ( 1 + A_{vol}) \right]}{R_2 + Z_o + r_{id} \cdot ( 1 + A_{vol})}}
-\end{align}
-
-\paragraph*{Impedancia de entrada con polo dominante} reemplazando $A_{vol}$ por su expresi\'on incluyendo el polo dominante, se llega luego de unos pasos algebraicos a que:
-
-\begin{align}
-	Z_{in}(s) = \frac{(R_1+r_{id})\cdot(R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1+A_o)}{R_2 + Z_o + r_{id} \cdot(1 + A_o)} \cdot \frac{1 + s \cdot \beta + s^{2} \cdot \alpha}{1 + s \cdot b + s^{2} \cdot a }
-\end{align}
-
-\begin{align*}
-	a & = \frac{C \cdot R_2 \cdot (Z_o + r_{id})}{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(1 + A_o) \right]} \\
-	b & = \frac{R_2 + Z_o + r_{id} + \omega_p \cdot C \cdot R_2 \cdot \left[ Z_o + (1 + A_o) \cdot r_{id} \right] }{\omega_p \cdot \left[ R_2 + Z_o + r_{id} \cdot(1 + A_o) \right] } \\
-	\alpha & = \frac{C \cdot R_2 \cdot \left[ (R_1 + r_{id}) \cdot Z_o + R_1 \cdot r_{id} \right] }{\omega_p \left[ (R_1 + r_{id}) \cdot (R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1 + A_o) \right]} \\
-	\beta & = \frac{(R_1 + r_{id}) \cdot \left[C \cdot R_2 \cdot Z_o \cdot \omega_p + R_2 + Z_o \right] + R_1 \cdot r_{id} \cdot \left[ 1 + C \cdot R_2 \cdot \omega_p \cdot (A_o + 1) \right] }{\omega_p \left[ (R_1 + r_{id}) \cdot (R_2 + Z_o) + R_1 \cdot r_{id} \cdot(1 + A_o) \right] }
-\end{align*}
-
-\paragraph*{Expresiones finales} para finalizar con el dise\~no y an\'alisis te\'orico del integrador compensado es necesario determinar el valor de la resistencia de compensaci\'on que debe ser colocada en paralelo
-al capacitor, para que de esta forma se logre que en bajas frecuencias cuando el lazo de realimentaci\'on por el capacitor se ve debilitado, la resistencia mantenga tal realimentaci\'on. Por otro lado, a dicha resistencia se le imponen
-las condiciones mencionadas al principio de esta secci\'on, estas son, que no presente sobrepicos la respuesta en frecuencia, que integre en el mayor rango de frecuencias con un error de fase menor a 3 grados y se logre compensar
-efectivamente el circuito.
-
-Para lograr estas condiciones, se propone an\'alizar te\'oricamente cu\'ales son las componentes de corriente continua del $LM833$ que pueden provocar la saturaci\'on
-del integrador incluso cuando no hay entrada. Para ello se analiza el efecto de las corrientes de bias y la tensi\'on de polarizaci\'on del amplificador operacional.
-Analizando la hoja de datos, se obtiene que la corriente de bias tiene un valor de $I_{io} = 200nA$ y la tensi\'on de polarizaci\'on es de
-$V_{io} = 5mV$. Utilizando esto para limitar el valor de tensi\'on de salida de forma que no haya saturaci\'on y considerando que el circuito se encuentra configurado
-de forma \'optima para el menor efecto de las corrientes de bias, se encuentra que la componente de salida de continua y sobre ella se imponen tales restricciones, considerando que en el peor caso se quiere una tensi\'on de salida m\'axima de $V_{max} = 1V$ simplemente 
-para tener un valor de resistencia de referencia que no se puede sobrepasar
-, y luego imponiendo como una condici\'on adicional, que la frecuencia de corte como m\'axmio debe estar ubicada en aproximadamente $f_o = 20Hz$ para
- lograr un ancho de banda amplio dentro del cual se integre correctamente, se llega a que:
-
-\begin{equation*}
-	V_{dc} = (200nA) \cdot R_2 + 5mV \cdot ( 1 + \frac{R_2}{R_1} )
-	\Rightarrow
-	R_2 < 829,16 k \Omega 
-\end{equation*}
-
-\begin{align*}
-	f_o & = \frac{1}{2 \pi \cdot C \cdot R_2} 
-	\Rightarrow
-	R_2 > \frac{1}{2 \pi \cdot C \cdot f_o}
-	\Rightarrow
-	R_2 > 397,89k \Omega
-\end{align*}
-
-En consecuencia se opta por tomar un valor de resistencia $R_2 = 470k\Omega$ puesto que ajusta correctamente en el rango de los criterios adoptados.
-
-\begin{equation}
-	H(s) = \frac{-93,91}{1 + s \cdot 9,392 \cdot 10^{-3} + \left( \frac{s}{2 \pi \cdot 15,94kHz} \right)^{2}}
-\end{equation}
-
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 \begin{equation}
 	Z_{in}(s) = \frac{5000 + s \cdot 46,995 + s^{2} \cdot 5,02 \cdot 10^{-7}}{1 + s \cdot 9,39 \cdot 10^{-3} + s^{2} \cdot 9,975 \cdot 10^{-11}}
 \end{equation}
@@ -1209,21 +864,21 @@ la regi\'on v\'alida para integraci\'on aquella donde la desviaci\'on no supera 
 	\centering
 	\begin{tabular}{c c c c c}%
 		$V_{gen} [V]$ & $f_{gen} [Hz]$ & $V_{out} [V]$ & $\phase{V_{out}} [\circ]$ & $\frac{V_o}{V_i} [dB]$ \\ \hline
-		\csvreader[head to column names, late after line=\\]{bode.csv}{}{\in & \f & \out & \p & \db}
+		\csvreader[head to column names, late after line=\\]{../EJ4/bode.csv}{}{\in & \f & \out & \p & \db}
 		\hline
 	\end{tabular}
 \end{table}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador_compensado/bode_modulo.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Integrador_compensado/bode_modulo.png}
 	\caption{Diagrama de bode en m\'odulo del circuito integrador compensado}
 	\label{fig:integrador_compensado_bode_modulo}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador_compensado/bode_fase.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Integrador_compensado/bode_fase.png}
 	\caption{Diagrama de bode en fase del circuito integrador compensado}
 	\label{fig:integrador_compensado_bode_fase}
 \end{figure}
@@ -1235,14 +890,14 @@ de osciloscopio hayan tenido una implicancia, se atribuye el error de la impedan
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador_compensado/impedancia_modulo.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Integrador_compensado/impedancia_modulo.png}
 	\caption{Impedancia de entrada en m\'odulo del circuito integrador compensado}
 	\label{fig:integrador_compensado_impedancia_modulo}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.6]{Recursos/Integrador_compensado/impedancia_fase.png}
+	\includegraphics[scale=0.6]{../EJ4/Recursos/Integrador_compensado/impedancia_fase.png}
 	\caption{Impedacia de entrada en fase del circuito integrador compensado}
 	\label{fig:integrador_compensado_impedancia_fase}
 \end{figure}
@@ -1261,10 +916,10 @@ hay un nivel de continua consecuencia del promedio de tal entrada.
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_15.png} &
-		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_16.png} \\
-		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_23.png} &
-		\includegraphics[scale=0.2]{Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_27.png}
+		\includegraphics[scale=0.2]{../EJ4/Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_15.png} &
+		\includegraphics[scale=0.2]{../EJ4/Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_16.png} \\
+		\includegraphics[scale=0.2]{../EJ4/Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_23.png} &
+		\includegraphics[scale=0.2]{../EJ4/Integrador/Mediciones/Osciloscopio/PCB_Compensado/osc_27.png}
 	\end{tabular}
 	\caption{Respuestas a se\~nales no senoidales}
 	\label{fig:respuestas_integrador_compensado}
@@ -1272,11 +927,7 @@ hay un nivel de continua consecuencia del promedio de tal entrada.
 
 \subsection{Implementaci\'on pr\'actica}
 Para la contrastaci\'on emp\'irica del an\'alisis te\'orico y los resultados de las simulaciones es necesario realizar mediciones sobre
-<<<<<<< HEAD
 la implementaci\'on pr\'actica y real del circuito propuesto, para lo cual se utiliza Altium Designer para dise\~nar en PCB este circuito.
-=======
-la implementaci\'on pr\'actica y real del circuito propuesto, para lo cual se utiliza Altium Designer para diseñar en PCB este circuito.
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 Vale mencionar, que la implementaci\'on engloba todos los circuitos propuestos, sean derivadores o integradores, compensados y sin compensar, por ello
 se destina una subsecci\'on general para presentarla.
 
@@ -1297,39 +948,27 @@ Este \'ultimo comentario cae dentro del marco del an\'alisis de alterna realizad
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.62]{Recursos/Altium/Derivador_esquematico.png} &
-		\includegraphics[scale=0.65]{Recursos/Altium/Integrador_esquematico.png} \\
-		\includegraphics[scale=0.7]{Recursos/Altium/Entradas_salidas_esquematico.png} &
-		\includegraphics[scale=0.7]{Recursos/Altium/Puntos_prueba_esquematico.png}
+		\includegraphics[scale=0.62]{../EJ4/Recursos/Altium/Derivador_esquematico.png} &
+		\includegraphics[scale=0.65]{../EJ4/Recursos/Altium/Integrador_esquematico.png} \\
+		\includegraphics[scale=0.7]{../EJ4/Recursos/Altium/Entradas_salidas_esquematico.png} &
+		\includegraphics[scale=0.7]{../EJ4/Recursos/Altium/Puntos_prueba_esquematico.png}
 	\end{tabular}
-<<<<<<< HEAD
 	\caption{Esquem\'atico del dise\~no en Altium}
 	\label{fig:altium_sch}
 \end{figure}
 
 \paragraph*{Dise\~no PCB} para minimizar el espacio utilizado en el dise\~no del circuito en PCB y dado que la potencia de las resistencias lo permiten, aprovechando la baja tolerancia de algunos
-=======
-	\caption{Esquem\'atico del diseño en Altium}
-	\label{fig:altium_sch}
-\end{figure}
-
-\paragraph*{Dise\~no PCB} para minimizar el espacio utilizado en el diseño del circuito en PCB y dado que la potencia de las resistencias lo permiten, aprovechando la baja tolerancia de algunos
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 componentes en dicha tecnolog\'ia, se utilizan resistencias y capacitores de tecnolog\'ia SMD en encapsulado 0805.
 
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.6]{Recursos/Altium/Placa_OVERLAY.png} &
-		\includegraphics[scale=0.6]{Recursos/Altium/Placa_PCB.png} \\
-		\includegraphics[scale=0.6]{Recursos/Altium/Placa_3D_OVERLAY.png} &
-		\includegraphics[scale=0.6]{Recursos/Altium/Placa_3D_PCB.png} 
+		\includegraphics[scale=0.6]{../EJ4/Recursos/Altium/Placa_OVERLAY.png} &
+		\includegraphics[scale=0.6]{../EJ4/Recursos/Altium/Placa_PCB.png} \\
+		\includegraphics[scale=0.6]{../EJ4/Recursos/Altium/Placa_3D_OVERLAY.png} &
+		\includegraphics[scale=0.6]{../EJ4/Recursos/Altium/Placa_3D_PCB.png} 
 	\end{tabular}
-<<<<<<< HEAD
 	\caption{Dise\~no del PCB en Altium}
-=======
-	\caption{Diseño del PCB en Altium}
->>>>>>> 1c903573e405a1b067e44751a5fd15495a8566b3
 	\label{fig:altium_pcb}
 \end{figure}
 
@@ -1338,8 +977,8 @@ componentes en dicha tecnolog\'ia, se utilizan resistencias y capacitores de tec
 \begin{figure}[H]
 	\centering
 	\begin{tabular}{c c}
-		\includegraphics[scale=0.55]{Recursos/Altium/OVERLAY_Hecho.png} &
-		\includegraphics[scale=0.55]{Recursos/Altium/PCB_Hecho.png}
+		\includegraphics[scale=0.55]{../EJ4/Recursos/Altium/OVERLAY_Hecho.png} &
+		\includegraphics[scale=0.55]{../EJ4/Recursos/Altium/PCB_Hecho.png}
 	\end{tabular}
 	\caption{Realizaci\'on del PCB}
 	\label{fig:hecho}
@@ -1362,4 +1001,3 @@ se observa en el modelo ideal, no obstante, viendo el modelo m\'as amplio se pue
 tener en cuenta la impedancia de entrada del circuito a la hora de analizar correctamente los resultados obtenidos, puesto que juega un papel importante cuando tenemos en cuenta
 la forma en que se arman y conectan los sistemas que se modelizan.
 
-\end{document}
