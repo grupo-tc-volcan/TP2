@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f1b9888-21ff-4f43-9f85-3d26386ff2c6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../EJ1.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../EJ1.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inverter.py" beforeDir="false" afterPath="$PROJECT_DIR$/inverter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nonInverter.py" beforeDir="false" afterPath="$PROJECT_DIR$/nonInverter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../comportamiento.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../comportamiento.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.aux" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.fdb_latexmk" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.fdb_latexmk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.fls" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.fls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Informe/Informe.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.synctex(busy)" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Informe/Informe.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Informe/Informe.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../../Informe/Informe.tex" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,13 +19,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="CalculosTeoricos" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inverter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="100" selection-start-line="100" selection-end-line="100" />
+            <state relative-caret-position="386">
+              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -42,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nonInverter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="98" selection-start-line="98" selection-end-line="98" />
+            <state relative-caret-position="66">
+              <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -76,7 +85,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="65" />
+    <option name="x" value="-4" />
+    <option name="y" value="12" />
     <option name="width" value="1720" />
     <option name="height" value="1039" />
   </component>
@@ -102,7 +112,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../P-T" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../ian/TP02-master/Ex1/iB" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -202,14 +212,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="0" width="1376" height="831" extended-state="1" />
+    <frame x="-3" y="10" width="1376" height="831" extended-state="1" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21865672" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49744898" visible="true" weight="0.21865672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.502551" side_tool="true" visible="true" weight="0.21865672" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5042857" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -224,16 +234,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/inverter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../../ian/TP02/Ex1/iA/PlotZin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
@@ -244,10 +244,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inverter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nonInverter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        <state relative-caret-position="66">
+          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>

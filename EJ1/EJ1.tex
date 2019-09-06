@@ -1,10 +1,12 @@
-\section{Resumen}
+\section*{Resumen}
 %BLA BLA BLA BLA
 
 
-\section*{Ejercicio 1: Comportamiento de amplificadores operacionales}
-En este ejercicio se analizan distintas caracter\'isticas de dos circuitos con amplificadores operacionales. Primero se estudia el circuito de la figura \ref{c1}, cuya configuraci\'on es inversora. Luego se analiza el circuirto \ref{c2} de configuraci\'on no inversora.
-
+\section{Ejercicio 1: Comportamiento de amplificadores operacionales}
+En este ejercicio se analizan distintas caracter\'isticas de dos circuitos
+ con amplificadores operacionales. Primero se estudia el circuito de la figura 
+ \ref{c1}, cuya configuraci\'on es inversora. Luego se analiza el 
+ circuirto \ref{c2} de configuraci\'on no inversora. 
 
 \begin{figure}[h!]
  \begin{center}
@@ -62,8 +64,26 @@ to[R=$R_3$] (-3,-0.35)
 \end{center}
 \end{figure}
 
-%\csvautotabular{bode.csv}
-%\csvreader[late after line=\\]{bode.csv}{1=\frec,2=\vin,3=\vout,4=\fase}{\thecsvrow & \frec & \vin & \vout & \fase}
+Para llevar a cabo el estudio
+ de estos circuitos, se utilizó el amplificador operacional LM324 con las 
+ siguientes características, sacadas de hojas de datos
+ \footnote{Hojas de datos del operacional LM324: http://www.ti.com/lit/ds/symlink/lm324-n.pdf}:
+
+ \begin{equation}
+	\begin{cases}
+		SR = 0,5\frac{V}{\mu s}\\
+		A_{V0} = 100000\\
+		f_p = 10Hz\\
+		GBP = 1MHz
+	\end{cases}
+	\label{lm324}
+\end{equation}
+
+Siendo $SR$ el slew rate, $A_{V0}$ el $A_{vol}$ finito, $f_p$ la frecuencia del polo dominante y $GBP$ el bandwidth product.
+
+A lo largo de esta sección se analiza los siguientes tres casos, tanto para
+el circuito \ref{c1} como el \ref{c2}.
+
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{c c c c c}%
@@ -81,8 +101,8 @@ to[R=$R_3$] (-3,-0.35)
 \input{../EJ1/vovi.tex}
 \input{../EJ1/zin.tex}
 \input{../EJ1/dcsweep.tex}
-\input{../EJ1/res.tex}
 \input{../EJ1/comportamiento.tex}
+\input{../EJ1/res.tex}
 
 
 
@@ -102,134 +122,4 @@ to[R=$R_3$] (-3,-0.35)
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Circuito 1 Vo/Vi CASO 1
-\begin{equation}
-- \frac{7000000000000.0}{2088908.62808113 s + 700131250000.0}
-\end{equation}
-
-Circuito 1 Vo/Vi CASO 2
-\begin{equation}
-- \frac{700000000000.0}{298415.518297304 s + 700018750000.0}
-\end{equation}
-
-Circuito 1 Vo/Vi CASO3
-\begin{equation}
-- \frac{7000000000000.0}{11936620.7318921 s + 70000750000000.0}
-\end{equation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-CIRCUITO 1 ZIN
-caso1
-\begin{equation}
-\frac{437.676093502712 s + 280027500.0}{0.0159154943091895 s + 112001.0}
-\end{equation}
-CON PUNTA:
-\begin{equation}
-\frac{1.0 \left(3.64730077918927 \cdot 10^{20} s + 2.3335625 \cdot 10^{26}\right)}{4376760935.02712 s^{2} + 1.60996599321165 \cdot 10^{16} s + 9.33575022916667 \cdot 10^{22}}
-\end{equation}
-
-inverter: Zin caso2=
-\begin{equation}
-\frac{79.5774715459477 s + 280005000.0}{0.0159154943091895 s + 112001.0}
-\end{equation}
-CON PUNTA:
-\begin{equation}
-\frac{1.0 \left(6.63145596216231 \cdot 10^{19} s + 2.333375 \cdot 10^{26}\right)}{795774715.459477 s^{2} + 1.60695933802868 \cdot 10^{16} s + 9.33575004166667 \cdot 10^{22}}
-\end{equation}
-
-inverter: Zin caso3=
-\begin{equation}
-\frac{437.676093502712 s + 2800027500.0}{0.0159154943091895 s + 112001.0}
-\end{equation}
-CON PUNTA:
-\begin{equation}
-\frac{1.0 \left(3.64730077918927 \cdot 10^{20} s + 2.33335625 \cdot 10^{27}\right)}{4376760935.02712 s^{2} + 4.12996599321165 \cdot 10^{16} s + 9.35675022916667 \cdot 10^{22}}
-\end{equation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-circ2 caso1 vovi:
-\begin{equation}
-\frac{2200000000.0}{437.676093502712 s + 250027500.0}
-\end{equation}
-
-circ2 caso2 vovi:
-\begin{equation}
-\frac{400000000.0}{79.5774715459477 s + 250005000.0}
-\end{equation}
-
-circ2 caso3 vovi:
-\begin{equation}
-\frac{2200000000.0}{437.676093502712 s + 2500027500.0}
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-CIRCUITO 2
-ZIN
-caso1
-\begin{equation}
-Zin = R3 + R4 = 12.5kohm
-\end{equation}
-CON PUNTA:
-\begin{equation}
-\frac{1.0 \left(1.34287121997052 \cdot 10^{38} s - 8.4366609366572 \cdot 10^{43}\right)}{1.61144546396462 \cdot 10^{27} s^{2} + 9.74400011449559 \cdot 10^{33} s - 6.75776541020242 \cdot 10^{39}}
-\end{equation}
-
-NONinverter: Zin caso2=
-\begin{equation}
-12.5kohm
-\end{equation}
-CON PUNTA:
-\begin{equation}
-\frac{1.0 \left(3.35718845716807 \cdot 10^{36} s - 2.10935402480826 \cdot 10^{43}\right)}{4.02862614860169 \cdot 10^{25} s^{2} + 1.57883363155109 \cdot 10^{31} s - 1.68959257386991 \cdot 10^{39}}
-\end{equation}
-
-NONinverter: Zin caso3=
-\begin{equation}
-125kohm
-\end{equation}
-CON PUNTA:
-\begin{equation}
-\frac{1.0 \left(1.34287632288 \cdot 10^{39} s - 8.43749203068526 \cdot 10^{46}\right)}{1.611451587456 \cdot 10^{28} s^{2} - 1.00162173591756 \cdot 10^{36} s - 6.83436854484906 \cdot 10^{41}}
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-zin circuito1 caso1 teorica:
-\begin{equation}
-\frac{1.30885711543124 \cdot 10^{16} s - 3.6842622243421 \cdot 10^{27}}{2748284324476.07 s - 7.73606889861856 \cdot 10^{23}}
-\end{equation}
-
-zin circuito1 caso2 teorico:
-\begin{equation}
-\frac{2500.0 \left(1202441.0 s - 5.38729407038047 \cdot 10^{15}\right)}{802241.0 s - 3.59439807358207 \cdot 10^{15}}
-\end{equation}
-
-zin circ1 caso2 teo BIEN:
-\begin{equation}
-\frac{1.868890907484 \cdot 10^{15} s - 5.26102936560593 \cdot 10^{25}}{498752424613.223 s - 1.404061747493 \cdot 10^{22}}
-\end{equation}
-
-zin circ1 caso3 teo:
-\begin{equation}
-\frac{7.49205761516139 \cdot 10^{17} s - 2.10926458373408 \cdot 10^{28}}{27480414888480.5 s - 7.73677133618684 \cdot 10^{23}}
-\end{equation}
-
-
-zin circ2 caso1 teo:
-\begin{equation}
-\frac{1.61144546396462 \cdot 10^{20} s - 1.01239931239886 \cdot 10^{26}}{1.28915648576337 \cdot 10^{16} s - 8.09919449911891 \cdot 10^{21}}
-\end{equation}
-
-zin circ2 caso2 teo:
-\begin{equation}
-\frac{4.02862614860169 \cdot 10^{18} s - 2.53122482976991 \cdot 10^{25}}{322290120536142.0 s - 2.02497986381413 \cdot 10^{21}}
-\end{equation}
-
-
-zin circ2 caso3 teo:
-\begin{equation}
-\frac{1.611451587456 \cdot 10^{21} s - 1.01249904368223 \cdot 10^{29}}{1.28916241588535 \cdot 10^{16} s - 8.09999234945065 \cdot 10^{23}}
-\end{equation}
 

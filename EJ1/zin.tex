@@ -4,7 +4,7 @@
 \subsubsection{An\'alisis te\'orico} %%%%%%
 
 \subsubsection*{Configuraci\'on inversora}
-Se hicieron distintos c\'alculos que permitieron obtener expresiones distintas para la impedancia de entrada del circuito.
+Se hicieron an\'alisis diferentes que permitieron obtener expresiones distintas para la impedancia de entrada del circuito.
 
 Es importante mencionar que en primer lugar se consider\'o al amplificador operacional como ideal. Si bien las caracter\'isticas de dicha situaci\'on fueron mencionadas previamente, se considera relevante hacer unas breves aclaraciones para comprender el resultado de este an\'alisis. La impedancia entre los bornes de entrada del amplificador operacional fue, por lo tanto, tomada como infinita (circuito abierto); mientras que la impedancia interna a la salida del amplificador operacional fue considerada como cero (cable). Dado que en el caso ideal del amplificador operacional hay una masa virtual en $V^-$ y que la entrada $V^+$ est\'a f\'isicamente conectada a Tierra, la fuente interna que se encuentra en serie con la impedancia de salida vale cero ya que depende de la diferencia de tensi\'on entre $V^+$ y $V^-$. Entonces, partiendo de las ecuaciones \ref{ecsbase} y operando matem\'aticamente se obtiene la siguiente expresi\'on:
 
@@ -146,8 +146,28 @@ A continuaci\'on, en los gr\'aficos \ref{c2zintm} y \ref{c2zintp} se muestra la 
 
 \subsubsection{Mediciones y resultados obtenidos} %%%%%%
 
+
+
 \subsubsection*{Configuraci\'on inversora}
-Para medir la impedancia de entrada del circuito en funci\'on de la frecuencia, deb\'iamos hacer el cociente $V_{in}/I_{in}$. Si bien se puede medir la tensi\'on de entrada al circuito de forma directa con el osciloscopio, no es tan sensillo obtener la corriente que entra al circuito, ya que el osciloscopio mide tensiones y no corrientes. Se busc\'o una resistencia $R_L$ cuyo valor comerical fuera lo m\'as parecido posible (igual o el primero mayor) al valor obtenido en el c\'alculo te\'rico para cada uno de los casos de resistencias. Se coloc\'o dicha resistencia en serie al generador, a la entrada del circuito. Luego se midi\'o la ca\'ida de tensi\'on sobre ella, ya que al dividirla por el valor de la $R_L$ colocada se obtendr\'ia la corriente de entrada al circuito $I_{in}$. El criterio de buscar una resistencia similar al valor calculado de $Z_{in}$ surge de que si se pusiese una resistencia muy chica, la diferencia entre las tensiones medidas sobre sus bornes ser\'ia muy chica (aumentando incertidumbre) y si se colocase una resistencia muy grande, la tensi\'on que caer\'ia ser\'ia mucho mayor a la que caer\'ia en el circuito, haciendo que la tensi\'on luego de la resistencia sea muy chica (se podr\'ia acercar al nivel de ruido) y que la diferencia de tensi\'on entre sus bornes tienda a la tensi\'on entregada por el generador. Por eso se consider\'o \'optimo que la resistencia tenga un valor similar al calculado de forma te\'orica y en caso de no conseguir el mismo valor, prefiri\'endose un valor mayor y no menor.
+Para medir la impedancia de entrada del circuito en funci\'on de la frecuencia, 
+deb\'iamos hacer el cociente $V_{in}/I_{in}$. Si bien se puede medir la tensi\'on 
+de entrada al circuito de forma directa con el osciloscopio, 
+no es tan sensillo obtener la corriente que entra al circuito, ya que el osciloscopio 
+mide tensiones y no corrientes. Se busc\'o una resistencia $R_L$ cuyo valor comerical 
+fuera lo m\'as parecido posible (igual o el primero mayor) al valor obtenido en 
+el c\'alculo te\'rico para cada uno de los casos de resistencias. Se coloc\'o dicha 
+resistencia en serie al generador, a la entrada del circuito. Luego se midi\'o la ca\'ida 
+de tensi\'on sobre ella, ya que al dividirla por el valor de la $R_L$ colocada se obtendr\'ia 
+la corriente de entrada al circuito $I_{in}$. El criterio de buscar una resistencia similar 
+al valor calculado de $Z_{in}$ surge de que si se pusiese una resistencia muy chica, 
+la diferencia entre las tensiones medidas sobre sus bornes ser\'ia muy chica 
+(aumentando incertidumbre) y si se colocase una resistencia muy grande, 
+la tensi\'on que caer\'ia ser\'ia mucho mayor a la que caer\'ia en el circuito, 
+haciendo que la tensi\'on luego de la resistencia sea muy chica (se podr\'ia 
+acercar al nivel de ruido) y que la diferencia de tensi\'on entre sus bornes tienda 
+a la tensi\'on entregada por el generador. Por eso se consider\'o \'optimo que la 
+resistencia tenga un valor similar al calculado de forma te\'orica y en caso de no 
+conseguir el mismo valor, prefiri\'endose un valor mayor y no menor. 
 
 \begin{figure}[H] %!ht
 	\centering
@@ -230,10 +250,11 @@ Para medir la impedancia de entrada del circuito en funci\'on de la frecuencia, 
 \begin{figure}[H] %!ht
 	\centering
 	\includegraphics[width=10cm,height=10cm,keepaspectratio]{../EJ1/00GRAFICOS/c2c3/c2c3zinFASE.png}
-	\caption{Configuración no inversora - Caso 3 - Fase de $V_{out}/V_{in}$}
+	\caption{Configuración no inversora - Caso 3 - Fase de $Z_{in}$}
 	\label{c2c3zinP}
 \end{figure}
 
+Las curvas te\'oricas donde se observa un sobrepico se debe a que no se consideraron las resistencias internas del amplificador operacional en el an\'alisis ya que no estaban en las hojas de datos del mismo. Por lo tanto, habr\'ia que analizar en la expresi\'on te\'orica el $E$ para el cual el pico disminuya y  as\'i se ajustar\'ian aquellas curvas.
 
 
 

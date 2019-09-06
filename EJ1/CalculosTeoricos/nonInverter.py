@@ -70,15 +70,15 @@ h = simplify(h)
 hMod = sqrt(re(h)**2 + im(h)**2)
 hMod = simplify(hMod)
 
-result = replaceValues(h, 1, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+result = replaceValues(h, 1, A0) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("non inverter Vo/Vi CASO1=")
 print(latex(result.evalf()))
 
-result = replaceValues(h, 2, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+result = replaceValues(h, 2, A0) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("non inverter Vo/Vi CASO2=")
 print(latex(result.evalf()))
 
-result = replaceValues(h, 3, aw) #pasarle A0 o aw dependiendo de lo que quiera analizar.
+result = replaceValues(h, 3, A0) #pasarle A0 o aw dependiendo de lo que quiera analizar.
 print("non inverter Vo/Vi CASO3=")
 print(latex(result.evalf()))
 

@@ -3,12 +3,16 @@
 \subsubsection{An\'alisis te\'orico} %%%%%%%
 
 \subsubsection*{Configuraci\'on inversora}
-Se calcula de forma te\'orica la ganancia del circuito \ref{c1}, considerando al amplificador operacional como ideal, es decir, con impedancia de entrada infinita, impedancia de salida nula y masa virtual en la terminal de entrada $V^{-}$. Se parte de las siguientes ecuaciones:
+Se calcula de forma te\'orica la ganancia del circuito \ref{c1}, 
+considerando al amplificador operacional como ideal, es decir, 
+con impedancia de entrada infinita, impedancia de salida nula y 
+masa virtual en la terminal de entrada $V^{-}$. Se parte de las siguientes ecuaciones:
 \begin{equation}
 	\begin{cases}
 		V_{out} = A_{vol}\cdot(V^+ - V^-) = -A_{vol}\\
 		V_{in} - R_1 \cdot I_1 = V^- \\
-		V_{out} - R_2 \cdot I_2 = V^- 
+		V_{out} - R_2 \cdot I_2 = V^-\\ 
+		I_3 = I_1 + I_2
 	\end{cases}
 	\label{ecsbase}
 \end{equation}
@@ -16,11 +20,42 @@ Se calcula de forma te\'orica la ganancia del circuito \ref{c1}, considerando al
 Operando matem\'aticamente se obtiene la siguiente expresi\'on:
 
 \begin{equation}
-	\frac{V{out}}{V_{in}} = - \frac{R_2/R_1}{1 + \frac{R_2/R_1}{A_{vol}} + \frac{R_2/R_3}{A_{vol}}}
+	\frac{V_{out}}{V_{in}} = - \frac{R_2/R_1}{1 + \frac{R_2/R_1}{A_{vol}} + \frac{R_2/R_3}{A_{vol}}}
 	\label{c1vovi}
 \end{equation}
 
-Reemplazando en la ecuaci\'on \ref{c1vovi} con los valores correspondientes de resistencias para cada uno de los tres casos (indicados en la tabla \ref{casos}) y  considerando $A_{vol}(\omega)$ (con $s = j\omega$), se obtienen las siguientes expresiones:
+\subsubsection*{Considerando $A_{vol} $finito}
+ 
+En la tabla \ref{avolf} se puede ver el valor correspondiente a cada caso, obtenido al considerar 
+$A_{vol} = A_{V0} = 100000$, cuyo valor fue sacado de la hoja de datos del LM324.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c c c}%
+		\bfseries  & $V_{out}/V_{in}$  \\ \hline
+		caso 1 & $-9,998$ \\
+		caso 2 & $ -1$ \\
+		caso 3 & $ -0,1$ \\
+		\hline
+	\end{tabular}
+	\caption{$V_{out}/V_{in}$ del circuito inversor considerando $A_{vol}$ finito.}
+	\label{avolf}
+\end{table}
+
+Se observa que para la configuraci\'on del circuito \ref{c1} hay atenuaci\'n
+a la salida del mismo. La distribuci\'on de resistencias del caso 1
+presenta m\'as atenuaci\'on que el resto de los casos. El resultado obtenido
+no var\'ia con la frecuencia ya que el circuito es resistivo y se consider\'o,
+para lo calculado reci\'en, que $A_{vol}$ no var\'ia con la frecuencia. Estos resultados
+son realmente v\'alidos en cont\'inuca ya que es el caso en el que $A_{vol}=A_{V0}$,
+dado que: $A_{vol} = \frac{A_{V0}}{1+s/\omega_p} $ y cuando la frecuencia es cero,
+este valor tiende a $A_{V0}$.
+
+
+Por otro lado, reemplazando en la ecuaci\'on \ref{c1vovi} con los valores
+ correspondientes de resistencias para cada uno de los tres casos
+  (indicados en la tabla \ref{casos}) y considerando
+   $A_{vol}(\omega)$ (con $s = j\omega$), se obtienen las siguientes expresiones:
 
 Caso1:
 \begin{equation}
@@ -57,11 +92,84 @@ A continuaci\'on en los gr\'aficos \ref{c1voviTeoMod} y \ref{c1voviTeoPh} se obs
 	\label{c1voviTeoPh}
 \end{figure}
 
-El gr\'afico \ref{c1voviTeoMod} permite ver una caracter\'istica importante que diferencia a los tres casos de resistencias para este circuito: la ganancia a bajas frecuencias. Las tres configuraciones corresponden a filtros pasabajos. Si bien aten\'uan a altas frecuencias, tienen comportamientos diferentes en las frecuencias bajas. Aqu\'el con resistencias para el caso 1 presenta una ganancia de 20dB, mientras que el del caso 3 aten\'ua 20 dB. El circuito del caso 2, por el contrario, no gana ni aten\'ua en frecuencias bajas.
+El gr\'afico \ref{c1voviTeoMod} permite ver una caracter\'istica importante que diferencia a los tres casos de 
+resistencias para este circuito: la ganancia a bajas frecuencias. Las tres configuraciones corresponden 
+a filtros pasabajos. Si bien aten\'uan a altas frecuencias, 
+tienen comportamientos diferentes en las frecuencias bajas. 
+Aqu\'el con resistencias para el caso 1 presenta una ganancia de 20dB, 
+mientras que el del caso 3 aten\'ua 20 dB. El circuito del caso 2, por el contrario, no gana ni aten\'ua 
+en frecuencias bajas.
 
 %ANALIZAR AVOL FINITO . AVOL W ES LO QUE YA ESTA HECHO
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Configuraci\'on no inversora}
+
+Para el circuito \ref{c2} se parte de las siguientes ecuaciones, similares a las del an\'alisis del circuito inversor. 
+
+\begin{equation}
+	\begin{cases}
+		V_{out} = A_{vol}\cdot(V^+ - V^-) \\
+		V_{in} - R_3 \cdot I_3 = V^+ \\
+		V_{out} - R_2 \cdot I_2 = V^- \\
+		I_4 = I_3\\
+		I_2 = I_1
+	\end{cases}
+	\label{ecsbase2}
+\end{equation}
+
+
+
+Operando matem\'aticamente, se obtiene la siguiente expresi\'on:
+
+\begin{equation}
+	\frac{V_{out}}{V_{in}} =  \frac{A_{vol} \cdot R_4 \cdot (R_1 + R_2)}{(R_3 + R_4) \cdot (R_1 + R_2 + A_{vol} \cdot R_1)}
+	\label{c2vovi}
+\end{equation}
+
+Al igual que para el circuito inversor, a continuaci\'on se muestran
+los resultados obtenidos al evaluar la ecuaci\'on \ref{c2vovi} con las resistencias
+de cada caso y considerando $A_{vol}$ finito.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c c c}%
+		\bfseries  & $V_{out}/V_{in}$  \\ \hline
+		caso 1 & $8,799$ \\
+		caso 2 & $1,600$ \\
+		caso 3 & $0,880$ \\
+		\hline
+	\end{tabular}
+	\caption{$V_{out}/V_{in}$ del circuito inversor considerando $A_{vol}$ finito.}
+	\label{avolf2}
+\end{table}
+
+A diferencia que para el circuito inversor, se puede notar que
+en el caso del no inversor hay atenuaci\'on, a pesar de que la misma
+var\'ia dependiendo de la combinaci\'on de resistencias empleadas.
+
+Por otro lado, reemplazando con los valores de resistencias correspondientes
+ a cada caso y con $A_{vol}(\omega)$, se obtiene:
+
+Caso1:
+\begin{equation}
+	\frac{V_{out}}{V_{in}} = \frac{22 \cdot 10^8}{437,68 s + 25 \cdot 10^7}
+	\label{c2c1vovi}
+\end{equation}
+
+caso 2:
+\begin{equation}
+	\frac{V_{out}}{V_{in}} = \frac{4 \cdot 10^8}{79,577 s + 25 \cdot 10^7}
+	\label{c2c2vovi}
+\end{equation}
+
+caso 3:
+\begin{equation}
+	\frac{V_{out}}{V_{in}} = \frac{22 \cdot 10^8}{437,68 s + 25 \cdot 10^8}
+	\label{c2c3vovi}
+\end{equation}
+
+En los gr\'aficos que se muestran a continuaci\'on (\ref{c2voviTeoMod} y \ref{c2voviTeoPh}) pueden verse los resultados de estos c\'alculos.
 
 \begin{figure}[H] %!ht
 \centering
@@ -84,8 +192,14 @@ El gr\'afico \ref{c1voviTeoMod} permite ver una caracter\'istica importante que 
 
 \subsubsection{Mediciones y resultados obtenidos} %%%%%%%
 
+La respuesta en frecuencia es una herramienta de análisis útil para todo circuito. Se estimuló a los seis circuitos con una se\~nal senoidal de frecuencia variable, realizando un barrido por el espectro de frecuencias que consideramos relevante, en función a las simulaciones realizadas en LTSpice. Para cada valor de frecuencia se observó la diferencia de fase y la relación de amplitudes entre la se\~nal de entrada y la salida de los circuitos, conformando un diagrama de BODE completo. Se superpusieron dichas mediciones con las simulaciones, obteniendo los siguientes gráficos.
+Cabe destacar que la medición estuvo altamente influida por fenómenos tales como el “crossover distortion” y el “slew rate” los cuales se desarrollarán a continuación.
 \subsubsection*{Configuraci\'on inversora}
-Se simul\'o y se midi\'o la ganancia para los tres casos del circuito \ref{c1} y a continuacio\'on se puede ver la diferencia entre sus resultados y los de las ecuaciones \ref{c1c1vovi}, \ref{c1c2vovi} y \ref{c1c3vovi}; correspondientes a la ganancia calculada de forma te\'orica y considerando al amplificador operacional como ideal.
+Se simul\'o y se midi\'o la ganancia para los tres casos del circuito \ref{c1} 
+y a continuacio\'on se puede ver la diferencia entre sus resultados y los 
+de las ecuaciones \ref{c1c1vovi}, \ref{c1c2vovi} y \ref{c1c3vovi}; correspondientes a 
+la ganancia calculada de forma te\'orica y considerando al amplificador operacional como ideal.
+
 
 \begin{figure}[H] %!ht
 	\centering
