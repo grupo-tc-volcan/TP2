@@ -13,12 +13,12 @@ Como primer paso se deben definir las entradas y salidas del sistema para poder 
  Luego, el rango de tensiones de entrada es de $350mV$ a $450mV$, lineal respecto de la temperatura. El rango de salida del circuito está comprendido entre $0V$ y $5V$, a  $35°C$ y $45°C$ respectivamente. 
 
  
- Como se puede observar, tanto la entrada como la salida del circuito son rangos lineales, por lo que la adaptación implica solamemte un escalamiento y un corrimiento aplicados sobre la señal de entrada.
+ Como se puede observar, tanto la entrada como la salida del circuito son rangos lineales, por lo que la adaptación implica solamente un escalamiento y un corrimiento aplicados sobre la señal de entrada.
   Teniendo en cuenta los circuitos típicos observados en clase se decidió emplear un sumador inversor conectado en cascada a un amplificador inversor, como se puede observar en la figura~\ref{fig:EJ6_circuito}.  
   
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{../EJ_6/Captures/EJ6_circuito_teorico.png}
+    \includegraphics[width=0.9\textwidth]{../EJ6/Captures/EJ6_circuito_teorico}
     \caption{Circuito adaptador}
     \label{fig:EJ6_circuito} 
 \end{figure}
@@ -73,7 +73,7 @@ Con las equivalencias anteriores y fijando un valor comercial para el resistor $
 	\end{center}
 \end{table}
 
-Los presets fueron sobredimensionados con el prop\'osito de ampliar el rango de calibraci\'on, de tal forma de compensar las tolerancias de los resistores (que en todos los casos es del 5\percent).
+Los presets fueron sobredimensionados con el prop\'osito de ampliar el rango de calibraci\'on, de tal forma de compensar las tolerancias de los resistores (que en todos los casos es del $5\%$).
  De esta forma, se concluye la primera etapa del diseño del circuito.
 
  \subsection{Limitaci\'on del rango de salida}
@@ -83,7 +83,7 @@ Los presets fueron sobredimensionados con el prop\'osito de ampliar el rango de 
   Esta situaci\'on se puede evitar conectando una impedancia en serie a la salida, antes del diodo zener.
 
 
-Seg\'un la datasheet del TL082 extra\'ida de la web de Texas Instruments, cuando el operacional tiene conectada a su salida una carga tal que $R_L \geq 2k\Omega$ puede hacer un swing m\'aximo de tensi\'on a la salida de $\v_{out} = pm10V$.
+Seg\'un la datasheet del TL082 extra\'ida de la web de Texas Instruments, cuando el operacional tiene conectada a su salida una carga tal que $R_L \geq 2k\Omega$ puede hacer un swing m\'aximo de tensi\'on a la salida de $v_{out} = pm10V$.
  Esta limitaci\'on est\'a dada por la corriente m\'axima que puede entregar en circuito integrado en estas condiciones. Aplicando ley de ohm se obtiene que en el peor caso
 
  \begin{equation}
@@ -91,7 +91,7 @@ Seg\'un la datasheet del TL082 extra\'ida de la web de Texas Instruments, cuando
     \label{fig:EJ6_ecuacion_corriente}
 \end{equation}
 
-Con esta corriente, y suponiendo ademas que el m\'odulo de la tensi\'on m\'axima de salida es menor a  $\v_{max} = 10V$ y que caen $5.6V$ sobre el zener, se calcula el resistor m\'inimo a ser colocado
+Con esta corriente, y suponiendo ademas que el m\'odulo de la tensi\'on m\'axima de salida es menor a  $v_{max} = 10V$ y que caen $5.6V$ sobre el zener, se calcula el resistor m\'inimo a ser colocado
 
 \begin{equation}
     R_{min} = \frac{v_{max}-v_{z}}{I_{max}} = \frac{10V - 5.6V}{5mA} = 880\Omega
@@ -99,7 +99,7 @@ Con esta corriente, y suponiendo ademas que el m\'odulo de la tensi\'on m\'axima
 \end{equation}
 
 Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de forma tal de agregar un factor de seguridad al circuito.
- Esta resistencia serie sumada a la impedancia de salida del circuito adaptador forman un divisor de tensi\'on que atenuar\'a la salida en un determivtinado valor. Esto se compensar\'a con el sobredimensionamiento de los presets de calibraci\'on.
+ Esta resistencia serie sumada a la impedancia de salida del circuito adaptador forman un divisor de tensi\'on que atenuar\'a la salida en un determinado valor. Esto se compensar\'a con el sobredimensionamiento de los presets de calibraci\'on.
 
  \subsection{Aspectos constructivos}
 
@@ -108,7 +108,7 @@ Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de fo
  
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{../EJ_6/Captures/EJ6_PCB.png}
+    \includegraphics[width=0.9\textwidth]{../EJ6/Captures/EJ6_PCB}
     \caption{PCB del circuito}
     \label{fig:EJ6_PCB} 
 \end{figure}
@@ -116,7 +116,7 @@ Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de fo
 
  \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{../EJ_6/Captures/EJ6_schematic.png}
+    \includegraphics[width=0.9\textwidth]{../EJ6/Captures/EJ6_schematic}
     \caption{Esquem\'atico del circuito}
     \label{fig:EJ6_schematic} 
 \end{figure}
@@ -127,7 +127,7 @@ Luego, se decidi\'o emplear un resistor cuyo valor nominal sea $1k\Omega$, de fo
   De esto se deriva la necesidad de implementar un m\'etodo de calibraci\'on que permita al circuito operar como lo esperado. El PCB cuenta con dos preset a tal fin, cuya funci\'on est\'a debidamente indicada en el mismo.
   Para realizar la calibraci\'on del circuito primero se recomienda conectar un generador de señales a la entrada para poder simular la respuesta del sensor en forma de rampa.
  Luego se debe conectar la salida a un osciloscopio y girar el preset de Offset hasta que el pico inferior de la rampa se sit\'ue en el cero. Una vez realizado esto se procede a girar el preset de ganancia hasta que el pico superior de la rampa alcance una tensi\'on de 5V.
-  Cabe destacar que un proceso similar puede ser realizado con el sensor LM35 conectado e inyectando se\~al, utilizando la temperatuta de $35°C$ como referencia y otro punto dentro del rango.
+  Cabe destacar que un proceso similar puede ser realizado con el sensor LM35 conectado e inyectando se\~al, utilizando la temperatura de $35°C$ como referencia y otro punto dentro del rango.
 
   \subsection{Datasheet de la implementaci\'on}
     A continuaci\'on se reproducen algunos datos \'utiles del circuito.
