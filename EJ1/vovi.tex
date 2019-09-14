@@ -5,11 +5,10 @@
 \subsubsection*{Configuraci\'on inversora}
 Se calcula de forma te\'orica la ganancia del circuito \ref{c1}, 
 considerando al amplificador operacional como ideal, es decir, 
-con impedancia de entrada infinita, impedancia de salida nula y 
-masa virtual en la terminal de entrada $V^{-}$. Se parte de las siguientes ecuaciones:
+con impedancia de entrada infinita e impedancia de salida nula. Se parte de las siguientes ecuaciones:
 \begin{equation}
 	\begin{cases}
-		V_{out} = A_{vol}\cdot(V^+ - V^-) = -A_{vol}\\
+		V_{out} = A_{vol}\cdot(V^+ - V^-) = -A_{vol} V^- \cdot \\
 		V_{in} - R_1 \cdot I_1 = V^- \\
 		V_{out} - R_2 \cdot I_2 = V^-\\ 
 		I_3 = I_1 + I_2
@@ -32,24 +31,22 @@ $A_{vol} = A_{V0} = 100000$, cuyo valor fue sacado de la hoja de datos del LM324
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{c c c}%
-		\bfseries  & $V_{out}/V_{in}$  \\ \hline
-		caso 1 & $-9,998$ \\
-		caso 2 & $ -1$ \\
-		caso 3 & $ -0,1$ \\
+		\bfseries  & $V_{out}/V_{in}$ & $|V_{out}/V_{in}| (dB)$ \\ \hline
+		caso 1 & $-9,998$ & $19,998$\\
+		caso 2 & $ -1,00$ & $0,000$ \\
+		caso 3 & $ -0,100$ & $-20,000$\\
 		\hline
 	\end{tabular}
 	\caption{$V_{out}/V_{in}$ del circuito inversor considerando $A_{vol}$ finito.}
 	\label{avolf}
 \end{table}
 
-Se observa que para la configuraci\'on del circuito \ref{c1} hay atenuaci\'n
-a la salida del mismo. La distribuci\'on de resistencias del caso 1
-presenta m\'as atenuaci\'on que el resto de los casos. El resultado obtenido
+En la tabla \ref{avolf} se observa que para la configuraci\'on del circuito \ref{c1} hay una ganancia de casi $20dB$ para el caso 1 de la distribuci\'on de resistencias, mientras que para el caso 2 no hay ganancia ni atenuaci\'on y para el caso 3 hay atenuaci\'on de $20dB$.  El resultado obtenido
 no var\'ia con la frecuencia ya que el circuito es resistivo y se consider\'o,
 para lo calculado reci\'en, que $A_{vol}$ no var\'ia con la frecuencia. Estos resultados
-son realmente v\'alidos en cont\'inuca ya que es el caso en el que $A_{vol}=A_{V0}$,
+fueron obtenidos para cont\'inua ya que es el caso en el que $A_{vol}=A_{V0}$,
 dado que: $A_{vol} = \frac{A_{V0}}{1+s/\omega_p} $ y cuando la frecuencia es cero,
-este valor tiende a $A_{V0}$.
+este valor tiende a $A_{V0}$. Otra cosa que se observa en la tabla, son los signos de las relaciones de tensiones de salida respecto a las de entrada. El hecho de que los valores hayan dado negativos, corresponde con que se trata de un circuito de configuraci\'on inversora.
 
 
 Por otro lado, reemplazando en la ecuaci\'on \ref{c1vovi} con los valores
@@ -98,9 +95,8 @@ a filtros pasabajos. Si bien aten\'uan a altas frecuencias,
 tienen comportamientos diferentes en las frecuencias bajas. 
 Aqu\'el con resistencias para el caso 1 presenta una ganancia de 20dB, 
 mientras que el del caso 3 aten\'ua 20 dB. El circuito del caso 2, por el contrario, no gana ni aten\'ua 
-en frecuencias bajas.
+en frecuencias bajas. A bajas frecuencias, lo que se observa en el gr\'afico \ref{c1voviTeoMod} coincide con los valores presentados previamente en la tabla \ref{avolf} (los cuales fueron hechos para el caso de frecuencia cero.
 
-%ANALIZAR AVOL FINITO . AVOL W ES LO QUE YA ESTA HECHO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Configuraci\'on no inversora}
@@ -134,10 +130,10 @@ de cada caso y considerando $A_{vol}$ finito.
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{c c c}%
-		\bfseries  & $V_{out}/V_{in}$  \\ \hline
-		caso 1 & $8,799$ \\
-		caso 2 & $1,600$ \\
-		caso 3 & $0,880$ \\
+		\bfseries  & $V_{out}/V_{in}$ &  $|V_{out}/V_{in}| (dB)$\\ \hline
+		caso 1 & $8,799$ & $18,889$ \\
+		caso 2 & $1,600$ & $4,082$\\
+		caso 3 & $8,800$ & $18,889$\\
 		\hline
 	\end{tabular}
 	\caption{$V_{out}/V_{in}$ del circuito inversor considerando $A_{vol}$ finito.}
@@ -145,13 +141,13 @@ de cada caso y considerando $A_{vol}$ finito.
 \end{table}
 
 A diferencia que para el circuito inversor, se puede notar que
-en el caso del no inversor hay atenuaci\'on, a pesar de que la misma
-var\'ia dependiendo de la combinaci\'on de resistencias empleadas.
+ los valores de $V_{out}/V_{in}$ son positivos, lo cual concuerda con que se trata de un circuito no inversor. En este circuito los casos 1 y 3 presentan la misma ganancia de casi $19dB$ al considerar $A_{vol}$ finito, mientras que el caso 2 tambi\'en presenta ganancia, pero menor (de 4dB).
+
 
 Por otro lado, reemplazando con los valores de resistencias correspondientes
  a cada caso y con $A_{vol}(\omega)$, se obtiene:
 
-Caso1:
+Caso1:-
 \begin{equation}
 	\frac{V_{out}}{V_{in}} = \frac{22 \cdot 10^8}{437,68 s + 25 \cdot 10^7}
 	\label{c2c1vovi}
@@ -184,6 +180,8 @@ En los gr\'aficos que se muestran a continuaci\'on (\ref{c2voviTeoMod} y \ref{c2
 \caption{Configuración no inversora - Comparaci\'on te\'orica de la fase de $V_{out}/V_{in}$ de los tres casos.}
 \label{c2voviTeoPh}
 \end{figure}
+
+Puede verse en el gr\'afico \ref{c2voviTeoMod} que a bajas frecuencias los valores de ganancias coinciden con los calculados para $A_{vol}$ finito. Al ser este gr\'afico en funci\'on de la frecuencia, permite observar que el no inversor tambi\'en se comporta como un filtro pasa bajos atenuando las altas frecuencias.
 
 
 
